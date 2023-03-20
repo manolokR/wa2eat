@@ -27,7 +27,7 @@
 			<input type="text" placeholder="Nombre" />
 			<input type="email" placeholder="Email" />
 			<input type="password" placeholder="Contraseña" />
-			<button id="signup-button">Registrarse</button>
+			<button id="signup-button">Prueba</button>
 		</form>
 	</div>
 	<div class="form-container sign-in-container">
