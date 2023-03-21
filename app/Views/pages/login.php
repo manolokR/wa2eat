@@ -11,11 +11,20 @@
 		crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<link rel="stylesheet" href="<?= base_url("css/login.css") ?>">
 
+	<style>
+        body {
+            background-image: url("imagenes/fondoLogin.jpg");
+			background-size: 100% auto;
+        }
+    </style>
+
 </head>
 
-<body>
+<body >
 
-
+<a href="/home">
+    <img src="iconos/logoCompleto.png" alt="Página Principal" width="300" height="70" style="margin-bottom: 20px; margin-top: 0px;" >
+</a>
 	<div class="col-md-8">
 		<div class="container" id="container">
 			<div class="form-container sign-up-container">
