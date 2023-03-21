@@ -1,0 +1,127 @@
+CRITICAL - 2023-03-20 14:49:48 --> Invalid file: "templates/login.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('templates/login.php')
+ 2 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('templates/login', [], true)
+ 3 APPPATH\Controllers\Pages.php(40): view('templates/login', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Pages->viewLogin()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-03-20 14:49:53 --> Invalid file: "templates/login.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('templates/login.php')
+ 2 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('templates/login', [], true)
+ 3 APPPATH\Controllers\Pages.php(40): view('templates/login', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Pages->viewLogin()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-03-20 14:50:08 --> Invalid file: "templates/login.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('templates/login.php')
+ 2 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('templates/login', [], true)
+ 3 APPPATH\Controllers\Pages.php(40): view('templates/login', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Pages->viewLogin()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-03-20 14:50:08 --> Invalid file: "templates/login.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('templates/login.php')
+ 2 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('templates/login', [], true)
+ 3 APPPATH\Controllers\Pages.php(40): view('templates/login', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Pages->viewLogin()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-03-20 14:50:10 --> Invalid file: "templates/login.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('templates/login.php')
+ 2 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('templates/login', [], true)
+ 3 APPPATH\Controllers\Pages.php(40): view('templates/login', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Pages->viewLogin()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-03-20 14:50:11 --> Invalid file: "templates/login.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('templates/login.php')
+ 2 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('templates/login', [], true)
+ 3 APPPATH\Controllers\Pages.php(40): view('templates/login', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Pages->viewLogin()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-03-20 14:50:52 --> Invalid file: "templates/login.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('templates/login.php')
+ 2 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('templates/login', [], true)
+ 3 APPPATH\Controllers\Pages.php(40): view('templates/login', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Pages->viewLogin()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-03-20 14:50:53 --> Invalid file: "templates/login.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('templates/login.php')
+ 2 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('templates/login', [], true)
+ 3 APPPATH\Controllers\Pages.php(40): view('templates/login', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Pages->viewLogin()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-03-20 14:50:56 --> Invalid file: "templates/login.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('templates/login.php')
+ 2 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('templates/login', [], true)
+ 3 APPPATH\Controllers\Pages.php(40): view('templates/login', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Pages->viewLogin()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-03-20 14:50:56 --> Invalid file: "templates/login.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('templates/login.php')
+ 2 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('templates/login', [], true)
+ 3 APPPATH\Controllers\Pages.php(40): view('templates/login', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Pages->viewLogin()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-03-20 14:51:13 --> Undefined variable $data
+in APPPATH\Controllers\Pages.php on line 39.
+ 1 APPPATH\Controllers\Pages.php(39): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data', 'APPPATH\\Controllers\\Pages.php', 39)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Pages->viewLogin()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-03-20 14:51:13 --> Undefined variable $data
+in APPPATH\Controllers\Pages.php on line 39.
+ 1 APPPATH\Controllers\Pages.php(39): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data', 'APPPATH\\Controllers\\Pages.php', 39)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Pages->viewLogin()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-03-20 14:51:14 --> Undefined variable $data
+in APPPATH\Controllers\Pages.php on line 39.
+ 1 APPPATH\Controllers\Pages.php(39): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data', 'APPPATH\\Controllers\\Pages.php', 39)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Pages->viewLogin()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-03-20 14:51:15 --> Undefined variable $data
+in APPPATH\Controllers\Pages.php on line 39.
+ 1 APPPATH\Controllers\Pages.php(39): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data', 'APPPATH\\Controllers\\Pages.php', 39)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Pages->viewLogin()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-03-20 14:51:30 --> Invalid file: "templates/login.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('templates/login.php')
+ 2 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('templates/login', [], true)
+ 3 APPPATH\Controllers\Pages.php(39): view('templates/login')
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Pages->viewLogin()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
