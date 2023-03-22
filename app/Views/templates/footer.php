@@ -3,14 +3,18 @@
         </main>
 
 
-        <footer class="footer mt-auto py-3 bg-light">
-            <div class="container">
-                <span class="text-muted">&copy; Prueba</span>
-            </div>
-        </footer>
+<!-- Vendor JS Files -->
+<script src="js/apexcharts.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/chart.umd.js"></script>
+<script src="js/echarts.min.js"></script>
+<script src="js/quill.min.js"></script>
+<script src="js/simple-datatables.js"></script>
+<script src="js/tinymce.min.js"></script>
+<script src="js/validate.js"></script>
 
 <!-- Template Main JS File -->
-<script src="assets/js/main.js"></script>
+<script src="js/main.js"></script>
 
 </body>
 
