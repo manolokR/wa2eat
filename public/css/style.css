@@ -234,7 +234,7 @@ h6 {
 
 .card-title {
   padding: 20px 0 15px 0;
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 500;
   color: #012970;
   font-family: "Poppins", sans-serif;
@@ -246,9 +246,6 @@ h6 {
   font-weight: 400;
 }
 
-.card-body {
-  padding: 0 20px 20px 20px;
-}
 
 .card-img-overlay {
   background-color: rgba(255, 255, 255, 0.6);
@@ -381,10 +378,9 @@ h6 {
   z-index: 997;
   height: 60px;
   box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
-  background-image: linear-gradient(to right, #fa6e59 , #ffdb5c);
+  /*COLOR HEADER*/
+  background-image: linear-gradient(to right, #fa6e59 , #f8a055);
   padding-left: 20px;
-  /* Toggle Sidebar Button */
-  /* Search Bar */
 }
 
 .header .toggle-sidebar-btn {
@@ -610,7 +606,8 @@ h6 {
   scrollbar-width: thin;
   scrollbar-color: #aab7cf transparent;
   box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
-  background-color: #fff;
+  /*COLOR SIDEBAR*/
+  background-image: linear-gradient(to bottom right,  #f8a055, #fa6e59);
 }
 
 @media (max-width: 1199px) {
@@ -1231,3 +1228,39 @@ h6 {
   font-size: 13px;
   color: #012970;
 }
+
+
+/*FILA RECETAS*/
+.imagen-container {
+  width: 250px; /*ancho fijo*/
+  height: 170px; /*altura fija*/
+  overflow: hidden; /*para recortar la imagen*/
+}
+
+.imagen-container img {
+  /*para que la imagen ocupe todo el contenedor*/
+  width: 100%;
+  height: 100%;
+  /*Para ajustar la imagen a su contedor sin perder resoución*/
+  object-fit: cover;
+}
+
+.chip {
+  display: inline-flex;
+  padding: 5px;
+  width: auto;
+  font-size: 16px;
+  line-height: 30px;
+  border-radius: 25px;
+  background-color: #f1f1f1;
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+.chip img {
+  float: left;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+}
+
