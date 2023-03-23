@@ -1199,8 +1199,8 @@ h6 {
 
 /*FILA RECETAS*/
 .imagen-container {
-  width: 250px; /*ancho fijo*/
-  height: 170px; /*altura fija*/
+  width: 290px; /*ancho fijo*/
+  height: 194px; /*altura fija*/
   overflow: hidden; /*para recortar la imagen*/
 }
 
