@@ -39,4 +39,5 @@ public function index()
 		$data['title'] = ucfirst($page); // Capitalize the first letter
 		return view('pages/' . $page);
 	}
+
 }

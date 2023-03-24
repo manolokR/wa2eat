@@ -12,19 +12,20 @@
 	<link rel="stylesheet" href="<?= base_url("css/login.css") ?>">
 
 	<style>
-        body {
-            background-image: url("imagenes/fondoLogin.jpg");
+		body {
+			background-image: url("imagenes/fondoLogin.jpg");
 			background-size: 100% auto;
-        }
-    </style>
+		}
+	</style>
 
 </head>
 
-<body >
+<body>
 
-<a href="/home">
-    <img src="iconos/logoCompleto.png" alt="Página Principal" width="300" height="70" style="margin-bottom: 20px; margin-top: 0px;" >
-</a>
+	<a href="/home">
+		<img src="iconos/logoCompleto.png" alt="Página Principal" width="300" height="70"
+			style="margin-bottom: 20px; margin-top: 0px;">
+	</a>
 	<div class="col-md-8">
 		<div class="container" id="container">
 			<div class="form-container sign-up-container">
@@ -42,11 +43,11 @@
 					<input style="background-color: #eee;" type="text" placeholder="Nombre" />
 					<input style="background-color: #eee;" type="email" placeholder="Email" />
 					<input style="background-color: #eee;" type="password" placeholder="Contraseña" />
-					<button id="signup-button" >Registrarse</button>
+					<button id="signup-button">Registrarse</button>
 				</form>
 			</div>
 			<div class="form-container sign-in-container">
-				<form action="#" style="flex-direction: column; padding: 0 30px;" >
+				<form action=<?= base_url('/login'); ?> method="post" style="flex-direction: column; padding: 0 30px;">
 					<h1>Iniciar Sesión</h1>
 					<div class="social-container">
 						<a href="https://accounts.google.com/" class="social"><img
@@ -57,10 +58,24 @@
 								src="<?= base_url("iconos/apple.ico") ?>" width="52" height="52"></a>
 					</div>
 					<span>o usa tu correo</span>
-					<input style="background-color: #eee;" type="email" placeholder="Email" />
-					<input style="background-color: #eee;"type="password" placeholder="Contraseña" />
+					<input style="background-color: #eee;" class="form-control" name="email" type="email" placeholder="Email" />
+					<input style="background-color: #eee;" class="form-control" name="password" type="password"
+						placeholder="Contraseña" />
 					<a href="#">¿Olvidaste tu contraseña?</a>
-					<button id="signin-button">Iniciar Sesión</button>
+
+					<span class="error">
+						<?= \Config\Services::validation()->listErrors(); ?>
+					</span>
+
+					<span class="error">
+						<?php if (session()->getFlashdata('msg')): ?>
+							<div class="alert alert-danger">
+								<?= session()->getFlashdata('msg') ?>
+							</div>
+						<?php endif; ?>
+					</span>
+
+					<button id="signin-button"  type="submit">Iniciar Sesión</button>
 				</form>
 			</div>
 			<div class="overlay-container">
