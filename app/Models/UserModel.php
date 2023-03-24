@@ -21,8 +21,6 @@ class UserModel extends Model
     public function authenticate($email, $password)
     {
         $user = $this->where('email', $email)->first();
-        echo $password;
-        echo $user->password;
         if ($user && password_verify($password, $user->password))
             return $user;
         return FALSE;

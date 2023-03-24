@@ -48,7 +48,7 @@ class User extends BaseController
                     $session->set('user', $user);
                     return redirect()->to(base_url('/logged'));
                 } else {
-                    $session->setFlashdata('msg', 'Wrong credentials');
+                    $session->setFlashdata('msg', 'Credenciales');
                 }
             } else {
                 $data["errors"] = $validation->getErrors();
