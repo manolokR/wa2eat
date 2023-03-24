@@ -18,16 +18,24 @@
                     class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                <li>
-                    <a href="tables-general.html">
-                        <i class="bi bi-circle"></i><span>General Tables</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="tables-data.html">
-                        <i class="bi bi-circle"></i><span>Data Tables</span>
-                    </a>
-                </li>
+                <!--Contenido del dropdown-->
+                <ul class="ks-cboxtags">
+					    <li>
+					    	<input type="checkbox" id="checkboxOne" value="Order one">
+					    	<label for="checkboxOne">News <span>200</span></label>
+					    </li>
+					    <li>
+					    	<input type="checkbox" id="checkboxTwo" value="Order Two">
+					    	<label for="checkboxTwo">Direct Message <span>234</span></label>
+					    </li>
+					    <li>
+					    	<input type="checkbox" id="checkboxThree" value="Order Two">
+					    	<label for="checkboxThree">Followers <span>1,189</span></label>
+					    </li>
+					  </ul>
+
+
+
             </ul>
         </li><!-- End Tables Nav -->
 
