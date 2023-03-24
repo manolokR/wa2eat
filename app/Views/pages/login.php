@@ -42,7 +42,7 @@
 					<span>o usa tu correo</span>
 					<input style="background-color: #eee;" class="form-control" name="username" type="text" placeholder="Nombre" />
 					<input style="background-color: #eee;" class="form-control" name="email" type="email" placeholder="Email" />
-					<input style="background-color: #eee;" class="form-control" name="password" type="password" placeholder="Contraseña" />
+					<input style="background-color: #eee;" class="form-control" name="password" type="password" id="password" placeholder="Contraseña" />
 
 					<span class="error">
 						<?= \Config\Services::validation()->listErrors(); ?>
@@ -75,11 +75,7 @@
 					<input style="background-color: #eee;" class="form-control" name="password" type="password"
 						placeholder="Contraseña" />
 					<a href="#">¿Olvidaste tu contraseña?</a>
-
-					<span class="error">
-						<?= \Config\Services::validation()->listErrors(); ?>
-					</span>
-
+					
 					<span class="error">
 						<?php if (session()->getFlashdata('msg')): ?>
 							<div class="alert alert-danger">

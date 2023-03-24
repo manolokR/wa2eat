@@ -109,15 +109,15 @@ class User extends BaseController
                     'password' => password_hash($password, PASSWORD_DEFAULT),
                 ];
                 $userModel->saveUser($email, $username, $password);
-                $session->setFlashdata('msg', 'Registro exitoso');
-                return redirect()->to(base_url('/login'));
+                return view('templates/header')
+                . view('pages/home')
+                . view('templates/footer');
             } else {
                 $data["errors"] = $validation->getErrors();
             }
         }
-        return view('templates/header')
-            . view('pages/home')
-            . view('templates/footer');
+        
+        return view('pages/login', $data);
     }
 
 

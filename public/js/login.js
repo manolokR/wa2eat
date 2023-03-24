@@ -9,3 +9,11 @@ signUpButton.addEventListener('click', () => {
 signInButton.addEventListener('click', () => {
 	container.classList.remove("right-panel-active");
 });
+
+document.querySelector('form').addEventListener('submit', function(event) {
+    var passwordInput = document.querySelector('#password');
+    if (passwordInput.value.length <= 8) {
+        alert('La contraseña debe tener más de 8 caracteres');
+        event.preventDefault();
+    }
+});

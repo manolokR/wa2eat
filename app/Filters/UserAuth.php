@@ -11,7 +11,7 @@ class UserAuth implements FilterInterface
     {
         if (!session('logged_in'))
             return redirect()->to(site_url('/login'));
-        elseif ((session('user')->role & 1) == 0)
+        else if ((session('user')->role & 1) == 0)
             return redirect()->to(site_url('/unauthorized'));
     }
     public function after(

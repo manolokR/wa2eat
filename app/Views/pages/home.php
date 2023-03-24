@@ -11,10 +11,10 @@
         </li><!-- End Dashboard Nav -->
 
         
-
+        <!-- Filtro 1-->
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-layout-text-window-reverse"></i><span>Tables</span><i
+                <i class="bi bi-layout-text-window-reverse"></i><span>Filtro 1</span><i
                     class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
@@ -22,22 +22,44 @@
                 <ul class="ks-cboxtags">
 					    <li>
 					    	<input type="checkbox" id="checkboxOne" value="Order one">
-					    	<label for="checkboxOne">News <span>200</span></label>
+					    	<label for="checkboxOne">Opción 1 </label>
 					    </li>
 					    <li>
 					    	<input type="checkbox" id="checkboxTwo" value="Order Two">
-					    	<label for="checkboxTwo">Direct Message <span>234</span></label>
+					    	<label for="checkboxTwo">Opción 2 </label>
 					    </li>
 					    <li>
 					    	<input type="checkbox" id="checkboxThree" value="Order Two">
-					    	<label for="checkboxThree">Followers <span>1,189</span></label>
+					    	<label for="checkboxThree">Opción 3 </label>
 					    </li>
 					  </ul>
-
-
-
             </ul>
-        </li><!-- End Tables Nav -->
+        </li><!-- Fin Filtro 1 -->
+
+        <!-- Filtro 2-->
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-layout-text-window-reverse"></i><span>Filtro 2</span><i
+                    class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <!--Contenido del dropdown-->
+                <ul class="ks-cboxtags">
+					    <li>
+					    	<input type="checkbox" id="checkboxOne" value="Order one">
+					    	<label for="checkboxOne">Opción 1 </label>
+					    </li>
+					    <li>
+					    	<input type="checkbox" id="checkboxTwo" value="Order Two">
+					    	<label for="checkboxTwo">Opción 2 </label>
+					    </li>
+					    <li>
+					    	<input type="checkbox" id="checkboxThree" value="Order Two">
+					    	<label for="checkboxThree">Opción 3 </label>
+					    </li>
+					  </ul>
+            </ul>
+        </li><!-- Fin Filtro 2 -->
 
 
         <li class="nav-item">
@@ -52,21 +74,14 @@
         <li class="nav-item">
             <a class="nav-link collapsed" href="https://www.instagram.com/salvaperfectti/">
                 <i class="bi bi-envelope"></i>
-                <span>Contact</span>
+                <span>Contacto</span>
             </a>
         </li><!-- End Contact Page Nav -->
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="pages-register.html">
-                <i class="bi bi-card-list"></i>
-                <span>Register</span>
-            </a>
-        </li><!-- End Register Page Nav -->
-
-        <li class="nav-item">
             <a class="nav-link collapsed" href="/login">
                 <i class="bi bi-box-arrow-in-right"></i>
-                <span>Login</span>
+                <span>Registro/Login</span>
 
             </a>
         </li><!-- End Login Page Nav -->
