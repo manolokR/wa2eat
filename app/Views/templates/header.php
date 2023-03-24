@@ -37,7 +37,7 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a href="/home" class="logo d-flex align-items-center">
         <img src="<?= base_url("iconos/logo.png") ?>" alt="" style="margin-right: 0px;">
         <img class="d-none d-lg-block" src="<?= base_url("iconos/logo_a_medias.png") ?> " style="margin-left: 0px;"></img>
       </a>
