@@ -33,7 +33,9 @@ use App\Controllers\User;
 
 $routes->match(['get'], '/', [User::class, 'login']);
 $routes->match(['get', 'post'], '/login', [User::class, 'login']);
+$routes->match(['get', 'post'], '/register', [User::class, 'register']);
 $routes->match(['get'], '/logged', [User::class, 'user_ok']);
+
 
 
 

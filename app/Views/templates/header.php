@@ -16,6 +16,7 @@
   <link href="https://fonts.gstatic.com" rel="preconnect">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
   <!-- Vendor CSS Files -->
   <link href="<?= base_url("bootstrap/css/bootstrap.min.css") ?>" rel="stylesheet">
   <link href="<?= base_url("bootstrap/bootstrap-icons/bootstrap-icons.css") ?>" rel="stylesheet">
@@ -37,7 +38,7 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a href="/home" class="logo d-flex align-items-center">
         <img src="<?= base_url("iconos/logo.png") ?>" alt="" style="margin-right: 0px;">
         <img class="d-none d-lg-block" src="<?= base_url("iconos/logo_a_medias.png") ?> " style="margin-left: 0px;"></img>
       </a>

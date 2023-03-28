@@ -17,7 +17,7 @@ class User extends BaseController
         $userModel = new \App\Models\UserModel();
         $data['users'] = $userModel->findAll();
         return view('templates/header')
-            . view('user/admin_list', $data)
+            . view('user/list', $data)
             . view('templates/footer');
     }
 
@@ -48,7 +48,7 @@ class User extends BaseController
                     $session->set('user', $user);
                     return redirect()->to(base_url('/logged'));
                 } else {
-                    $session->setFlashdata('msg', 'Credenciales');
+                    $session->setFlashdata('msg', 'Credenciales incorrectas');
                 }
             } else {
                 $data["errors"] = $validation->getErrors();
@@ -65,10 +65,60 @@ class User extends BaseController
             . view('templates/footer');
     }
 
-    
+
     public function logout()
     {
         # To Do.
     }
+
+    public function unauthorized()
+    {
+        return view('templates/header')
+            . view('user/unauthorized')
+            . view('templates/footer');
+    }
+
+    public function register()
+    {
+        $validation = \Config\Services::validation(); //Comprueba que los datos sean únicos en la base de datos, etc.
+        $rules = [
+            "username" => [
+                "label" => "Username",
+                "rules" => "required"
+            ],
+            "email" => [
+                "label" => "Email",
+                "rules" => "required|valid_email|is_unique[user.email]"
+            ],
+            "password" => [
+                "label" => "Password",
+                "rules" => "required"
+            ]
+        ];
+        $data = [];
+        $session = session();
+        $userModel = model('UserModel');
+        if ($this->request->getMethod() == "post") {
+            if ($this->validate($rules)) {
+                $username = $this->request->getVar('username');
+                $email = $this->request->getVar('email');
+                $password = $this->request->getVar('password');
+                $user = [
+                    'username' => $username,
+                    'email' => $email,
+                    'password' => password_hash($password, PASSWORD_DEFAULT),
+                ];
+                $userModel->saveUser($email, $username, $password);
+                return view('templates/header')
+                . view('pages/home')
+                . view('templates/footer');
+            } else {
+                $data["errors"] = $validation->getErrors();
+            }
+        }
+        
+        return view('pages/login', $data);
+    }
+
 
 }

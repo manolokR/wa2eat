@@ -26,5 +26,15 @@ class UserModel extends Model
         return FALSE;
     }
 
+    public function saveUser($email, $username, $password)
+    {
+        $data = [
+            'email' => $email,
+            'username' => $username,
+            'password' => password_hash($password, PASSWORD_DEFAULT),
+        ];
+        return $this->insert($data);
+    }
+
 
 }

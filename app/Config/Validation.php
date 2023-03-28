@@ -36,6 +36,7 @@ class Validation extends BaseConfig
     public array $templates = [
         'list'   => 'CodeIgniter\Validation\Views\list',
         'single' => 'CodeIgniter\Validation\Views\single',
+        'is_unique' => 'El valor del campo {field} ya está en uso. Por favor, elige otro valor.',
     ];
 
     // --------------------------------------------------------------------

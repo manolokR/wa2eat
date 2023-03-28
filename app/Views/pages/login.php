@@ -29,7 +29,7 @@
 	<div class="col-md-8">
 		<div class="container" id="container">
 			<div class="form-container sign-up-container">
-				<form action="#" style="flex-direction: column; padding: 0 30px;">
+				<form action=<?= base_url('/register'); ?> method="post" style="flex-direction: column; padding: 0 30px;">
 					<h1>Crear cuenta</h1>
 					<div class="social-container">
 						<a href="https://accounts.google.com/" class="social"><img
@@ -40,10 +40,23 @@
 								src="<?= base_url("iconos/apple.ico") ?>" width="52" height="52"></a>
 					</div>
 					<span>o usa tu correo</span>
-					<input style="background-color: #eee;" type="text" placeholder="Nombre" />
-					<input style="background-color: #eee;" type="email" placeholder="Email" />
-					<input style="background-color: #eee;" type="password" placeholder="Contraseña" />
-					<button id="signup-button">Registrarse</button>
+					<input style="background-color: #eee;" class="form-control" name="username" type="text" placeholder="Nombre" />
+					<input style="background-color: #eee;" class="form-control" name="email" type="email" placeholder="Email" />
+					<input style="background-color: #eee;" class="form-control" name="password" type="password" id="password" placeholder="Contraseña" />
+
+					<span class="error">
+						<?= \Config\Services::validation()->listErrors(); ?>
+					</span>
+
+					<span class="error">
+						<?php if (session()->getFlashdata('register_error')): ?>
+							<div class="alert alert-danger">
+								<?= session()->getFlashdata('msg') ?>
+							</div>
+						<?php endif; ?>
+					</span>
+
+					<button id="signup-button" type="submit">Registrarse</button>
 				</form>
 			</div>
 			<div class="form-container sign-in-container">
@@ -62,11 +75,7 @@
 					<input style="background-color: #eee;" class="form-control" name="password" type="password"
 						placeholder="Contraseña" />
 					<a href="#">¿Olvidaste tu contraseña?</a>
-
-					<span class="error">
-						<?= \Config\Services::validation()->listErrors(); ?>
-					</span>
-
+					
 					<span class="error">
 						<?php if (session()->getFlashdata('msg')): ?>
 							<div class="alert alert-danger">
