@@ -22,15 +22,15 @@
                 <ul class="ks-cboxtags">
 					    <li>
 					    	<input type="checkbox" id="checkboxOne" value="Order one">
-					    	<label for="checkboxOne">News <span>200</span></label>
+					    	<label for="checkboxOne">News </label>
 					    </li>
 					    <li>
 					    	<input type="checkbox" id="checkboxTwo" value="Order Two">
-					    	<label for="checkboxTwo">Direct Message <span>234</span></label>
+					    	<label for="checkboxTwo">Direct Message </label>
 					    </li>
 					    <li>
 					    	<input type="checkbox" id="checkboxThree" value="Order Two">
-					    	<label for="checkboxThree">Followers <span>1,189</span></label>
+					    	<label for="checkboxThree">Followers </label>
 					    </li>
 					  </ul>
 
