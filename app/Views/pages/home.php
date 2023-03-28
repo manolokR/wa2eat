@@ -10,7 +10,7 @@
             </a>
         </li><!-- End Dashboard Nav -->
 
-        
+
         <!-- Filtro 1-->
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
@@ -20,45 +20,46 @@
             <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <!--Contenido del dropdown-->
                 <ul class="ks-cboxtags">
-					    <li>
-					    	<input type="checkbox" id="checkboxOne" value="Order one">
-					    	<label for="checkboxOne">Opción 1 </label>
-					    </li>
-					    <li>
-					    	<input type="checkbox" id="checkboxTwo" value="Order Two">
-					    	<label for="checkboxTwo">Opción 2 </label>
-					    </li>
-					    <li>
-					    	<input type="checkbox" id="checkboxThree" value="Order Two">
-					    	<label for="checkboxThree">Opción 3 </label>
-					    </li>
-					  </ul>
+                    <li>
+                        <input type="checkbox" id="checkboxOne" value="Order one">
+                        <label for="checkboxOne">Opción 1 </label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="checkboxTwo" value="Order Two">
+                        <label for="checkboxTwo">Opción 2 </label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="checkboxThree" value="Order Two">
+                        <label for="checkboxThree">Opción 3 </label>
+                    </li>
+                </ul>
             </ul>
         </li><!-- Fin Filtro 1 -->
 
-        <!-- Filtro 2-->
-        <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-journal-text"></i><span>Forms</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-            <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+       <!-- Filtro 1-->
+       <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#tables-nav2" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-layout-text-window-reverse"></i><span>Filtro 2</span><i
+                    class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="tables-nav2" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <!--Contenido del dropdown-->
                 <ul class="ks-cboxtags">
-					    <li>
-					    	<input type="checkbox" id="checkboxOne" value="Order one">
-					    	<label for="checkboxOne">Opción 1 </label>
-					    </li>
-					    <li>
-					    	<input type="checkbox" id="checkboxTwo" value="Order Two">
-					    	<label for="checkboxTwo">Opción 2 </label>
-					    </li>
-					    <li>
-					    	<input type="checkbox" id="checkboxThree" value="Order Two">
-					    	<label for="checkboxThree">Opción 3 </label>
-					    </li>
-					  </ul>
+                    <li>
+                        <input type="checkbox" id="checkboxFour" value="Order four">
+                        <label for="checkboxFour">Opción 4 </label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="checkboxFive" value="Order five">
+                        <label for="checkboxFive">Opción 5 </label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="checkboxSix" value="Order six">
+                        <label for="checkboxSix">Opción 6 </label>
+                    </li>
+                </ul>
             </ul>
-        </li><!-- Fin Filtro 2 -->
+        </li><!-- Fin Filtro 1 -->
 
 
         <li class="nav-item">
@@ -68,7 +69,7 @@
             </a>
         </li><!-- End Profile Page Nav -->
 
-      
+
 
         <li class="nav-item">
             <a class="nav-link collapsed" href="https://www.instagram.com/salvaperfectti/">
@@ -92,7 +93,7 @@
             </a>
         </li><!-- End Error 404 Page Nav -->
 
-       
+
 
     </ul>
 
@@ -249,11 +250,11 @@
                             </div>
                             <!--fin ingredientes-->
 
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
         <!-- FIN FILA RECETA 2-->
 
@@ -326,13 +327,13 @@
                                 <img src="imagenes/ingredientes/salsa.png">
                                 <b style="font-size: 14px">Salsa Chedar</b>
                             </div>
-                            
+
                             <!--fin ingredientes-->
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
         <!-- FIN FILA RECETA 3-->
 
@@ -364,11 +365,11 @@
                                 <img src="imagenes/ingredientes/cebolla.png">
                                 <b style="font-size: 14px">Cebolla</b>
                             </div>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
         <!-- FIN FILA RECETA 4-->
 

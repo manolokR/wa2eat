@@ -46,7 +46,7 @@ class User extends BaseController
                 if ($user) {
                     $session->set('logged_in', TRUE);
                     $session->set('user', $user);
-                    return redirect()->to(base_url('/logged'));
+                    return redirect()->to(base_url('/home'));
                 } else {
                     $session->setFlashdata('msg', 'Credenciales incorrectas');
                 }

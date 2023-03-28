@@ -1331,7 +1331,6 @@ ul.ks-cboxtags li label {
 ul.ks-cboxtags li label {
   padding: 10px 20px;
   cursor: pointer;
- 
 }
 
 ul.ks-cboxtags li label::before {
@@ -1346,7 +1345,7 @@ ul.ks-cboxtags li label::before {
   padding: 0;
   margin-right: 15px;
   content: "\f1db";
-  color: rgba(0, 0, 0, 0.2);
+  color: rgba(255, 255, 255, 0.2);
   -webkit-transition: -webkit-transform .3s ease-in-out;
   transition: -webkit-transform .3s ease-in-out;
   -o-transition: transform .3s ease-in-out;
@@ -1400,3 +1399,8 @@ ul.ks-cboxtags li input[type="checkbox"] {
   opacity: 0;
 
 }
+
+
+
+
+
