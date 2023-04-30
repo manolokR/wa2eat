@@ -1,9 +1,9 @@
 runtime: php74
 handlers:
 # Serve images as static resources.
-- url: /(.+\.(gif|png|jpg|css|js))$
+- url: /(.+\.(gif|png|jpg|jpeg|ico|css|js|woff|woff2))$
   static_files: public/\1
-  upload: .+\.(gif|png|jpg|css|js)$
+  upload: .+\.(gif|png|jpg|ico|jpeg|css|js|woff|woff2)$
 # Serve php scripts.
 - url: .*
   script: auto
