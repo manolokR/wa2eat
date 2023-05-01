@@ -34,7 +34,7 @@ use App\Controllers\User;
 $routes->match(['get'], '/', [User::class, 'login']);
 $routes->match(['get', 'post'], '/login', [User::class, 'login']);
 $routes->match(['get', 'post'], '/loginAjax', [User::class, 'loginAjax']);
-$routes->match(['get', 'post'], '/register', [User::class, 'register']);
+$routes->match(['get', 'post'], '/registerAjax', [User::class, 'registerAjax']);
 $routes->match(['get'], '/home', [User::class, 'user_ok']);
 
 

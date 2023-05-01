@@ -29,6 +29,8 @@
 	<div class="col-md-8">
 		<div class="container" id="container">
 			<div class="form-container sign-up-container">
+
+				<!-- FORMULARIO REGISTER -->
 				<form action=<?= base_url('/register'); ?> method="post" style="flex-direction: column; padding: 0 30px;">
 					<h1>Crear cuenta</h1>
 					<div class="social-container">
@@ -40,9 +42,9 @@
 								src="<?= base_url("iconos/apple.ico") ?>" width="52" height="52"></a>
 					</div>
 					<span>o usa tu correo</span>
-					<input style="background-color: #eee;" class="form-control" name="username" type="text" placeholder="Nombre" />
-					<input style="background-color: #eee;" class="form-control" name="email" type="email" placeholder="Email" />
-					<input style="background-color: #eee;" class="form-control" name="password" type="password" id="password" placeholder="Contraseña" />
+					<input style="background-color: #eee;" id="username-register-form" class="form-control" name="username" type="text" placeholder="Nombre" />
+					<input style="background-color: #eee;" id="email-register-form" class="form-control" name="email" type="email" placeholder="Email" />
+					<input style="background-color: #eee;" id="password-register-form" class="form-control" name="password" type="password" id="password" placeholder="Contraseña" />
 
 					<span class="error">
 						<?= \Config\Services::validation()->listErrors(); ?>
@@ -56,10 +58,14 @@
 						<?php endif; ?>
 					</span>
 
+					<span class="register-error">Error</span>
+
 					<button id="signup-button" type="submit">Registrarse</button>
 				</form>
 			</div>
 			<div class="form-container sign-in-container">
+				
+				<!-- FORMULARIO LOGIN -->
 				<form action=<?= base_url('/login'); ?> method="post" style="flex-direction: column; padding: 0 30px;">
 					<h1>Iniciar Sesión</h1>
 					<div class="social-container">
@@ -75,12 +81,8 @@
 					<input style="background-color: #eee;" id="password-form" class="form-control" name="password" type="password"
 						placeholder="Contraseña" />
 					<a href="#">¿Olvidaste tu contraseña?</a>
-					
-					<div class="login-error">
-							<div class="alert-danger">
-								<p>Login incorrecto</p>
-							</div>
-					</div>
+
+					<span class="login-error">Credenciales incorrectas</span>
 
 					<button id="signin-button"  type="submit">Iniciar Sesión</button>
 				</form>

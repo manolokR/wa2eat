@@ -50,3 +50,40 @@ $("#signin-button").on("click", function(e){
     });
 
 })
+
+
+$("#signup-button").on("click", function(e){
+    e.preventDefault();
+    // Get form data
+    var formData = {
+        email: $('#email-register-form').val(),
+        password: $('#password-register-form').val(),
+        username: $('#username-register-form').val()
+    };
+
+    $.ajax({
+        type: 'POST',
+        url: '/registerAjax',
+        data: formData,
+        dataType: 'json',
+        success: function(response) {
+            // Handle success response
+            console.log(response);
+            window.location.assign('/home');
+        },
+        error: function(xhr, status, error) {
+            // Handle error response
+            var errorMessage = JSON.parse(xhr.responseText).text;
+            console.log("Error: " + errorMessage);
+            
+            $('.register-error').text(errorMessage).fadeIn(1000, function() {
+                // Fade out the error message after 2 seconds
+                setTimeout(function() {
+                    $('.register-error').fadeOut();
+                }, 2000);
+            });
+        }
+    });
+    
+
+})

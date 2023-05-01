@@ -89,15 +89,18 @@ input {
 	width: 100%;
 }
 
-.login-error{
+.login-error {
 	display: none;
-	background-color: #ff9999;
-	color: #ff0000;
-	border: 1px solid #ff0000;
-	padding: 0.3em 0.3em 0.3em 0.3em;
-	margin-bottom: 0.3em;
-  
+	color: #d8000c;
+	font-size: 15px;
 }
+
+.register-error {
+	display: none;
+	color: #d8000c;
+	font-size: 15px;
+}
+
 
 .container {
 	background-color: #fff;
