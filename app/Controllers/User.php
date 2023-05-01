@@ -46,7 +46,7 @@ class User extends BaseController
                 if ($user) {
                     $session->set('logged_in', TRUE);
                     $session->set('user', $user);
-                    return redirect()->to(base_url('/logged'));
+                    return redirect()->to(base_url('/home'));
                 } else {
                     $session->setFlashdata('msg', 'Credenciales incorrectas');
                 }
@@ -109,9 +109,9 @@ class User extends BaseController
                     'password' => password_hash($password, PASSWORD_DEFAULT),
                 ];
                 $userModel->saveUser($email, $username, $password);
-                return view('templates/header')
-                . view('pages/home')
-                . view('templates/footer');
+                $session->set('logged_in', TRUE);
+                $session->set('user', $user);
+                return redirect()->to(base_url('/logged'));
             } else {
                 $data["errors"] = $validation->getErrors();
             }
