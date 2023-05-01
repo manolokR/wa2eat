@@ -17,3 +17,36 @@ document.querySelector('form').addEventListener('submit', function(event) {
         event.preventDefault();
     }
 });
+
+$("#signin-button").on("click", function(e){
+    e.preventDefault();
+    // Get form data
+    var formData = {
+        email: $('#email-form').val(),
+        password: $('#password-form').val()
+    };
+
+    $.ajax({
+        type: 'POST',
+        url: '/loginAjax',
+        data: formData,
+        dataType: 'json',
+        success: function(response) {
+            // Handle success response
+            console.log(response);
+            window.location.assign('/home');
+        },
+        error: function(xhr, status, error) {
+            // Handle error response
+            console.log(xhr.responseText);
+            $('.login-error').fadeIn(1000, function() {
+                // Fade out the error message after 2 seconds
+                setTimeout(function() {
+                    $('.login-error').fadeOut();
+                }, 2000);
+            });
+                        
+        }
+    });
+
+})

@@ -10,13 +10,13 @@
 		integrity="sha512-Wq3znUOIZtqZkpWpkTVRtRwQ2YyPCvT03zWlj+iS9dH1eNTjiOVlG2xgC4np4FXwL+Hgx1pjcTXy09pgH5u5HA=="
 		crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<link rel="stylesheet" href="<?= base_url("css/login.css") ?>">
-
 	<style>
 		body {
 			background-image: url("imagenes/fondoLogin.jpg");
 			background-size: 100% auto;
 		}
 	</style>
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
 
 </head>
 
@@ -71,18 +71,16 @@
 								src="<?= base_url("iconos/apple.ico") ?>" width="52" height="52"></a>
 					</div>
 					<span>o usa tu correo</span>
-					<input style="background-color: #eee;" class="form-control" name="email" type="email" placeholder="Email" />
-					<input style="background-color: #eee;" class="form-control" name="password" type="password"
+					<input style="background-color: #eee;" id="email-form" class="form-control" name="email" type="email" placeholder="Email" />
+					<input style="background-color: #eee;" id="password-form" class="form-control" name="password" type="password"
 						placeholder="Contraseña" />
 					<a href="#">¿Olvidaste tu contraseña?</a>
 					
-					<span class="error">
-						<?php if (session()->getFlashdata('msg')): ?>
-							<div class="alert alert-danger">
-								<?= session()->getFlashdata('msg') ?>
+					<div class="login-error">
+							<div class="alert-danger">
+								<p>Login incorrecto</p>
 							</div>
-						<?php endif; ?>
-					</span>
+					</div>
 
 					<button id="signin-button"  type="submit">Iniciar Sesión</button>
 				</form>
