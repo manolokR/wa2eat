@@ -106,7 +106,7 @@
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.html">HOME</a></li>
-                <li class="breadcrumb-item active">RECETAS</li>
+                <li class="breadcrumb-item active">RECETASS</li>
             </ol>
         </nav>
     </div><!-- End Page Title -->

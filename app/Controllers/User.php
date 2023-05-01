@@ -50,11 +50,6 @@ class User extends BaseController
                 if ($user) {
                     $session->set('logged_in', TRUE);
                     $session->set('user', $user);
-<<<<<<< HEAD
-                    return redirect()->to(base_url('/home'));
-                } else {
-                    $session->setFlashdata('msg', 'Credenciales incorrectas');
-=======
                     return $this->response->setStatusCode(200)->setJSON([
                         'text' => 'Usuario logeado'
                     ]);
@@ -62,7 +57,6 @@ class User extends BaseController
                     return $this->response->setStatusCode(403)->setJSON([
                         'text' => 'Usuario no logeado'
                     ]);
->>>>>>> origin/developmanu
                 }
             } else {
                 return $this->output->set_content_type('application/json')
