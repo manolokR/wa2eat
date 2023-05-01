@@ -10,9 +10,7 @@
         "ext-json": "*",
         "ext-mbstring": "*",
         "laminas/laminas-escaper": "^2.9",
-        "psr/log": "^1.1"
-    },
-    "require-dev": {
+        "psr/log": "^1.1",   
         "kint-php/kint": "^5.0.1",
         "codeigniter/coding-standard": "^1.5",
         "fakerphp/faker": "^1.9",

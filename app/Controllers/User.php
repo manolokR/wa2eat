@@ -23,6 +23,10 @@ class User extends BaseController
 
     public function login()
     {
+        return view('pages/login', []);
+    }
+
+    public function loginAjax(){
         $validation = \Config\Services::validation();
         $rules = [
             "email" => [
@@ -46,18 +50,34 @@ class User extends BaseController
                 if ($user) {
                     $session->set('logged_in', TRUE);
                     $session->set('user', $user);
+<<<<<<< HEAD
                     return redirect()->to(base_url('/home'));
                 } else {
                     $session->setFlashdata('msg', 'Credenciales incorrectas');
+=======
+                    return $this->response->setStatusCode(200)->setJSON([
+                        'text' => 'Usuario logeado'
+                    ]);
+                            } else {
+                    return $this->response->setStatusCode(403)->setJSON([
+                        'text' => 'Usuario no logeado'
+                    ]);
+>>>>>>> origin/developmanu
                 }
             } else {
-                $data["errors"] = $validation->getErrors();
-            }
+                return $this->output->set_content_type('application/json')
+                ->set_status_header(400)
+                ->set_output(json_encode([
+                    'text' => 'Email o pasword incorrecto'
+                ]));
         }
-        return view('pages/login', $data);
+        }
+        return $this->response->setStatusCode(400)->setJSON([
+            'text' => 'Solo se aceptan post request'
+        ]);
+
 
     }
-
     public function user_ok()
     {
         return view('templates/header')

@@ -89,6 +89,15 @@ input {
 	width: 100%;
 }
 
+.login-error{
+	display: none;
+	background-color: #ff9999;
+	color: #ff0000;
+	border: 1px solid #ff0000;
+	padding: 0.3em 0.3em 0.3em 0.3em;
+	margin-bottom: 0.3em;
+  
+}
 
 .container {
 	background-color: #fff;
