@@ -216,7 +216,15 @@
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
-              <h6>Bob Esponja</h6>
+              <h6>
+                <?php
+                  if( isset($usuario) ){
+                    echo $usuario->username;
+                  }else{
+                    echo "Usuario sin registrar";
+                  }
+                  ?>
+              </h6>
             </li>
             <li>
               <hr class="dropdown-divider">

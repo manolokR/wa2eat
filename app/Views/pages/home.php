@@ -36,8 +36,8 @@
             </ul>
         </li><!-- Fin Filtro 1 -->
 
-       <!-- Filtro 1-->
-       <li class="nav-item">
+        <!-- Filtro 1-->
+        <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#tables-nav2" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-layout-text-window-reverse"></i><span>Filtro 2</span><i
                     class="bi bi-chevron-down ms-auto"></i>
@@ -113,265 +113,70 @@
 
     <section class="section dashboard">
 
-        <!-- FILA RECETA -->
-        <div class="card info-card sales-card" class="container">
-            <div class="row" style=" margin-bottom:-10px;" style="max-height: 0px;">
-                <div class="col-md-3 imagen-container">
-                    <img src="imagenes/platos/tiramisuPrueba.jpeg" style="margin-left:0px;" alt=""
-                        class="img-fluid rounded-start">
-                </div>
-                <div class="col-md-9">
-                    <div class="filter">
-                        <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                            <li class="dropdown-header text-start">
-                                <h6>Opciones</h6>
-                            </li>
-                            <li><a class="dropdown-item" href="#">Guardar</a></li>
-                            <li><a class="dropdown-item" href="#">Compartir</a></li>
-                        </ul>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <h5 class="card-title">Tiramisú <span>| Postres</span></h5>
-                            <!--ingredientes-->
-                            <div class="chip">
-                                <img src="imagenes/ingredientes/azucar.png">
-                                <b style="font-size: 14px">Azucar</b>
-                            </div>
+        <?php
+        $recipesModel = new \App\Models\RecipesModel();
+        $recipes = $recipesModel->findAll();
 
-                            <div class="chip">
-                                <img src="imagenes/ingredientes/cacao.png">
-                                <b style="font-size: 14px">Cacao</b>
-                            </div>
-
-                            <div class="chip">
-                                <img src="imagenes/ingredientes/cafe.png">
-                                <b style="font-size: 14px">Café</b>
-                            </div>
-
-                            <div class="chip">
-                                <img src="imagenes/ingredientes/huevo.png">
-                                <b style="font-size: 14px">Huevos</b>
-                            </div>
-
-                            <div class="chip">
-                                <img src="imagenes/ingredientes/sal.png">
-                                <b style="font-size: 14px">Sal</b>
-                            </div>
-
-                            <div class="chip">
-                                <img src="imagenes/ingredientes/mascarpone.png">
-                                <b style="font-size: 14px">Mascarpone</b>
-                            </div>
-
-                            <div class="chip">
-                                <img src="imagenes/ingredientes/vino.png">
-                                <b style="font-size: 14px">Vino</b>
-                            </div>
-                            <!--fin ingredientes-->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-        <!-- FIN FILA RECETA -->
+        if (sizeof($recipes) > 0) {
+            foreach ($recipes as $row) {
+                $ingredients = $recipesModel->get_recipe_ingredients($row->id);
+                ?>
 
 
-        <!-- FILA RECETA 2-->
-        <div class="card info-card sales-card" class="container">
-            <div class="row" style=" margin-bottom:-10px;" style="max-height: 0px;">
-                <div class="col-md-3 imagen-container">
-                    <img src="imagenes/platos/chickenAlfredoPrueba.jpg" style="margin-left:0px;" alt=""
-                        class="img-fluid rounded-start">
-                </div>
-                <div class="col-md-9">
-                    <div class="filter">
-                        <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                            <li class="dropdown-header text-start">
-                                <h6>Filter</h6>
-                            </li>
+                <!-- Inicio de la tarjeta de la receta -->
+                <div class="recipe-card-wrapper">
+                    <a href="<?php echo base_url('recipe/' . $row->id); ?>" class="recipe-card-link">
+                        <div class="card info-card sales-card">
+                            <div class="row">
+                                <div class="col-md-3 imagen-container">
+                                    <img src="imagenes/platos/<?php echo $row->photo; ?>" alt=""
+                                        class="img-fluid rounded-start">
+                                </div>
 
-                            <li><a class="dropdown-item" href="#">Today</a></li>
-                            <li><a class="dropdown-item" href="#">This Month</a></li>
-                            <li><a class="dropdown-item" href="#">This Year</a></li>
-                        </ul>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
+                                <div class="col-md-9">
+                                    <div class="filter">
+                                        <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                                            <li class="dropdown-header text-start">
+                                                <h6>Opciones</h6>
+                                            </li>
+                                            <li><a class="dropdown-item" href="#">Guardar</a></li>
+                                            <li><a class="dropdown-item" href="#">Compartir</a></li>
+                                        </ul>
+                                    </div>
 
-                            <h5 class="card-title">Chicken Alfredo Primavera <span>| Entrantes</span></h5>
-                            <!--ingredientes-->
-                            <div class="chip">
-                                <img src="imagenes/ingredientes/aceite.png">
-                                <b style="font-size: 14px">Aceite</b>
-                            </div>
-
-                            <div class="chip">
-                                <img src="imagenes/ingredientes/ajo.png">
-                                <b style="font-size: 14px">Ajo</b>
-                            </div>
-
-                            <div class="chip">
-                                <img src="imagenes/ingredientes/nata.png">
-                                <b style="font-size: 14px">Nata</b>
-                            </div>
-
-                            <div class="chip">
-                                <img src="imagenes/ingredientes/quesoRallado.png">
-                                <b style="font-size: 14px">Queso Rallado</b>
-                            </div>
-
-                            <div class="chip">
-                                <img src="imagenes/ingredientes/nuez.png">
-                                <b style="font-size: 14px">Nuez</b>
-                            </div>
-
-                            <div class="chip">
-                                <img src="imagenes/ingredientes/mantequilla.png">
-                                <b style="font-size: 14px">Mantequilla</b>
-                            </div>
-
-                            <div class="chip">
-                                <img src="imagenes/ingredientes/pollo.png">
-                                <b style="font-size: 14px">Pollo</b>
-                            </div>
-
-                            <div class="chip">
-                                <img src="imagenes/ingredientes/pimienta.png">
-                                <b style="font-size: 14px">Pimienta</b>
-                            </div>
-
-                            <div class="chip">
-                                <img src="imagenes/ingredientes/sal.png">
-                                <b style="font-size: 14px">Sal</b>
-                            </div>
-                            <!--fin ingredientes-->
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-        <!-- FIN FILA RECETA 2-->
-
-        <!-- FILA RECETA 3-->
-        <div class="card info-card sales-card" class="container">
-            <div class="row" style=" margin-bottom:-10px;" style="max-height: 0px;">
-                <div class="col-md-3 imagen-container">
-                    <img src="imagenes/platos/patatasPrueba.png" style="margin-left:0px;" alt=""
-                        class="img-fluid rounded-start">
-                </div>
-                <div class="col-md-9">
-                    <div class="filter">
-                        <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                            <li class="dropdown-header text-start">
-                                <h6>Filter</h6>
-                            </li>
-
-                            <li><a class="dropdown-item" href="#">Today</a></li>
-                            <li><a class="dropdown-item" href="#">This Month</a></li>
-                            <li><a class="dropdown-item" href="#">This Year</a></li>
-                        </ul>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-
-                            <h5 class="card-title">Patatas Foster <span>| El diablo</span></h5>
-                            <!--ingredientes-->
-                            <div class="chip">
-                                <img src="imagenes/ingredientes/bacon.png">
-                                <b style="font-size: 14px">Bacon</b>
-                            </div>
-
-                            <div class="chip">
-                                <img src="imagenes/ingredientes/patata.png">
-                                <b style="font-size: 14px">Patatas</b>
-                            </div>
-
-                            <div class="chip">
-                                <img src="imagenes/ingredientes/quesoRallado.png">
-                                <b style="font-size: 14px">Queso Chedar</b>
-                            </div>
-
-                            <div class="chip">
-                                <img src="imagenes/ingredientes/quesoRallado.png">
-                                <b style="font-size: 14px">4 Quesos</b>
-                            </div>
-
-                            <div class="chip">
-                                <img src="imagenes/ingredientes/quesoRallado.png">
-                                <b style="font-size: 14px">Havarti</b>
-                            </div>
-
-                            <div class="chip">
-                                <img src="imagenes/ingredientes/sal.png">
-                                <b style="font-size: 14px">Sal</b>
-                            </div>
-
-                            <div class="chip">
-                                <img src="imagenes/ingredientes/salsa.png">
-                                <b style="font-size: 14px">Salsa Ranchera</b>
-                            </div>
-
-                            <div class="chip">
-                                <img src="imagenes/ingredientes/salsa.png">
-                                <b style="font-size: 14px">Salsa Cesar</b>
-                            </div>
-
-                            <div class="chip">
-                                <img src="imagenes/ingredientes/salsa.png">
-                                <b style="font-size: 14px">Salsa Chedar</b>
-                            </div>
-
-                            <!--fin ingredientes-->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-        <!-- FIN FILA RECETA 3-->
-
-        <!-- FILA RECETA 4-->
-        <div class="card info-card sales-card" class="container">
-            <div class="row" style=" margin-bottom:-10px;" style="max-height: 0px;">
-                <div class="col-md-3 imagen-container">
-                    <img src="imagenes/platos/cebolla.png" style="margin-left:0px;" alt=""
-                        class="img-fluid rounded-start">
-                </div>
-                <div class="col-md-9">
-                    <div class="filter">
-                        <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                            <li class="dropdown-header text-start">
-                                <h6>Filter</h6>
-                            </li>
-
-                            <li><a class="dropdown-item" href="#">Today</a></li>
-                            <li><a class="dropdown-item" href="#">This Month</a></li>
-                            <li><a class="dropdown-item" href="#">This Year</a></li>
-                        </ul>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-
-                            <h5 class="card-title">Cebolla <span>| Aperitivos</span></h5>
-                            <div class="chip">
-                                <img src="imagenes/ingredientes/cebolla.png">
-                                <b style="font-size: 14px">Cebolla</b>
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <?php echo $row->name; ?> <span>|
+                                                <?php echo $row->origin; ?>
+                                            </span>
+                                        </h5>
+                                        <!--ingredientes-->
+                                        <?php foreach ($ingredients as $ingredient) { ?>
+                                            <div class="chip" title="Cantidad: <?php echo $ingredient->amount; ?>">
+                                                <img src="imagenes/ingredientes/<?php echo $ingredient->icon; ?>">
+                                                <b style="font-size: 14px">
+                                                    <?php echo $ingredient->name; ?>
+                                                </b>
+                                            </div>
+                                        <?php } ?>
+                                        <!--fin ingredientes-->
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
-            </div>
-        </div>
-        </div>
-        <!-- FIN FILA RECETA 4-->
+                <!-- Fin de la tarjeta de la receta -->
+
+                
+
+
+
+                <?php
+            }
+        }
+        ?>
 
 
 

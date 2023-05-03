@@ -41,7 +41,10 @@ class User extends BaseController
                 //"rules" => "required|min_length[8]|max_length[20]"
             ]
         ];
+        
         $session = session();
+        $userModel = model('UserModel');
+
         if ($this->request->getMethod() == "post") {
             if ($this->validate($rules)) {
                 $email = $this->request->getVar('email');
@@ -74,7 +77,12 @@ class User extends BaseController
     }
     public function user_ok()
     {
-        return view('templates/header')
+        $session = session();
+        $usuario = $session->__get('user');
+        $data['usuario'] = $usuario;
+        $userModel = model('UserModel');
+
+        return view('templates/header',$data)
             . view('pages/home')
             . view('templates/footer');
     }
@@ -93,63 +101,67 @@ class User extends BaseController
     }
 
     public function registerAjax()
-{
-    $validation = \Config\Services::validation();
-    $rules = [
-        "username" => [
-            "label" => "Username",
-            "rules" => "required"
-        ],
-        "email" => [
-            "label" => "Email",
-            "rules" => "required|valid_email|is_unique[user.email]"
-        ],
-        "password" => [
-            "label" => "Password",
-            "rules" => "required|min_length[8]|max_length[20]"
-        ]
-    ];
-    $data = [];
-    $session = session();
-    $userModel = model('UserModel');
-    if ($this->request->getMethod() == "post") {
-        if ($this->validate($rules)) {
-            // Código de registro y respuesta exitosa
-            $username = $this->request->getVar('username');
-            $email = $this->request->getVar('email');
-            $password = $this->request->getVar('password');
-            $user = [
-                'username' => $username,
-                'email' => $email,
-                'password' => password_hash($password, PASSWORD_DEFAULT),
-            ];
-            $userModel->saveUser($email, $username, $password);
-            $session->set('logged_in', TRUE);
-            $session->set('user', $user);
-            return $this->response->setStatusCode(200)->setJSON([
-                'text' => 'Usuario logeado'
-            ]);
-        } else {
-            $error_message = '';
+    {   
+        $validation = \Config\Services::validation();
+        $rules = [
+            "username" => [
+                "label" => "Username",
+                "rules" => "required"
+            ],
+            "email" => [
+                "label" => "Email",
+                "rules" => "required|valid_email|is_unique[user.email]"
+            ],
+            "password" => [
+                "label" => "Password",
+                "rules" => "required|min_length[8]|max_length[20]"
+            ]
+        ];
+        $data = [];
 
-            if ($validation->getError('email')) {
-                $error_message = 'Email ya en uso o inválido';
-            } elseif ($validation->getError('password')) {
-                $error_message = 'La contraseña debe tener entre 8 y 20 caracteres';
+        $session = session();
+        $userModel = model('UserModel');
+
+        if ($this->request->getMethod() == "post") {
+            if ($this->validate($rules)) {
+                // Código de registro y respuesta exitosa
+                $name = $this->request->getVar('username');
+                $email = $this->request->getVar('email');
+                $password = $this->request->getVar('password');
+                $userData = [
+                    'username' => $name,
+                    'email' => $email,
+                    'password' => password_hash($password, PASSWORD_DEFAULT),
+                ];
+                $userModel->saveUser($email, $name, $password);
+                $newUser = $userModel->authenticate($email, $password);
+                $session->set('logged_in', TRUE);
+                $session->set('user', $newUser);
+
+                return $this->response->setStatusCode(200)->setJSON([
+                    'text' => 'Usuario logeado'
+                ]);
             } else {
-                $error_message = 'Error desconocido';
+                $error_message = '';
+
+                if ($validation->getError('email')) {
+                    $error_message = 'Email ya en uso o inválido';
+                } elseif ($validation->getError('password')) {
+                    $error_message = 'La contraseña debe tener entre 8 y 20 caracteres';
+                } else {
+                    $error_message = 'Error desconocido';
+                }
+
+                return $this->response->setStatusCode(400)->setJSON([
+                    'text' => $error_message
+                ]);
             }
-
-            return $this->response->setStatusCode(400)->setJSON([
-                'text' => $error_message
-            ]);
         }
-    }
 
-    return $this->response->setStatusCode(400)->setJSON([
-        'text' => 'Solo se aceptan post request'
-    ]);
-}
+        return $this->response->setStatusCode(400)->setJSON([
+            'text' => 'Solo se aceptan post request'
+        ]);
+    }
 
 
 

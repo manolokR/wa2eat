@@ -873,6 +873,17 @@ h6 {
   color: #4154f1;
 }
 
+.imagen-container img {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.recipe-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
 .dashboard .news p {
   font-size: 14px;
   color: #777777;
