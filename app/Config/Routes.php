@@ -33,6 +33,7 @@ use App\Controllers\User;
 
 $routes->match(['get'], '/', [User::class, 'login']);
 $routes->match(['get', 'post'], '/login', [User::class, 'login']);
+//$routes->match(['get', 'post'], '/insert_recipe', [User::class,'insert_recipe']);
 $routes->match(['get', 'post'], '/loginAjax', [User::class, 'loginAjax']);
 $routes->match(['get', 'post'], '/registerAjax', [User::class, 'registerAjax']);
 $routes->match(['get'], '/home', [User::class, 'user_ok']);
@@ -44,6 +45,8 @@ $routes->get('login','Pages::viewLogin');
 $routes->get('users','User::list');
 $routes->get('home','Pages::prueba');
 $routes->get('(:segment)', 'Home::index');
+$routes->get('/recipe/(:num)', 'RecipesController::view_recipe/$1');
+$routes->get('insert_recipe', 'InsertController::insert_recipe');
 
 
 /*

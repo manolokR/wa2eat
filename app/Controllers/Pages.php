@@ -40,4 +40,6 @@ public function index()
 		return view('pages/' . $page);
 	}
 
+
+
 }
