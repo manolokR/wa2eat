@@ -1,6 +1,31 @@
-// Seleccionar elementos DOM
+
 const ingredientSearch = document.querySelector('#ingredient_search');
 const selectedIngredients = document.querySelector('#selected_ingredients');
+
+const cancelQuantityBtn = document.getElementById("cancel_quantity");
+cancelQuantityBtn.onclick = function () {
+	$("#quantityModal").modal("hide");
+};
+
+const recipeForm = document.querySelector("form.my-form");
+
+recipeForm.addEventListener("submit", function (event) {
+	const selectedIngredients = Array.from(document.querySelectorAll(".selected-ingredient"));
+  
+	const ingredientsData = selectedIngredients.map((ingredientElem) => {
+	  return {
+		id: ingredientElem.dataset.ingredientId,
+		amount: ingredientElem.querySelector(".ingredient-amount").textContent,
+	  };
+	});
+  
+	const hiddenInput = document.createElement("input");
+	hiddenInput.type = "hidden";
+	hiddenInput.name = "selected_ingredients";
+	hiddenInput.value = JSON.stringify(ingredientsData);
+  
+	recipeForm.appendChild(hiddenInput);
+  });
 
 // Array para almacenar palabras clave seleccionadas
 let ingredients = [];
@@ -44,7 +69,7 @@ function searchIngredients(query) {
 					saveQuantityBtn.onclick = function () {
 						const quantity = document.getElementById("ingredient_quantity").value;
 						if (quantity) {
-							addIngredient(ingredient.name, ingredient.id, quantity);
+							addIngredient(ingredient.name, ingredient.id, quantity, ingredient.icon);
 							$("#quantityModal").modal("hide");
 							document.getElementById("ingredient_quantity").value = "";
 						}
@@ -59,14 +84,16 @@ function searchIngredients(query) {
 
 
 // Función para agregar un ingrediente
-function addIngredient(ingredientName, ingredientId) {
+function addIngredient(ingredientName, ingredientId, quantity, icon) {
 	// Agregar el ingrediente al array y actualizar el campo de selección
 	if (ingredientName && !ingredients.find(ing => ing.name === ingredientName)) {
-		ingredients.push({ name: ingredientName, id: ingredientId });
+		ingredients.push({ name: ingredientName, id: ingredientId, quantity: quantity, icon: icon });
 		updateSelectedIngredients();
 		ingredientSearch.value = '';
 	}
 }
+
+
 
 
 // Función para eliminar una palabra clave

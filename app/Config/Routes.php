@@ -33,14 +33,14 @@ use App\Controllers\User;
 
 $routes->match(['get'], '/', [User::class, 'login']);
 $routes->match(['get', 'post'], '/login', [User::class, 'login']);
-$routes->match(['post'], '/insert_recipe', [InsertRecipeController::class, 'insertRecipe']);
 $routes->match(['get', 'post'], '/loginAjax', [User::class, 'loginAjax']);
 $routes->match(['get', 'post'], '/registerAjax', [User::class, 'registerAjax']);
-$routes->match(['post'], '/insert_recipe', [InsertRecipeController::class, 'insert_recipe']);
 $routes->match(['get'], '/home', [User::class, 'user_ok']);
 
+// Rutas para formulario de ingresar tareas
 $routes->get('/insert_recipe', 'InsertRecipeController::index');
 $routes->match(['get', 'post'], '/search_ingredient', 'InsertRecipeController::search_ingredient');
+$routes->post('/insert_recipe', 'InsertRecipeController::insert_recipe');
 
 
 $routes->get('login','Pages::viewLogin');

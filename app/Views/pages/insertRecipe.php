@@ -83,18 +83,16 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="quantityModalLabel">Ingresa la cantidad</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
           <div class="form-group">
             <label for="ingredient_quantity">Cantidad</label>
-            <input type="text" class="form-control" id="ingredient_quantity" name="ingredient_quantity" placeholder="Ej: 2 tazas">
+            <input type="text" class="form-control" id="ingredient_quantity" name="ingredient_quantity" placeholder="Ej: 2 tazas, 1/2 cucharada, 4 kg...">
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-secondary" id="cancel_quantity" data-dismiss="modal">Cancelar</button>
           <button type="button" class="btn btn-primary" id="save_quantity">Guardar</button>
         </div>
       </div>
