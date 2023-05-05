@@ -76,11 +76,14 @@ function getYoutubeVideoId($url) {
         }
     </style>
 
-        
+<main id="main" class="main">
+
+<section class="section dashboard">
+  
     
     <div class="container">
         <div class="recipe-header">
-            <h1> a</h1>
+          
             <h1><?php echo $recipe->name; ?></h1>
             <img src="../imagenes/platos/<?php echo $recipe->photo; ?>" alt="<?php echo $recipe->name; ?>" />
         </div>
@@ -110,3 +113,6 @@ function getYoutubeVideoId($url) {
             <?php endif; ?>
         <?php endif; ?>
     </div>
+    </section>
+
+</main><!-- End #main -->

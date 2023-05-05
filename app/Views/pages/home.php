@@ -63,7 +63,7 @@
 
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="/insert_recipe">
+            <a class="nav-link collapsed" href="/insertRecipe">
                 <i class="bi bi-person"></i>
                 <span>Perfil</span>
             </a>

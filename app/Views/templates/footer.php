@@ -1,7 +1,7 @@
         <!-- End page content -->
         </div>
         </main>
-
+       
 
 <!-- Vendor JS Files -->
 <script src="js/apexcharts.min.js"></script>
