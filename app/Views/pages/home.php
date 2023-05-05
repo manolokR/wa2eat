@@ -14,24 +14,17 @@
         <!-- Filtro 1-->
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-layout-text-window-reverse"></i><span>Filtro 1</span><i
+                <i class="bi bi-layout-text-window-reverse"></i><span>Filtro Vegano</span><i
                     class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <!--Contenido del dropdown-->
-                <ul class="ks-cboxtags">
+                <ul class="vegan-cboxtags">
                     <li>
                         <input type="checkbox" id="checkboxOne" value="Order one">
-                        <label for="checkboxOne">Opción 1 </label>
+                        <label for="checkboxOne">Recetas Veganas </label>
                     </li>
-                    <li>
-                        <input type="checkbox" id="checkboxTwo" value="Order Two">
-                        <label for="checkboxTwo">Opción 2 </label>
-                    </li>
-                    <li>
-                        <input type="checkbox" id="checkboxThree" value="Order Two">
-                        <label for="checkboxThree">Opción 3 </label>
-                    </li>
+                   
                 </ul>
             </ul>
         </li><!-- Fin Filtro 1 -->
@@ -44,20 +37,48 @@
             </a>
             <ul id="tables-nav2" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <!--Contenido del dropdown-->
-                <ul class="ks-cboxtags">
+                <ul class="indian-cboxtags">
                     <li>
                         <input type="checkbox" id="checkboxFour" value="Order four">
-                        <label for="checkboxFour">Opción 4 </label>
-                    </li>
-                    <li>
-                        <input type="checkbox" id="checkboxFive" value="Order five">
-                        <label for="checkboxFive">Opción 5 </label>
-                    </li>
-                    <li>
-                        <input type="checkbox" id="checkboxSix" value="Order six">
-                        <label for="checkboxSix">Opción 6 </label>
+                        <label for="checkboxFour">India </label>
                     </li>
                 </ul>
+
+                <ul class="french-cboxtags">
+                    <li>
+                        <input type="checkbox" id="checkboxFive" value="Order five">
+                        <label for="checkboxFive">Francia </label>
+                    </li>
+                </ul>
+                <ul class="chinese-cboxtags">
+                    <li>
+                        <input type="checkbox" id="checkboxSix" value="Order six">
+                        <label for="checkboxSix">China </label>
+                    </li>
+                </ul>
+
+                <ul class="mexican-cboxtags">
+                    <li>
+                        <input type="checkbox" id="checkboxSeven" value="Order seven">
+                        <label for="checkboxSeven">México </label>
+                    </li>
+                </ul>
+
+                <ul class="spanish-cboxtags">
+                    <li>
+                        <input type="checkbox" id="checkboxEight" value="Order eigth">
+                        <label for="checkboxEight">España </label>
+                    </li>
+                </ul>
+
+                <ul class="japanese-cboxtags">
+                    <li>
+                        <input type="checkbox" id="checkboxNine" value="Order nine">
+                        <label for="checkboxNine">Japón </label>
+                    </li>
+                </ul>
+
+
             </ul>
         </li><!-- Fin Filtro 1 -->
 

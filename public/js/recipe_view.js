@@ -108,9 +108,6 @@
       onscroll(document, toggleBacktotop)
     }
   
-  
-
-
     /**
      * Initiate tooltips
      */
