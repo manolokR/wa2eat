@@ -40,7 +40,7 @@ $routes->match(['get'], '/home', [User::class, 'user_ok']);
 
 
 
-$routes->get('insertRecipe', 'InsertRecipeController::insertRecipe');
+$routes->get('insert_recipe', 'InsertRecipeController::insertRecipe');
 $routes->get('login','Pages::viewLogin');
 $routes->get('users','User::list');
 $routes->get('home','Pages::prueba');
