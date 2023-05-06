@@ -84,6 +84,43 @@
 
 
         <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#tables-nav3" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-layout-text-window-reverse"></i><span>Estaciones</span><i
+                    class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="tables-nav3" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <!--Contenido del dropdown-->
+                <ul class="winter-cboxtags">
+                    <li>
+                        <input type="checkbox" id="checkboxTen" value="Order ten">
+                        <label for="checkboxTen">Invierno </label>
+                    </li>
+                </ul>
+
+                <ul class="spring-cboxtags">
+                    <li>
+                        <input type="checkbox" id="checkboxEleven" value="Order eleven">
+                        <label for="checkboxEleven">Primavera </label>
+                    </li>
+                </ul>
+                <ul class="summer-cboxtags">
+                    <li>
+                        <input type="checkbox" id="checkboxTwelve" value="Order twelve">
+                        <label for="checkboxTwelve">Verano </label>
+                    </li>
+                </ul>
+
+                <ul class="autumn-cboxtags">
+                    <li>
+                        <input type="checkbox" id="checkbox13" value="Order 13">
+                        <label for="checkbox13">Otoño </label>
+                    </li>
+                </ul>
+
+            </ul>
+        </li><!-- Fin Filtro 1 -->
+
+        <li class="nav-item">
             <a class="nav-link collapsed" href="/insert_recipe">
                 <i class="bi bi-person"></i>
                 <span>Perfil</span>
