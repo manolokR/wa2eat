@@ -122,8 +122,8 @@
 
         <li class="nav-item">
             <a class="nav-link collapsed" href="/insert_recipe">
-                <i class="bi bi-person"></i>
-                <span>Perfil</span>
+                <i class="bi bi-file-earmark"></i>
+                <span>Subir receta</span>
             </a>
         </li><!-- End Profile Page Nav -->
 
