@@ -9,7 +9,7 @@ public function insertAjax()
     $validation = \Config\Services::validation();
     $rules = [
         "recipe_name" => [
-            "label" => "Name",
+            "label" => "name",
             "rules" => "required"
         ],
         "recipe_description" => [
@@ -33,7 +33,7 @@ public function insertAjax()
         ],
         "recipe_video" => [
             "label" => "link"
-        ],
+        ]
     ];
     $data = [];
 

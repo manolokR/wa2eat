@@ -9,14 +9,14 @@
 
   <!-- Seleccionar nombre receta-->
   <div class="form-group">
-    <label for="recipe_name">Nombre de la receta:</label>
-    <input type="text" id="recipe_name" name="recipe_name" required class="form-control">
+    <label for="name">Nombre de la receta:</label>
+    <input type="text" id="name" name="name" required class="form-control">
   </div>
   
   <!-- Seleccionar descripción -->
   <div class="form-group">
-    <label for="recipe_description">Descripción de la receta:</label>
-    <textarea id="recipe_description" name="recipe_description" rows="4" cols="50" required class="form-control"></textarea>
+    <label for="description">Descripción de la receta:</label>
+    <textarea id="description" name="description" rows="4" cols="50" required class="form-control"></textarea>
   </div>
 
   <!-- Selccionar opción vegana -->
@@ -101,13 +101,13 @@
 
   <!--Seleccionar foto -->
   <div class="form-group">
-    <label for="recipe_photo">Subir una foto:</label>
-    <input type="file" id="recipe_photo" name="recipe_photo" accept="image/*" class="form-control-file">
+    <label for="photo">Subir una foto:</label>
+    <input type="file" id="photo" name="photo" accept="image/*" class="form-control-file">
   </div>
 
   <div class="form-group">
-     <label for="recipe_video">Ingrese el enlace del video:</label>
-     <input type="text" id="recipe_video" name="recipe_video" class="form-control" placeholder="ej: https://www.youtube.com/watch?v=cks8liHVdZg">
+     <label for="link">Ingrese el enlace del video:</label>
+     <input type="text" id="link" name="link" class="form-control" placeholder="ej: https://www.youtube.com/watch?v=cks8liHVdZg">
   </div>
 
   <input type="submit" value="Subir receta" class="btn btn-primary">

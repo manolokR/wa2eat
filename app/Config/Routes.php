@@ -37,6 +37,9 @@ $routes->match(['get', 'post'], '/loginAjax', [User::class, 'loginAjax']);
 $routes->match(['get', 'post'], '/registerAjax', [User::class, 'registerAjax']);
 $routes->match(['get'], '/home', [User::class, 'user_ok']);
 
+
+$routes->get('recipes/image/(:num)', 'RecipesController::getImage/$1');
+
 // Rutas para formulario de ingresar tareas
 $routes->get('/insert_recipe', 'InsertRecipeController::index');
 $routes->match(['get', 'post'], '/search_ingredient', 'InsertRecipeController::search_ingredient');
