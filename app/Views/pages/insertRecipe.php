@@ -3,36 +3,45 @@
 
 <section class="section dashboard">
 
-<h1>Upload a Recipe</h1>
+<h1>Subir una receta</h1>
+
 <form action=<?= base_url('/insert_recipe'); ?> method="post" enctype="multipart/form-data" class="my-form">
+
+  <!-- Seleccionar nombre receta-->
   <div class="form-group">
-    <label for="recipe_name">Recipe Name:</label>
+    <label for="recipe_name">Nombre de la receta:</label>
     <input type="text" id="recipe_name" name="recipe_name" required class="form-control">
   </div>
   
+  <!-- Seleccionar descripción -->
   <div class="form-group">
-    <label for="recipe_description">Recipe Description:</label>
+    <label for="recipe_description">Descripción de la receta:</label>
     <textarea id="recipe_description" name="recipe_description" rows="4" cols="50" required class="form-control"></textarea>
   </div>
 
+  <!-- Selccionar opción vegana -->
   <div class="form-group form-check">
     <input type="checkbox" id="is_vegan" name="is_vegan" class="form-check-input">
-    <label class="form-check-label" for="is_vegan">Vegan</label>
+    <label class="form-check-label" for="is_vegan">Vegana</label>
   </div>
 
+  <!-- Seleccionar origen -->
   <div class="form-group">
-    <label for="origin">Origin:</label>
+    <label for="origin">Origen:</label>
     <select id="origin" name="origin" class="form-control">
-      <option value="american">American</option>
-      <option value="chinese">Chinese</option>
-      <option value="indian">Indian</option>
-      <option value="italian">Italian</option>
-      <option value="mexican">Mexican</option>
+      <option value="Española">Española</option>
+      <option value="Francesa">Francesa</option>
+      <option value="Italiana">Italiana</option>
+      <option value="Mexiana">Mexicana</option>
+      <option value="Americana">Americana</option>
+      <option value="China">China</option>
+      <option value="India">India</option>
     </select>
   </div>
 
+  <!-- Seleccionar temporada -->
   <div class="form-group">
-    <label for="season">Season:</label>
+    <label for="season">Temporada:</label>
     <select id="season" name="season" class="form-control">
       <option value="invierno">Invierno</option>
       <option value="primavera">Primavera</option>
@@ -43,111 +52,68 @@
   </div>
 
 
+  <!-- Seleccionar instrucciones -->
   <div class="form-group">
-    <label for="instructions">Instructions:</label>
+    <label for="instructions">Instrucciones:</label>
     <textarea id="instructions" name="instructions" rows="6" cols="50" required class="form-control"></textarea>
   </div>
 
+  <!-- Seleccionar ingredientes -->
+  <label >Ingredientes:</label>
+  <div class="input-group my-form">
+  <input
+    type="search"
+    id="ingredient_search"
+    name="ingredient_search"
+    placeholder="Buscar ingredientes..."
+    class="form-control"
+  />
+  
+  </div>
+  <ul id="ingredients_list" class="ingredients-list list-unstyled"></ul>
+
   <div class="form-group">
-    <label for="ingredient_search">Search Ingredients:</label>
-    <div class="input-group">
-      <input type="search" id="ingredient_search" name="ingredient_search" placeholder="Search ingredients..." class="form-control">
-      <div class="input-group-append">
-        <button class="btn btn-primary" type="button" id="add_ingredient_btn">Add</button>
+    <label for="selected_ingredients">Ingredientes seleccionados:</label>
+    <div id="selected_ingredients" class="selected-ingredients-container"></div>
+  </div>
+
+  <!-- Modal para ingresar la cantidad del ingrediente -->
+  <div class="modal fade" id="quantityModal" tabindex="-1" role="dialog" aria-labelledby="quantityModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="quantityModalLabel">Ingresa la cantidad</h5>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="ingredient_quantity">Cantidad</label>
+            <input type="text" class="form-control" id="ingredient_quantity" name="ingredient_quantity" placeholder="Ej: 2 tazas, 1/2 cucharada, 4 kg...">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="cancel_quantity" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary" id="save_quantity">Guardar</button>
+        </div>
       </div>
     </div>
   </div>
 
+  <!--Seleccionar foto -->
   <div class="form-group">
-    <label for="selected_ingredients">Selected Ingredients:</label>
-    <div id="selected_ingredients" class="form-control"></div>
-  </div>
-
-  <div class="form-group">
-    <label for="recipe_photo">Upload a Photo:</label>
+    <label for="recipe_photo">Subir una foto:</label>
     <input type="file" id="recipe_photo" name="recipe_photo" accept="image/*" class="form-control-file">
   </div>
 
   <div class="form-group">
      <label for="recipe_video">Ingrese el enlace del video:</label>
-     <input type="text" id="recipe_video" name="recipe_video" class="form-control">
+     <input type="text" id="recipe_video" name="recipe_video" class="form-control" placeholder="ej: https://www.youtube.com/watch?v=cks8liHVdZg">
   </div>
 
-  <input type="submit" value="Upload Recipe" class="btn btn-primary">
+  <input type="submit" value="Subir receta" class="btn btn-primary">
 </form>
 
-<script>
-// Seleccionar elementos DOM
-const ingredientSearch = document.querySelector('#ingredient_search');
-const addIngredientBtn = document.querySelector('#add_ingredient_btn');
-const selectedIngredients = document.querySelector('#selected_ingredients');
-
-// Array para almacenar palabras clave seleccionadas
-let ingredients = [];
-
-// Función para agregar una palabra clave
-function addIngredient() {
-  const ingredient = ingredientSearch.value.trim();
-
-  // Agregar la palabra clave al array y actualizar el campo de selección
-  if (ingredient && !ingredients.includes(ingredient)) {
-    ingredients.push(ingredient);
-    updateSelectedIngredients();
-    ingredientSearch.value = '';
-  }
-}
-
-// Función para eliminar una palabra clave
-function removeIngredient(ingredient) {
-  // Eliminar la palabra clave del array y actualizar el campo de selección
-  ingredients = ingredients.filter(function(value) {
-    return value != ingredient;
-  });
-  updateSelectedIngredients();
-}
-
-// Función para actualizar el campo de selección de palabras clave
-function updateSelectedIngredients() {
-  // Limpiar el campo de selección
-  selectedIngredients.innerHTML = '';
-
-  // Agregar cada palabra clave seleccionada al campo de selección
-  ingredients.forEach(function(ingredient) {
-    const ingredientElement = document.createElement('div');
-    ingredientElement.classList.add('selected-ingredient');
-    ingredientElement.textContent = ingredient;
-
-    const removeBtn = document.createElement('button');
-    removeBtn.classList.add('btn', 'btn-danger', 'btn-sm');
-    removeBtn.textContent = 'x';
-    removeBtn.addEventListener('click', function() {
-      removeIngredient(ingredient);
-    });
-
-    ingredientElement.appendChild(removeBtn);
-    selectedIngredients.appendChild(ingredientElement);
-  });
-}
-
-// Agregar evento para agregar ingredientes cuando se hace clic en el botón "Add"
-addIngredientBtn.addEventListener('click', function() {
-  addIngredient();
-});
-
-// Agregar evento para agregar ingredientes cuando se presiona Enter en el campo de búsqueda
-ingredientSearch.addEventListener('keydown', function(event) {
-  // Verificar si la tecla presionada es "Enter"
-  if (event.key === 'Enter') {
-    event.preventDefault(); // Prevenir el envío del formulario
-    addIngredient();
-  }
-});
-
-
-</script>
-
-
-
+<script src="<?= base_url("js/insert.js") ?>"></script>
 
 </section>
 

@@ -19,7 +19,7 @@ class IngredientModel extends Model
     protected $skipValidation = false;
 
 
-    public function saveRecipe($id, $name, $icon)
+    public function saveIngredient($id, $name, $icon)
     {
         $data = [
             'id' => $id,
@@ -27,6 +27,14 @@ class IngredientModel extends Model
             'icon' => $icon,
         ];
         return $this->insert($data);
+    }
+
+    public function search_ingredient($query)
+    {
+        if ($query) {
+            return $this->like('name', $query)->findAll();
+        }
+        return [];
     }
 
 

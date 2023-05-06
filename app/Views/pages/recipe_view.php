@@ -76,7 +76,7 @@ function getYoutubeVideoId($url) {
         }
     </style>
 
-<main id="main" class="main">
+<main id="main" class="mainview">
 
 <section class="section dashboard">
   
