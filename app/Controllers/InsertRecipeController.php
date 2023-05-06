@@ -40,6 +40,13 @@ class InsertRecipeController extends Controller
         // Eliminar el elemento 'selected_ingredients' de los datos de la receta
         unset($recipeData['selected_ingredients']);
 
+        // Manejar el archivo de imagen
+        $photo = $this->request->getFile('photo');
+        if ($photo->isValid() && !$photo->hasMoved()) {
+            $photoBlob = file_get_contents($photo->getRealPath());
+            $recipeData['photo'] = $photoBlob;
+        }
+
         // Insertar la receta en la tabla 'recipes'
         $recipeId = $recipeModel->insert($recipeData);
 
@@ -55,4 +62,5 @@ class InsertRecipeController extends Controller
         // Redireccionar a la página principal (o cualquier otra página que desees)
         return redirect()->to('/home');
     }
+
 }

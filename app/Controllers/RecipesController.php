@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\RecipesModel;
+use App\Models\RecipesIngredientModel;
 use CodeIgniter\Controller;
 
 class RecipesController extends Controller
@@ -23,10 +24,26 @@ class RecipesController extends Controller
             'ingredients' => $ingredients,
         ];
 
-        return view('templates/header',$data)
-            .view('pages/recipe_view', $data)
+        return view('templates/header', $data)
+            . view('pages/recipe_view', $data)
             . view('templates/footer');
     }
 
-    
+    public function show_image($id)
+    {
+        $recipesModel = new \App\Models\RecipesModel();
+        $recipe = $recipesModel->find($id);
+
+        if ($recipe) {
+            $photo = $recipe->photo;
+            $finfo = new \finfo(FILEINFO_MIME_TYPE);
+            $mimeType = $finfo->buffer($photo);
+
+            $this->response->setHeader('Content-Type', $mimeType);
+            $this->response->setBody($photo);
+            $this->response->send();
+        }
+    }
+
+
 }

@@ -109,50 +109,38 @@ function removeIngredient(ingredient) {
 function updateSelectedIngredients() {
 	// Limpiar el campo de selección
 	selectedIngredients.innerHTML = '';
-
+  
 	// Agregar cada ingrediente seleccionado al campo de selección
 	ingredients.forEach(function (ingredient) {
-		const ingredientElement = document.createElement('div');
-		ingredientElement.classList.add('selected-ingredient');
-		ingredientElement.setAttribute('data-id', ingredient.id);
-
-		// Crear el elemento de imagen para el icono del ingrediente
-		const iconElement = document.createElement('img');
-		iconElement.classList.add('ingredient-icon');
-		iconElement.src = '../imagenes/ingredientes/' + ingredient.icon;
-		ingredientElement.appendChild(iconElement);
-
-		const ingredientNameAndQuantity = document.createTextNode(
-			`${ingredient.name} (${ingredient.quantity})`
-		);
-		ingredientElement.appendChild(ingredientNameAndQuantity);
-
-		const removeBtn = document.createElement('button');
-		removeBtn.classList.add('btn', 'btn-danger', 'btn-sm');
-		removeBtn.textContent = 'x';
-		removeBtn.addEventListener('click', function () {
-			removeIngredient(ingredient);
-		});
-
-		ingredientElement.appendChild(removeBtn);
-		selectedIngredients.appendChild(ingredientElement);
-
-		// Crear un campo oculto para almacenar el ID y la cantidad del ingrediente seleccionado
-		const hiddenInputId = document.createElement('input');
-		hiddenInputId.setAttribute('type', 'hidden');
-		hiddenInputId.setAttribute('name', 'selected_ingredient_ids[]');
-		hiddenInputId.setAttribute('value', ingredient.id);
-		ingredientElement.appendChild(hiddenInputId);
-
-		const hiddenInputQuantity = document.createElement('input');
-		hiddenInputQuantity.setAttribute('type', 'hidden');
-		hiddenInputQuantity.setAttribute('name', 'selected_ingredient_quantities[]');
-		hiddenInputQuantity.setAttribute('value', ingredient.quantity);
-		ingredientElement.appendChild(hiddenInputQuantity);
-
-		selectedIngredients.appendChild(ingredientElement);
+	  const ingredientElement = document.createElement('div');
+	  ingredientElement.classList.add('selected-ingredient');
+	  ingredientElement.setAttribute('data-ingredient-id', ingredient.id);
+  
+	  // Crear el elemento de imagen para el icono del ingrediente
+	  const iconElement = document.createElement('img');
+	  iconElement.classList.add('ingredient-icon');
+	  iconElement.src = '../imagenes/ingredientes/' + ingredient.icon;
+	  ingredientElement.appendChild(iconElement);
+  
+	  // Agregar el nombre del ingrediente y la cantidad
+	  const ingredientNameAndQuantity = document.createElement('span');
+	  ingredientNameAndQuantity.textContent = `${ingredient.name} (${ingredient.quantity})`;
+	  ingredientNameAndQuantity.classList.add('ingredient-amount');
+	  ingredientElement.appendChild(ingredientNameAndQuantity);
+  
+	  // Agregar el botón para eliminar el ingrediente
+	  const removeBtn = document.createElement('button');
+	  removeBtn.classList.add('btn', 'btn-danger', 'btn-sm');
+	  removeBtn.textContent = 'x';
+	  removeBtn.addEventListener('click', function () {
+		removeIngredient(ingredient);
+	  });
+  
+	  ingredientElement.appendChild(removeBtn);
+	  selectedIngredients.appendChild(ingredientElement);
 	});
-}
+  }
+  
 
 
 

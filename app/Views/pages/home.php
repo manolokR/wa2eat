@@ -187,8 +187,7 @@
                         <div class="card info-card sales-card">
                             <div class="row">
                                 <div class="col-md-3 imagen-container">
-                                    <img src="imagenes/platos/<?php echo $row->photo; ?>" alt=""
-                                        class="img-fluid rounded-start">
+                                    <img src="<?php echo base_url('recipe/image/' . $row->id); ?>" alt="" class="img-fluid rounded-start">
                                 </div>
 
                                 <div class="col-md-9">
@@ -226,11 +225,6 @@
                     </a>
                 </div>
                 <!-- Fin de la tarjeta de la receta -->
-
-                
-
-
-
                 <?php
             }
         }

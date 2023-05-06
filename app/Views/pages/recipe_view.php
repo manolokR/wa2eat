@@ -76,16 +76,16 @@ function getYoutubeVideoId($url) {
         }
     </style>
 
-<main id="main" class="mainview">
+<main id="mainview" class="mainview">
 
 <section class="section dashboard">
   
     
     <div class="container">
         <div class="recipe-header">
-          
+            <h1>Receta:</h1>
             <h1><?php echo $recipe->name; ?></h1>
-            <img src="../imagenes/platos/<?php echo $recipe->photo; ?>" alt="<?php echo $recipe->name; ?>" />
+            <img src="<?php echo base_url('recipe/image/' . $recipe->id); ?>" alt="<?php echo $recipe->name; ?>" />
         </div>
 
         <p><?php echo $recipe->description; ?></p>
