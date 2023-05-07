@@ -11,21 +11,21 @@ const recipeForm = document.querySelector("form.my-form");
 
 recipeForm.addEventListener("submit", function (event) {
 	const selectedIngredients = Array.from(document.querySelectorAll(".selected-ingredient"));
-  
+
 	const ingredientsData = selectedIngredients.map((ingredientElem) => {
-	  return {
-		id: ingredientElem.dataset.ingredientId,
-		amount: ingredientElem.querySelector(".ingredient-amount").textContent,
-	  };
+		return {
+			id: ingredientElem.dataset.ingredientId,
+			amount: ingredientElem.querySelector(".ingredient-amount").textContent,
+		};
 	});
-  
+
 	const hiddenInput = document.createElement("input");
 	hiddenInput.type = "hidden";
 	hiddenInput.name = "selected_ingredients";
 	hiddenInput.value = JSON.stringify(ingredientsData);
-  
+
 	recipeForm.appendChild(hiddenInput);
-  });
+});
 
 // Array para almacenar palabras clave seleccionadas
 let ingredients = [];
@@ -35,7 +35,7 @@ function searchIngredients(query) {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/x-www-form-urlencoded',
-			'X-Requested-With': 'XMLHttpRequest' // Añadir esta línea
+			'X-Requested-With': 'XMLHttpRequest'
 		},
 		body: 'query=' + encodeURIComponent(query)
 	})
@@ -109,38 +109,38 @@ function removeIngredient(ingredient) {
 function updateSelectedIngredients() {
 	// Limpiar el campo de selección
 	selectedIngredients.innerHTML = '';
-  
+
 	// Agregar cada ingrediente seleccionado al campo de selección
 	ingredients.forEach(function (ingredient) {
-	  const ingredientElement = document.createElement('div');
-	  ingredientElement.classList.add('selected-ingredient');
-	  ingredientElement.setAttribute('data-ingredient-id', ingredient.id);
-  
-	  // Crear el elemento de imagen para el icono del ingrediente
-	  const iconElement = document.createElement('img');
-	  iconElement.classList.add('ingredient-icon');
-	  iconElement.src = '../imagenes/ingredientes/' + ingredient.icon;
-	  ingredientElement.appendChild(iconElement);
-  
-	  // Agregar el nombre del ingrediente y la cantidad
-	  const ingredientNameAndQuantity = document.createElement('span');
-	  ingredientNameAndQuantity.textContent = `${ingredient.name} (${ingredient.quantity})`;
-	  ingredientNameAndQuantity.classList.add('ingredient-amount');
-	  ingredientElement.appendChild(ingredientNameAndQuantity);
-  
-	  // Agregar el botón para eliminar el ingrediente
-	  const removeBtn = document.createElement('button');
-	  removeBtn.classList.add('btn', 'btn-danger', 'btn-sm');
-	  removeBtn.textContent = 'x';
-	  removeBtn.addEventListener('click', function () {
-		removeIngredient(ingredient);
-	  });
-  
-	  ingredientElement.appendChild(removeBtn);
-	  selectedIngredients.appendChild(ingredientElement);
+		const ingredientElement = document.createElement('div');
+		ingredientElement.classList.add('selected-ingredient');
+		ingredientElement.setAttribute('data-ingredient-id', ingredient.id);
+
+		// Crear el elemento de imagen para el icono del ingrediente
+		const iconElement = document.createElement('img');
+		iconElement.classList.add('ingredient-icon');
+		iconElement.src = '../imagenes/ingredientes/' + ingredient.icon;
+		ingredientElement.appendChild(iconElement);
+
+		// Agregar el nombre del ingrediente y la cantidad
+		const ingredientNameAndQuantity = document.createElement('span');
+		ingredientNameAndQuantity.textContent = `${ingredient.name} (${ingredient.quantity})`;
+		ingredientNameAndQuantity.classList.add('ingredient-amount');
+		ingredientElement.appendChild(ingredientNameAndQuantity);
+
+		// Agregar el botón para eliminar el ingrediente
+		const removeBtn = document.createElement('button');
+		removeBtn.classList.add('btn', 'btn-danger', 'btn-sm');
+		removeBtn.textContent = 'x';
+		removeBtn.addEventListener('click', function () {
+			removeIngredient(ingredient);
+		});
+
+		ingredientElement.appendChild(removeBtn);
+		selectedIngredients.appendChild(ingredientElement);
 	});
-  }
-  
+}
+
 
 
 
@@ -154,43 +154,43 @@ ingredientSearch.addEventListener('input', function (event) {
 var inputPhoto = document.getElementById('photo');
 var imageUploadContainer = document.querySelector('.image-upload-container');
 
-inputPhoto.addEventListener('change', function(event) {
+inputPhoto.addEventListener('change', function (event) {
 	displayImagePreview(event.target.files[0]);
-  });
-  
-  imageUploadContainer.addEventListener('dragover', function(event) {
+});
+
+imageUploadContainer.addEventListener('dragover', function (event) {
 	event.preventDefault();
 	event.stopPropagation();
 	event.dataTransfer.dropEffect = 'copy';
-  });
-  
-  imageUploadContainer.addEventListener('drop', function(event) {
+});
+
+imageUploadContainer.addEventListener('drop', function (event) {
 	event.preventDefault();
 	event.stopPropagation();
 	if (event.dataTransfer.files.length > 0) {
-	  displayImagePreview(event.dataTransfer.files[0]);
-	  inputPhoto.files = event.dataTransfer.files;
+		displayImagePreview(event.dataTransfer.files[0]);
+		inputPhoto.files = event.dataTransfer.files;
 	}
-  });
-  
-  function displayImagePreview(file) {
+});
+
+function displayImagePreview(file) {
 	var reader = new FileReader();
-	reader.onload = function() {
-	  var output = document.getElementById('image-preview');
-	  output.src = reader.result;
-	  output.style.display = 'block';
+	reader.onload = function () {
+		var output = document.getElementById('image-preview');
+		output.src = reader.result;
+		output.style.display = 'block';
 	}
 	reader.readAsDataURL(file);
-  }
+}
 
-document.getElementById('photo').addEventListener('change', function(event) {
+document.getElementById('photo').addEventListener('change', function (event) {
 	var reader = new FileReader();
-	reader.onload = function() {
-	  var output = document.getElementById('image-preview');
-	  output.src = reader.result;
-	  output.style.display = 'block';
+	reader.onload = function () {
+		var output = document.getElementById('image-preview');
+		output.src = reader.result;
+		output.style.display = 'block';
 	}
 	reader.readAsDataURL(event.target.files[0]);
-  });
-  
+});
+
 

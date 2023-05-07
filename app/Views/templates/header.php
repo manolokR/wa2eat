@@ -33,7 +33,7 @@
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"
     integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
   <script src="js/main.js"></script>
-  
+
 
 </head>
 
@@ -55,15 +55,15 @@
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
 
+    <!-- Barra de búsqueda -->
     <div class="search-bar">
-  <form class="search-form d-flex align-items-center" method="POST" action="#">
-    <input type="text" id="search-query" name="query" placeholder="Buscar por receta..."
-      title="Enter search keyword">
-  </form>
-  <div id="recipe_dropdown" class="recipe-dropdown">
-    <ul id="recipe_list" class="recipe-list list-unstyled"></ul>
-  </div>
-</div>
+      <form class="search-form d-flex align-items-center" method="POST" action="#">
+        <input type="text" id="search-query" name="query" placeholder="Buscar por receta..."
+          title="Enter search keyword" >
+      </form>  
+      <ul id="recipe_list" class="ingredients-list list-unstyled"></ul>
+    </div>
+    <!-- Fin barra de búsqueda -->
 
 
 
@@ -155,3 +155,162 @@
     </nav><!-- End Icons Navigation -->
 
   </header><!-- End Header -->
+
+  <!-- ======= Sidebar ======= -->
+<aside id="sidebar" class="sidebar">
+
+<ul class="sidebar-nav" id="sidebar-nav">
+
+    <li class="nav-item">
+        <a class="nav-link " href="index.html">
+            <i class="bi bi-grid"></i>
+            <span>Recetas</span>
+        </a>
+    </li><!-- End Dashboard Nav -->
+
+
+    <!-- Filtro 1-->
+    <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+            <i class="bi bi-layout-text-window-reverse"></i><span>Filtro Vegano</span><i
+                class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+            <!--Contenido del dropdown-->
+            <ul class="vegan-cboxtags">
+                <li>
+                    <input type="checkbox" id="checkboxOne" value="Order one">
+                    <label for="checkboxOne">Recetas Veganas </label>
+                </li>
+               
+            </ul>
+        </ul>
+    </li><!-- Fin Filtro 1 -->
+
+    <!-- Filtro 1-->
+    <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#tables-nav2" data-bs-toggle="collapse" href="#">
+            <i class="bi bi-layout-text-window-reverse"></i><span>Filtro 2</span><i
+                class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="tables-nav2" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+            <!--Contenido del dropdown-->
+            <ul class="indian-cboxtags">
+                <li>
+                    <input type="checkbox" id="checkboxFour" value="Order four">
+                    <label for="checkboxFour">India </label>
+                </li>
+            </ul>
+
+            <ul class="french-cboxtags">
+                <li>
+                    <input type="checkbox" id="checkboxFive" value="Order five">
+                    <label for="checkboxFive">Francia </label>
+                </li>
+            </ul>
+            <ul class="chinese-cboxtags">
+                <li>
+                    <input type="checkbox" id="checkboxSix" value="Order six">
+                    <label for="checkboxSix">China </label>
+                </li>
+            </ul>
+
+            <ul class="mexican-cboxtags">
+                <li>
+                    <input type="checkbox" id="checkboxSeven" value="Order seven">
+                    <label for="checkboxSeven">México </label>
+                </li>
+            </ul>
+
+            <ul class="spanish-cboxtags">
+                <li>
+                    <input type="checkbox" id="checkboxEight" value="Order eigth">
+                    <label for="checkboxEight">España </label>
+                </li>
+            </ul>
+
+            <ul class="japanese-cboxtags">
+                <li>
+                    <input type="checkbox" id="checkboxNine" value="Order nine">
+                    <label for="checkboxNine">Japón </label>
+                </li>
+            </ul>
+
+
+        </ul>
+    </li><!-- Fin Filtro 1 -->
+
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#tables-nav3" data-bs-toggle="collapse" href="#">
+            <i class="bi bi-layout-text-window-reverse"></i><span>Estaciones</span><i
+                class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="tables-nav3" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+            <!--Contenido del dropdown-->
+            <ul class="winter-cboxtags">
+                <li>
+                    <input type="checkbox" id="checkboxTen" value="Order ten">
+                    <label for="checkboxTen">Invierno </label>
+                </li>
+            </ul>
+
+            <ul class="spring-cboxtags">
+                <li>
+                    <input type="checkbox" id="checkboxEleven" value="Order eleven">
+                    <label for="checkboxEleven">Primavera </label>
+                </li>
+            </ul>
+            <ul class="summer-cboxtags">
+                <li>
+                    <input type="checkbox" id="checkboxTwelve" value="Order twelve">
+                    <label for="checkboxTwelve">Verano </label>
+                </li>
+            </ul>
+
+            <ul class="autumn-cboxtags">
+                <li>
+                    <input type="checkbox" id="checkbox13" value="Order 13">
+                    <label for="checkbox13">Otoño </label>
+                </li>
+            </ul>
+
+        </ul>
+    </li><!-- Fin Filtro 1 -->
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="/insert_recipe">
+            <i class="bi bi-file-earmark"></i>
+            <span>Subir receta</span>
+        </a>
+    </li><!-- End Profile Page Nav -->
+
+
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="https://www.instagram.com/salvaperfectti/">
+            <i class="bi bi-envelope"></i>
+            <span>Contacto</span>
+        </a>
+    </li><!-- End Contact Page Nav -->
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="/login">
+            <i class="bi bi-box-arrow-in-right"></i>
+            <span>Registro/Login</span>
+
+        </a>
+    </li><!-- End Login Page Nav -->
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="http://www.homerswebpage.com/">
+            <i class="bi bi-dash-circle"></i>
+            <span>Error 404</span>
+        </a>
+    </li><!-- End Error 404 Page Nav -->
+
+
+
+</ul>
+
+</aside><!-- End Sidebar-->
