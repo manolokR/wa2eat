@@ -321,4 +321,53 @@
       }, 200);
     }
   
+
+
+
+   
+    function search_recipe(query) {
+      fetch('/search_recipe', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+              'X-Requested-With': 'XMLHttpRequest'
+          },
+          body: 'query=' + encodeURIComponent(query)
+      })
+      .then((response) => response.json())
+      .then((searchResults) => {
+          const recipeList = document.querySelector('#recipe_list');
+          recipeList.innerHTML = '';
+    
+          if (searchResults.length > 0) {
+              document.querySelector('#recipe_dropdown').style.display = 'block';
+          } else {
+              document.querySelector('#recipe_dropdown').style.display = 'none';
+          }
+    
+          searchResults.forEach((recipe) => {
+              const listItem = document.createElement('li');
+              listItem.classList.add('recipe-item');
+    
+              const nameElement = document.createElement('span');
+              nameElement.textContent = recipe.name;
+              listItem.appendChild(nameElement);
+    
+              recipeList.appendChild(listItem);
+          });
+      });
+    }
+    
+    document.addEventListener('click', function (event) {
+      if (!event.target.closest('.search-bar')) {
+          document.querySelector('#recipe_dropdown').style.display = 'none';
+      }
+    });
+    
+    document.querySelector('#search-query').addEventListener('input', function (event) {
+      search_recipe(event.target.value);
+    });
+    
+
+
   })();

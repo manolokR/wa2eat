@@ -45,5 +45,25 @@ class RecipesController extends Controller
         }
     }
 
+    //public function search_recipe() {
+        // Obtener la consulta de búsqueda desde el formulario
+     //   $query = $this->request->getVar('query');
+      
+        // Cargar el modelo de ingredientes (si no lo has hecho)
+        //$recipesModel = new \App\Models\RecipesModel();
+      
+        // Buscar ingredientes en la base de datos que coincidan con la consulta
+       // $recipes = $recipesModel->search_recipe($query);
+      
+        // Devolver los ingredientes coincidentes en formato JSON
+     //   return $this->response->setJSON($recipes);
+   // }
 
+   public function search_recipe()
+   {
+       $query = $this->request->getVar('query');
+       $recipesModel = new \App\Models\RecipesModel();
+       $recipes = $recipesModel->search_recipe($query);
+       return $this->response->setJSON($recipes);
+   }
 }

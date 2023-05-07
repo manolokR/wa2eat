@@ -44,6 +44,20 @@ class recipesModel extends Model
         return $query->getResult();
     }
     
+   /*  public function search_recipe($query)
+    {
+        if ($query) {
+            return $this->like('name', $query)->findAll();
+        }
+        return [];
+    } */
 
-
+    public function search_recipe($query)
+    {
+        if ($query) {
+            return $this->like('name', $query)->findAll();
+        }
+        return [];
+    }
+    
 }

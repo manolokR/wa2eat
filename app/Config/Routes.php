@@ -46,6 +46,9 @@ $routes->get('/insert_recipe', 'InsertRecipeController::index');
 $routes->match(['get', 'post'], '/search_ingredient', 'InsertRecipeController::search_ingredient');
 $routes->post('/insert_recipe', 'InsertRecipeController::insert_recipe');
 
+$routes->match(['get', 'post'], '/search_recipe', 'RecipesController::search_recipe');
+
+
 
 $routes->get('login','Pages::viewLogin');
 $routes->get('users','User::list');

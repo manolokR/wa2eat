@@ -417,6 +417,32 @@ h6 {
   color: #012970;
 }
 
+.recipe-dropdown {
+  position:sticky;
+  left: 0;
+  right: 0;
+  top: 100%;
+  background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 0 0 3px 3px;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+  display: none;
+}
+
+.recipe-item {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.recipe-item:hover {
+  background-color: #f8f9fa;
+}
+
+
 /*--------------------------------------------------------------
 # Header Nav
 --------------------------------------------------------------*/
