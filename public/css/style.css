@@ -360,6 +360,26 @@ h6 {
 .header .search-bar {
   min-width: 360px;
   padding: 0 20px;
+  position: relative;
+}
+
+#recipe_list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  background-color: #fff;
+  border-top: none;
+  border-radius: 0 0 .25rem .25rem;
+  padding: 0;
+  margin: 0;
+}
+
+.recipe-item {
+  cursor: pointer;
 }
 
 @media (max-width: 1199px) {
@@ -789,10 +809,7 @@ h6 {
 }
 
 /* Info Cards */
-.dashboard .info-card {
-  padding-bottom: 10px;
-}
-
+s
 .dashboard .info-card h6 {
   font-size: 28px;
   color: #012970;
@@ -902,12 +919,6 @@ h6 {
 .imagen-container img {
   margin-left: 0;
   padding-left: 0;
-}
-
-.recipe-card-link {
-  display: block;
-  text-decoration: none;
-  color: inherit;
 }
 
 .dashboard .news p {

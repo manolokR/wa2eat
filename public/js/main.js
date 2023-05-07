@@ -1,423 +1,456 @@
-/**
-* Template Name: NiceAdmin
-* Updated: Mar 09 2023 with Bootstrap v5.2.3
-* Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-(function() {
-    "use strict";
-  
-    /**
-     * Easy selector helper function
-     */
-    const select = (el, all = false) => {
-      el = el.trim()
-      if (all) {
-        return [...document.querySelectorAll(el)]
-      } else {
-        return document.querySelector(el)
-      }
-    }
-  
-    /**
-     * Easy event listener function
-     */
-    const on = (type, el, listener, all = false) => {
-      if (all) {
-        select(el, all).forEach(e => e.addEventListener(type, listener))
-      } else {
-        select(el, all).addEventListener(type, listener)
-      }
-    }
-  
-    /**
-     * Easy on scroll event listener 
-     */
-    const onscroll = (el, listener) => {
-      el.addEventListener('scroll', listener)
-    }
-  
-    /**
-     * Sidebar toggle
-     */
-    if (select('.toggle-sidebar-btn')) {
-      on('click', '.toggle-sidebar-btn', function(e) {
-        select('body').classList.toggle('toggle-sidebar')
-      })
-    }
-  
-    /**
-     * Search bar toggle
-     */
-    if (select('.search-bar-toggle')) {
-      on('click', '.search-bar-toggle', function(e) {
-        select('.search-bar').classList.toggle('search-bar-show')
-      })
-    }
-  
-    /**
-     * Navbar links active state on scroll
-     */
-    let navbarlinks = select('#navbar .scrollto', true)
-    const navbarlinksActive = () => {
-      let position = window.scrollY + 200
-      navbarlinks.forEach(navbarlink => {
-        if (!navbarlink.hash) return
-        let section = select(navbarlink.hash)
-        if (!section) return
-        if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
-          navbarlink.classList.add('active')
-        } else {
-          navbarlink.classList.remove('active')
-        }
-      })
-    }
-    window.addEventListener('load', navbarlinksActive)
-    onscroll(document, navbarlinksActive)
-  
-    /**
-     * Toggle .header-scrolled class to #header when page is scrolled
-     */
-    let selectHeader = select('#header')
-    if (selectHeader) {
-      const headerScrolled = () => {
-        if (window.scrollY > 100) {
-          selectHeader.classList.add('header-scrolled')
-        } else {
-          selectHeader.classList.remove('header-scrolled')
-        }
-      }
-      window.addEventListener('load', headerScrolled)
-      onscroll(document, headerScrolled)
-    }
-  
-    /**
-     * Back to top button
-     */
-    let backtotop = select('.back-to-top')
-    if (backtotop) {
-      const toggleBacktotop = () => {
-        if (window.scrollY > 100) {
-          backtotop.classList.add('active')
-        } else {
-          backtotop.classList.remove('active')
-        }
-      }
-      window.addEventListener('load', toggleBacktotop)
-      onscroll(document, toggleBacktotop)
-    }
-  
-  
 
 
-    /**
-     * Initiate tooltips
-     */
-    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-    var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
-      return new bootstrap.Tooltip(tooltipTriggerEl)
-    })
-  
-    /**
-     * Initiate quill editors
-     */
-    if (select('.quill-editor-default')) {
-      new Quill('.quill-editor-default', {
-        theme: 'snow'
-      });
-    }
-  
-    if (select('.quill-editor-bubble')) {
-      new Quill('.quill-editor-bubble', {
-        theme: 'bubble'
-      });
-    }
-  
-    if (select('.quill-editor-full')) {
-      new Quill(".quill-editor-full", {
-        modules: {
-          toolbar: [
-            [{
-              font: []
-            }, {
-              size: []
-            }],
-            ["bold", "italic", "underline", "strike"],
-            [{
-                color: []
-              },
-              {
-                background: []
-              }
-            ],
-            [{
-                script: "super"
-              },
-              {
-                script: "sub"
-              }
-            ],
-            [{
-                list: "ordered"
-              },
-              {
-                list: "bullet"
-              },
-              {
-                indent: "-1"
-              },
-              {
-                indent: "+1"
-              }
-            ],
-            ["direction", {
-              align: []
-            }],
-            ["link", "image", "video"],
-            ["clean"]
-          ]
-        },
-        theme: "snow"
-      });
-    }
-  
-    /**
-     * Initiate TinyMCE Editor
-     */
-    const useDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const isSmallScreen = window.matchMedia('(max-width: 1023.5px)').matches;
-  
-    tinymce.init({
-      selector: 'textarea.tinymce-editor',
-      plugins: 'preview importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount help charmap quickbars emoticons',
-      editimage_cors_hosts: ['picsum.photos'],
-      menubar: 'file edit view insert format tools table help',
-      toolbar: 'undo redo | bold italic underline strikethrough | fontfamily fontsize blocks | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | ltr rtl',
-      toolbar_sticky: true,
-      toolbar_sticky_offset: isSmallScreen ? 102 : 108,
-      autosave_ask_before_unload: true,
-      autosave_interval: '30s',
-      autosave_prefix: '{path}{query}-{id}-',
-      autosave_restore_when_empty: false,
-      autosave_retention: '2m',
-      image_advtab: true,
-      link_list: [{
-          title: 'My page 1',
-          value: 'https://www.tiny.cloud'
-        },
-        {
-          title: 'My page 2',
-          value: 'http://www.moxiecode.com'
-        }
-      ],
-      image_list: [{
-          title: 'My page 1',
-          value: 'https://www.tiny.cloud'
-        },
-        {
-          title: 'My page 2',
-          value: 'http://www.moxiecode.com'
-        }
-      ],
-      image_class_list: [{
-          title: 'None',
-          value: ''
-        },
-        {
-          title: 'Some class',
-          value: 'class-name'
-        }
-      ],
-      importcss_append: true,
-      file_picker_callback: (callback, value, meta) => {
-        /* Provide file and text for the link dialog */
-        if (meta.filetype === 'file') {
-          callback('https://www.google.com/logos/google.jpg', {
-            text: 'My text'
-          });
-        }
-  
-        /* Provide image and alt text for the image dialog */
-        if (meta.filetype === 'image') {
-          callback('https://www.google.com/logos/google.jpg', {
-            alt: 'My alt text'
-          });
-        }
-  
-        /* Provide alternative source and posted for the media dialog */
-        if (meta.filetype === 'media') {
-          callback('movie.mp4', {
-            source2: 'alt.ogg',
-            poster: 'https://www.google.com/logos/google.jpg'
-          });
-        }
+
+(function () {
+
+  const recipesSearch = document.querySelector('#search-query');
+
+  function search_recipe(query) {
+    fetch('/search_recipe', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'X-Requested-With': 'XMLHttpRequest'
       },
-      templates: [{
-          title: 'New Table',
-          description: 'creates a new table',
-          content: '<div class="mceTmpl"><table width="98%%"  border="0" cellspacing="0" cellpadding="0"><tr><th scope="col"> </th><th scope="col"> </th></tr><tr><td> </td><td> </td></tr></table></div>'
-        },
-        {
-          title: 'Starting my story',
-          description: 'A cure for writers block',
-          content: 'Once upon a time...'
-        },
-        {
-          title: 'New list with dates',
-          description: 'New List with dates',
-          content: '<div class="mceTmpl"><span class="cdate">cdate</span><br><span class="mdate">mdate</span><h2>My List</h2><ul><li></li><li></li></ul></div>'
-        }
-      ],
-      template_cdate_format: '[Date Created (CDATE): %m/%d/%Y : %H:%M:%S]',
-      template_mdate_format: '[Date Modified (MDATE): %m/%d/%Y : %H:%M:%S]',
-      height: 600,
-      image_caption: true,
-      quickbars_selection_toolbar: 'bold italic | quicklink h2 h3 blockquote quickimage quicktable',
-      noneditable_class: 'mceNonEditable',
-      toolbar_mode: 'sliding',
-      contextmenu: 'link image table',
-      skin: useDarkMode ? 'oxide-dark' : 'oxide',
-      content_css: useDarkMode ? 'dark' : 'default',
-      content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }'
-    });
-  
-    /**
-     * Initiate Bootstrap validation check
-     */
-    var needsValidation = document.querySelectorAll('.needs-validation')
-  
-    Array.prototype.slice.call(needsValidation)
-      .forEach(function(form) {
-        form.addEventListener('submit', function(event) {
-          if (!form.checkValidity()) {
-            event.preventDefault()
-            event.stopPropagation()
-          }
-  
-          form.classList.add('was-validated')
-        }, false)
-      })
-  
-    /**
-     * Initiate Datatables
-     */
-    const datatables = select('.datatable', true)
-    datatables.forEach(datatable => {
-      new simpleDatatables.DataTable(datatable);
+      body: 'query=' + encodeURIComponent(query)
     })
-  
-    /**
-     * Autoresize echart charts
-     */
-    const mainContainer = select('#main');
-    if (mainContainer) {
-      setTimeout(() => {
-        new ResizeObserver(function() {
-          select('.echart', true).forEach(getEchart => {
-            echarts.getInstanceByDom(getEchart).resize();
-          })
-        }).observe(mainContainer);
-      }, 200);
+      .then((response) => response.json())
+      .then((searchResults) => {
+        // Limpiar la lista de recetas coincidentes anterior
+        const recipeList = document.querySelector('#recipe_list');
+        recipeList.innerHTML = '';
+
+        // Agregar recetas coincidentes a la lista desplegable
+        searchResults.forEach((recipe) => {
+          const listItem = document.createElement('li');
+          listItem.classList.add('recipe-item', 'd-flex', 'align-items-center', 'p-2', 'mb-1', 'bg-light', 'rounded');
+
+
+          const nameElement = document.createElement('span');
+          nameElement.textContent = recipe.name;
+          nameElement.classList.add('recipe-name', 'flex-grow-1');
+          listItem.appendChild(nameElement);
+
+          listItem.setAttribute('data-id', recipe.id);
+          listItem.setAttribute('title', 'Haz clic para seleccionar ' + recipe.name);
+          listItem.setAttribute('href', '/recipe/' + recipe.id);
+
+          listItem.addEventListener('click', function () {
+            window.location.href = this.getAttribute('href');
+          });
+          
+
+          recipeList.appendChild(listItem);
+        });
+      });
+  }
+
+  // Agregar evento para ir a una receta cuando se seleccione
+  recipesSearch.addEventListener('input', function (event) {
+    // Llamar a la función search_recipe para buscar y mostrar recetas coincidentes
+    search_recipe(event.target.value);
+  });
+
+
+  "use strict";
+
+  /**
+   * Easy selector helper function
+   */
+  const select = (el, all = false) => {
+    el = el.trim()
+    if (all) {
+      return [...document.querySelectorAll(el)]
+    } else {
+      return document.querySelector(el)
     }
-  
+  }
 
-
-
-   /* 
-    function search_recipe(query) {
-      if (query.trim() === '') {
-        document.querySelector('#recipe_dropdown').style.display = 'none';
-        return;
-      }
-    
-      var xhr = new XMLHttpRequest();
-      xhr.open('POST', '/search_recipe', true);
-      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-      xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-      xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-          try {
-            var searchResults = JSON.parse(xhr.responseText);
-            const recipeList = document.querySelector('#recipe_list');
-            recipeList.innerHTML = '';
-    
-            if (searchResults.length > 0) {
-              document.querySelector('#recipe_dropdown').style.display = 'block';
-            } else {
-              document.querySelector('#recipe_dropdown').style.display = 'none';
-            }
-    
-            searchResults.forEach((recipe) => {
-              const listItem = document.createElement('li');
-              listItem.classList.add('recipe-item');
-    
-              const nameElement = document.createElement('span');
-              nameElement.textContent = recipe.name;
-              listItem.appendChild(nameElement);
-    
-              recipeList.appendChild(listItem);
-            });
-          } catch (error) {
-            console.error('Error parsing JSON response:', error);
-          }
-        } else if (xhr.readyState === 4) {
-          console.error('Error in request:', xhr.status, xhr.statusText);
-        }
-      };
-    
-      xhr.send('query=' + encodeURIComponent(query));
+  /**
+   * Easy event listener function
+   */
+  const on = (type, el, listener, all = false) => {
+    if (all) {
+      select(el, all).forEach(e => e.addEventListener(type, listener))
+    } else {
+      select(el, all).addEventListener(type, listener)
     }
-    
-    document.addEventListener('click', function (event) {
-      if (!event.target.closest('.search-bar')) {
-        document.querySelector('#recipe_dropdown').style.display = 'none';
+  }
+
+  /**
+   * Easy on scroll event listener 
+   */
+  const onscroll = (el, listener) => {
+    el.addEventListener('scroll', listener)
+  }
+
+  /**
+   * Sidebar toggle
+   */
+  if (select('.toggle-sidebar-btn')) {
+    on('click', '.toggle-sidebar-btn', function (e) {
+      select('body').classList.toggle('toggle-sidebar')
+    })
+  }
+
+  /**
+   * Search bar toggle
+   */
+  if (select('.search-bar-toggle')) {
+    on('click', '.search-bar-toggle', function (e) {
+      select('.search-bar').classList.toggle('search-bar-show')
+    })
+  }
+
+  /**
+   * Navbar links active state on scroll
+   */
+  let navbarlinks = select('#navbar .scrollto', true)
+  const navbarlinksActive = () => {
+    let position = window.scrollY + 200
+    navbarlinks.forEach(navbarlink => {
+      if (!navbarlink.hash) return
+      let section = select(navbarlink.hash)
+      if (!section) return
+      if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
+        navbarlink.classList.add('active')
+      } else {
+        navbarlink.classList.remove('active')
       }
+    })
+  }
+  window.addEventListener('load', navbarlinksActive)
+  onscroll(document, navbarlinksActive)
+
+  /**
+   * Toggle .header-scrolled class to #header when page is scrolled
+   */
+  let selectHeader = select('#header')
+  if (selectHeader) {
+    const headerScrolled = () => {
+      if (window.scrollY > 100) {
+        selectHeader.classList.add('header-scrolled')
+      } else {
+        selectHeader.classList.remove('header-scrolled')
+      }
+    }
+    window.addEventListener('load', headerScrolled)
+    onscroll(document, headerScrolled)
+  }
+
+  /**
+   * Back to top button
+   */
+  let backtotop = select('.back-to-top')
+  if (backtotop) {
+    const toggleBacktotop = () => {
+      if (window.scrollY > 100) {
+        backtotop.classList.add('active')
+      } else {
+        backtotop.classList.remove('active')
+      }
+    }
+    window.addEventListener('load', toggleBacktotop)
+    onscroll(document, toggleBacktotop)
+  }
+
+
+
+
+  /**
+   * Initiate tooltips
+   */
+  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+  })
+
+  /**
+   * Initiate quill editors
+   */
+  if (select('.quill-editor-default')) {
+    new Quill('.quill-editor-default', {
+      theme: 'snow'
     });
-     */
-    
-function search_recipe(query) {
-	fetch('/search_recipe', {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/x-www-form-urlencoded',
-			'X-Requested-With': 'XMLHttpRequest' // Añadir esta línea
-		},
-		body: 'query=' + encodeURIComponent(query)
-	})
-		.then((response) => response.json())
-		.then((searchResults) => {
-			// Limpiar la lista de ingredientes coincidentes anterior
-			const recipeList = document.querySelector('#recipe_dropdown');
-			recipeList.innerHTML = '';
+  }
 
-			// Agregar ingredientes coincidentes a la lista desplegable
-			searchResults.forEach((ingredient) => {
-				const listItem = document.createElement('li');
-				listItem.classList.add('recipe-item', 'd-flex', 'align-items-center', 'p-2', 'mb-1', 'bg-light', 'rounded');
+  if (select('.quill-editor-bubble')) {
+    new Quill('.quill-editor-bubble', {
+      theme: 'bubble'
+    });
+  }
 
-				
-				const nameElement = document.createElement('span');
-				nameElement.textContent = ingredient.name;
-				nameElement.classList.add('recipe-name', 'flex-grow-1');
-				listItem.appendChild(nameElement);
+  if (select('.quill-editor-full')) {
+    new Quill(".quill-editor-full", {
+      modules: {
+        toolbar: [
+          [{
+            font: []
+          }, {
+            size: []
+          }],
+          ["bold", "italic", "underline", "strike"],
+          [{
+            color: []
+          },
+          {
+            background: []
+          }
+          ],
+          [{
+            script: "super"
+          },
+          {
+            script: "sub"
+          }
+          ],
+          [{
+            list: "ordered"
+          },
+          {
+            list: "bullet"
+          },
+          {
+            indent: "-1"
+          },
+          {
+            indent: "+1"
+          }
+          ],
+          ["direction", {
+            align: []
+          }],
+          ["link", "image", "video"],
+          ["clean"]
+        ]
+      },
+      theme: "snow"
+    });
+  }
 
-				listItem.setAttribute('data-id', recipes.id);
-				listItem.setAttribute('title', 'Haz clic para seleccionar ' + recipes.name); // Añade información adicional al ingrediente
-			
-				recipeList.appendChild(listItem);
-			});
-		});
+  /**
+   * Initiate TinyMCE Editor
+   */
+  const useDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const isSmallScreen = window.matchMedia('(max-width: 1023.5px)').matches;
+
+  tinymce.init({
+    selector: 'textarea.tinymce-editor',
+    plugins: 'preview importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount help charmap quickbars emoticons',
+    editimage_cors_hosts: ['picsum.photos'],
+    menubar: 'file edit view insert format tools table help',
+    toolbar: 'undo redo | bold italic underline strikethrough | fontfamily fontsize blocks | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | ltr rtl',
+    toolbar_sticky: true,
+    toolbar_sticky_offset: isSmallScreen ? 102 : 108,
+    autosave_ask_before_unload: true,
+    autosave_interval: '30s',
+    autosave_prefix: '{path}{query}-{id}-',
+    autosave_restore_when_empty: false,
+    autosave_retention: '2m',
+    image_advtab: true,
+    link_list: [{
+      title: 'My page 1',
+      value: 'https://www.tiny.cloud'
+    },
+    {
+      title: 'My page 2',
+      value: 'http://www.moxiecode.com'
+    }
+    ],
+    image_list: [{
+      title: 'My page 1',
+      value: 'https://www.tiny.cloud'
+    },
+    {
+      title: 'My page 2',
+      value: 'http://www.moxiecode.com'
+    }
+    ],
+    image_class_list: [{
+      title: 'None',
+      value: ''
+    },
+    {
+      title: 'Some class',
+      value: 'class-name'
+    }
+    ],
+    importcss_append: true,
+    file_picker_callback: (callback, value, meta) => {
+      /* Provide file and text for the link dialog */
+      if (meta.filetype === 'file') {
+        callback('https://www.google.com/logos/google.jpg', {
+          text: 'My text'
+        });
+      }
+
+      /* Provide image and alt text for the image dialog */
+      if (meta.filetype === 'image') {
+        callback('https://www.google.com/logos/google.jpg', {
+          alt: 'My alt text'
+        });
+      }
+
+      /* Provide alternative source and posted for the media dialog */
+      if (meta.filetype === 'media') {
+        callback('movie.mp4', {
+          source2: 'alt.ogg',
+          poster: 'https://www.google.com/logos/google.jpg'
+        });
+      }
+    },
+    templates: [{
+      title: 'New Table',
+      description: 'creates a new table',
+      content: '<div class="mceTmpl"><table width="98%%"  border="0" cellspacing="0" cellpadding="0"><tr><th scope="col"> </th><th scope="col"> </th></tr><tr><td> </td><td> </td></tr></table></div>'
+    },
+    {
+      title: 'Starting my story',
+      description: 'A cure for writers block',
+      content: 'Once upon a time...'
+    },
+    {
+      title: 'New list with dates',
+      description: 'New List with dates',
+      content: '<div class="mceTmpl"><span class="cdate">cdate</span><br><span class="mdate">mdate</span><h2>My List</h2><ul><li></li><li></li></ul></div>'
+    }
+    ],
+    template_cdate_format: '[Date Created (CDATE): %m/%d/%Y : %H:%M:%S]',
+    template_mdate_format: '[Date Modified (MDATE): %m/%d/%Y : %H:%M:%S]',
+    height: 600,
+    image_caption: true,
+    quickbars_selection_toolbar: 'bold italic | quicklink h2 h3 blockquote quickimage quicktable',
+    noneditable_class: 'mceNonEditable',
+    toolbar_mode: 'sliding',
+    contextmenu: 'link image table',
+    skin: useDarkMode ? 'oxide-dark' : 'oxide',
+    content_css: useDarkMode ? 'dark' : 'default',
+    content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }'
+  });
+
+  /**
+   * Initiate Bootstrap validation check
+   */
+  var needsValidation = document.querySelectorAll('.needs-validation')
+
+  Array.prototype.slice.call(needsValidation)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+
+  /**
+   * Initiate Datatables
+   */
+  const datatables = select('.datatable', true)
+  datatables.forEach(datatable => {
+    new simpleDatatables.DataTable(datatable);
+  })
+
+  /**
+   * Autoresize echart charts
+   */
+  const mainContainer = select('#main');
+  if (mainContainer) {
+    setTimeout(() => {
+      new ResizeObserver(function () {
+        select('.echart', true).forEach(getEchart => {
+          echarts.getInstanceByDom(getEchart).resize();
+        })
+      }).observe(mainContainer);
+    }, 200);
+  }
+
+ /*  function updateRecipeList() {
+    // Obtén el estado de los checkboxes
+    var vegan = document.getElementById("checkboxOne").checked;
+    var countries = ['India', 'Francia', 'China', 'México', 'España', 'Japón'];
+    var country = '';
+    for (var i = 0; i < countries.length; i++) {
+        if (document.getElementById("checkbox" + (i + 4)).checked) {
+            country = countries[i];
+            break;
+        }
+    }
+    var seasons = ['Invierno', 'Primavera', 'Verano', 'Otoño'];
+    var season = '';
+    for (var i = 0; i < seasons.length; i++) {
+        if (document.getElementById("checkbox" + (i + 10)).checked) {
+            season = seasons[i];
+            break;
+        }
+    }
+
+    // Enviar una solicitud AJAX a tu controlador de recetas
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "/recipes/get_filtered_recipes", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) {
+            // Actualizar el contenido de la página con las recetas filtradas
+            var recipes = JSON.parse(this.responseText);
+            var recipeList = document.getElementById("recipe-list");
+            recipeList.innerHTML = ''; // Limpiar la lista de recetas
+
+            for (var i = 0; i < recipes.length; i++) {
+              var recipeHTML = generateRecipeHTML(recipes[i]);
+              recipeList.innerHTML += recipeHTML;
+          }
+        }
+    };
+    xhr.send("vegan=" + vegan + "&country=" + country + "&season=" + season);
 }
 
+function generateRecipeHTML(recipe) {
+  var recipeHTML = `
+  <div class="card info-card sales-card"
+  onclick="window.location.href='<?php echo base_url('recipe/' . $row->id); ?>'">
+  <a href="<?php echo base_url('recipe/' . $row->id); ?>">
+  </a> 
+  <div class="row flex-nowrap">
+      <div class="col-lg-3 col-md-4 col-sm-12 imagen-container">
+          <img src="<?php echo base_url('recipe/image/' . $row->id); ?>" alt=""
+              class="img-fluid rounded-start">
+      </div>
 
-// Agregar evento para agregar ingredientes cuando se presiona Enter en el campo de búsqueda
-ingredientSearch.addEventListener('search', function (event) {
-	// Llamar a la función searchIngredients para buscar y mostrar ingredientes coincidentes
-	search_recipe(event.target.value);
-});
-    
-    
+      <div class="col-lg-9 col-md-8 col-sm-12">
+          <div class="filter">
+              <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                  <li class="dropdown-header text-start">
+                      <h6>Opciones</h6>
+                  </li>
+                  <li><a class="dropdown-item" href="#">Guardar</a></li>
+                  <li><a class="dropdown-item" href="#">Compartir</a></li>
+              </ul>
+          </div>
 
-
-  })();
+          <div class="card-body">
+              <h5 class="card-title">
+                  <?php echo $row->name; ?> <span>|
+                      <?php echo $row->origin; ?>
+                  </span>
+              </h5>
+              <!--ingredientes-->
+              <?php foreach ($ingredients as $ingredient) { ?>
+                  <div class="chip" title="Cantidad: <?php echo $ingredient->amount; ?>">
+                      <img src="imagenes/ingredientes/<?php echo $ingredient->icon; ?>">
+                      <b style="font-size: 14px">
+                          <?php echo $ingredient->name; ?>
+                      </b>
+                  </div>
+              <?php } ?>
+              <!--fin ingredientes-->
+          </div>
+      </div>
+  </div>
+</div>`;
+  return recipeHTML;
+} */
+})();

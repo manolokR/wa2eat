@@ -42,9 +42,8 @@
           <select id="origin" name="origin" class="form-control">
             <option value="Española">Española</option>
             <option value="Francesa">Francesa</option>
-            <option value="Italiana">Italiana</option>
+            <option value="Italiana">Japonesa</option>
             <option value="Mexiana">Mexicana</option>
-            <option value="Americana">Americana</option>
             <option value="China">China</option>
             <option value="India">India</option>
           </select>

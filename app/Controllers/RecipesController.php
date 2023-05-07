@@ -25,7 +25,7 @@ class RecipesController extends Controller
         ];
 
         return view('templates/header', $data)
-            . view('pages/recipe_view', $data)
+            . view('pages/recipe_view')
             . view('templates/footer');
     }
 
@@ -45,25 +45,26 @@ class RecipesController extends Controller
         }
     }
 
-    //public function search_recipe() {
-        // Obtener la consulta de búsqueda desde el formulario
-     //   $query = $this->request->getVar('query');
-      
-        // Cargar el modelo de ingredientes (si no lo has hecho)
-        //$recipesModel = new \App\Models\RecipesModel();
-      
-        // Buscar ingredientes en la base de datos que coincidan con la consulta
-       // $recipes = $recipesModel->search_recipe($query);
-      
-        // Devolver los ingredientes coincidentes en formato JSON
-     //   return $this->response->setJSON($recipes);
-   // }
-
    public function search_recipe()
    {
        $query = $this->request->getVar('query');
        $recipesModel = new \App\Models\RecipesModel();
-       $recipes = $recipesModel->search_recipe($query);
+       $recipes = $recipesModel->searchRecipe($query);
        return $this->response->setJSON($recipes);
    }
+
+   // En tu controlador de recetas
+   public function get_filtered_recipes() {
+    $recipesModel = new \App\Models\RecipesModel();
+
+    $vegan = $this->request->getPost('is_vegan') == "true" ? true : false;
+    $country = $this->request->getPost('origin');
+    $season = $this->request->getPost('season');
+
+    $filtered_recipes = $recipesModel->get_filtered_recipes($vegan, $country, $season);
+
+    return $this->response->setJSON($filtered_recipes);
+}
+
+
 }
