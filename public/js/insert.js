@@ -150,3 +150,47 @@ ingredientSearch.addEventListener('input', function (event) {
 	searchIngredients(event.target.value);
 });
 
+
+var inputPhoto = document.getElementById('photo');
+var imageUploadContainer = document.querySelector('.image-upload-container');
+
+inputPhoto.addEventListener('change', function(event) {
+	displayImagePreview(event.target.files[0]);
+  });
+  
+  imageUploadContainer.addEventListener('dragover', function(event) {
+	event.preventDefault();
+	event.stopPropagation();
+	event.dataTransfer.dropEffect = 'copy';
+  });
+  
+  imageUploadContainer.addEventListener('drop', function(event) {
+	event.preventDefault();
+	event.stopPropagation();
+	if (event.dataTransfer.files.length > 0) {
+	  displayImagePreview(event.dataTransfer.files[0]);
+	  inputPhoto.files = event.dataTransfer.files;
+	}
+  });
+  
+  function displayImagePreview(file) {
+	var reader = new FileReader();
+	reader.onload = function() {
+	  var output = document.getElementById('image-preview');
+	  output.src = reader.result;
+	  output.style.display = 'block';
+	}
+	reader.readAsDataURL(file);
+  }
+
+document.getElementById('photo').addEventListener('change', function(event) {
+	var reader = new FileReader();
+	reader.onload = function() {
+	  var output = document.getElementById('image-preview');
+	  output.src = reader.result;
+	  output.style.display = 'block';
+	}
+	reader.readAsDataURL(event.target.files[0]);
+  });
+  
+

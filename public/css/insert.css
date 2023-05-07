@@ -2,67 +2,68 @@
 body {
 	font-family: Arial, sans-serif;
 	background-color: #f2f2f2;
-  }
-  
-  .container {
+}
+
+.container {
 	max-width: 800px;
 	margin: 0 auto;
 	padding: 20px;
-  }
-  
-  .my-form label {
+}
+
+.my-form label {
 	font-weight: bold;
-	color: #7d7d7d;
-  }
-  
-  .my-form input[type="text"],
-  .my-form input[type="search"],
-  .my-form textarea {
+	color: #000000;
+}
+
+.my-form input[type="text"],
+.my-form input[type="search"],
+.my-form textarea {
 	background-color: #f5f5f5;
 	border-radius: 5px;
+	border-color: #000000;
 	padding: 10px;
 	margin-bottom: 10px;
 	box-shadow: none;
 	color: #333;
-  }
-  
-  .my-form input[type="text"]:focus,
-  .my-form input[type="search"]:focus,
-  .my-form textarea:focus {
+}
+
+.my-form input[type="text"]:focus,
+.my-form input[type="search"]:focus,
+.my-form textarea:focus {
 	outline: none;
 	box-shadow: none;
 	background-color: #f2f2f2;
-  }
-  
-  .my-form input[type="checkbox"],
-  .my-form input[type="radio"] {
+}
+
+.my-form input[type="checkbox"],
+.my-form input[type="radio"] {
 	margin-right: 5px;
-  }
-  
-  .my-form .form-check-label {
+}
+
+.my-form .form-check-label {
 	color: #7d7d7d;
-  }
-  
-  .my-form select {
+}
+
+.my-form select {
 	background-color: #f5f5f5;
 	border-radius: 5px;
 	padding: 10px;
 	margin-bottom: 10px;
 	box-shadow: none;
 	color: #333;
-  }
-  
-  .my-form select:focus {
+}
+
+.my-form select:focus {
 	outline: none;
 	box-shadow: none;
 	background-color: #f2f2f2;
-  }
-  
-  .my-form input[type="file"] {
+}
+
+.my-form input[type="file"] {
 	margin-bottom: 10px;
-  }
-  
-  .my-form .btn-primary {
+}
+
+.my-form .btn-primary {
 	background-color: #8cb6e8;
 	border: none;
 	border-radius: 5px;
@@ -70,34 +71,35 @@ body {
 	font-size: 16px;
 	font-weight: bold;
 	color: #fff;
-  }
-  
-  .my-form .btn-primary:hover {
+}
+
+.my-form .btn-primary:hover {
 	background-color: #76a9d4;
 	color: #fff;
-  }
-  
-  /* Media queries */
-  @media (max-width: 576px) {
+}
+
+/* Media queries */
+@media (max-width: 576px) {
 	.container {
-	  padding: 10px;
+		padding: 10px;
 	}
-  
+
 	.my-form input[type="text"],
 	.my-form input[type="search"],
 	.my-form textarea,
 	.my-form select {
-	  font-size: 14px;
-	  padding: 8px;
+		font-size: 14px;
+		padding: 8px;
 	}
-  
+
 	.my-form .btn-primary {
-	  font-size: 14px;
-	  padding: 8px 16px;
+		font-size: 14px;
+		padding: 8px 16px;
 	}
-  }
-  /* Estilos para el botón "x" en el campo de selección de ingredientes */
-  .selected-ingredient button {
+}
+
+/* Estilos para el bot贸n "x" en el campo de selecci贸n de ingredientes */
+.selected-ingredient button {
 	background-color: #f8d7da;
 	border: none;
 	border-radius: 50%;
@@ -110,37 +112,37 @@ body {
 	padding: 0;
 	transition: background-color 0.3s ease;
 	width: 1.5rem;
-  }
-  
-  
-  .selected-ingredient button:hover {
+}
+
+
+.selected-ingredient button:hover {
 	background-color: #721c24;
 	color: #fff;
-  }
+}
 
-  /* Agregar estilos para la lista desplegable de ingredientes */
+/* Agregar estilos para la lista desplegable de ingredientes */
 .ingredients-list {
 	margin-top: 5px;
 	max-height: 200px;
 	overflow-y: auto;
-  }
-  
-  .ingredient-item {
+}
+
+.ingredient-item {
 	cursor: pointer;
 	transition: background-color 0.2s ease;
-  }
-  
-  .ingredient-item:hover {
+}
+
+.ingredient-item:hover {
 	background-color: #e2e2e2;
-  }
-  
-  .ingredient-icon {
+}
+
+.ingredient-icon {
 	width: 24px;
 	height: 24px;
-  }
-  
-  /* Estilos para el contenedor de ingredientes seleccionados */
-  .selected-ingredients-container {
+}
+
+/* Estilos para el contenedor de ingredientes seleccionados */
+.selected-ingredients-container {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 5px;
@@ -149,9 +151,9 @@ body {
 	border-radius: 0.25rem;
 	min-height: 38px;
 	align-items: center;
-  }
-  
-  .selected-ingredient {
+}
+
+.selected-ingredient {
 	display: flex;
 	align-items: center;
 	background-color: #f5f5f5;
@@ -162,22 +164,123 @@ body {
 	margin: 0 5px 5px 0;
 }
 
-/* Estilos para el botón "x" en el campo de selección de ingredientes */
+/* Estilos para el bot贸n "x" en el campo de selecci贸n de ingredientes */
 .selected-ingredient button {
-  background-color: #f8d7da;
-  border-radius: 50%;
-  color: #721c24;
-  cursor: pointer;
-  font-size: 0.8rem;
-  height: 1.5rem;
-  line-height: 0.8rem;
-  margin-left: 0.5rem;
-  padding: 0;
-  transition: background-color 0.3s ease;
-  width: 1.5rem;
+	background-color: #f8d7da;
+	border-radius: 50%;
+	color: #721c24;
+	cursor: pointer;
+	font-size: 0.8rem;
+	height: 1.5rem;
+	line-height: 0.8rem;
+	margin-left: 0.5rem;
+	padding: 0;
+	transition: background-color 0.3s ease;
+	width: 1.5rem;
 }
 
 .selected-ingredient button:hover {
-  background-color: #721c24;
-  color: #fff;
+	background-color: #721c24;
+	color: #fff;
+}
+
+
+.image-upload-container {
+	position: relative;
+	width: 100%;
+	max-width: 400px;
+	border: 2px dashed #ccc;
+	padding: 20px;
+	text-align: center;
+	cursor: pointer;
+	margin-bottom: 20px;
+}
+
+.image-upload-label {
+	font-size: 18px;
+	color: #999;
+}
+
+#image-preview {
+	width: 100%;
+	max-width: 400px;
+	height: auto;
+	margin-top: 10px;
+}
+
+
+.form-content {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.name-input {
+	border: none;
+	border-bottom: 1px solid #ccc;
+	background-color: transparent;
+	font-size: 2rem;
+	font-weight: bold;
+	text-align: center;
+	padding: 5px 0;
+	outline: none;
+	width: 100%;
+	max-width: 400px;
+}
+
+.name-input:focus {
+	border-bottom-color: #000;
+}
+
+.name-group {
+	flex: 1;
+	margin-right: 20px;
+}
+
+.photo-group {
+	flex: 1;
+	margin-left: 20px;
+}
+
+.form-row {
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
+}
+
+.left,
+.right {
+	width: 49%;
+}
+
+.three-fields {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.three-fields .form-group {
+	width: 32%;
+}
+
+
+/* Estilos para el chip vegano */
+.vegan-chip {
+	display: inline-flex;
+	align-items: center;
+	padding: 4px 12px;
+	font-size: 14px;
+	font-weight: 600;
+	background-color: #f0f0f0;
+	border-radius: 24px;
+	cursor: pointer;
+	user-select: none;
+}
+
+.vegan-chip.selected {
+	background-color: #4caf50;
+	color: #ffffff;
 }

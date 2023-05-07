@@ -324,28 +324,31 @@
 
 
 
-   
+   /* 
     function search_recipe(query) {
-      fetch('/search_recipe', {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/x-www-form-urlencoded',
-              'X-Requested-With': 'XMLHttpRequest'
-          },
-          body: 'query=' + encodeURIComponent(query)
-      })
-      .then((response) => response.json())
-      .then((searchResults) => {
-          const recipeList = document.querySelector('#recipe_list');
-          recipeList.innerHTML = '';
+      if (query.trim() === '') {
+        document.querySelector('#recipe_dropdown').style.display = 'none';
+        return;
+      }
     
-          if (searchResults.length > 0) {
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', '/search_recipe', true);
+      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          try {
+            var searchResults = JSON.parse(xhr.responseText);
+            const recipeList = document.querySelector('#recipe_list');
+            recipeList.innerHTML = '';
+    
+            if (searchResults.length > 0) {
               document.querySelector('#recipe_dropdown').style.display = 'block';
-          } else {
+            } else {
               document.querySelector('#recipe_dropdown').style.display = 'none';
-          }
+            }
     
-          searchResults.forEach((recipe) => {
+            searchResults.forEach((recipe) => {
               const listItem = document.createElement('li');
               listItem.classList.add('recipe-item');
     
@@ -354,19 +357,66 @@
               listItem.appendChild(nameElement);
     
               recipeList.appendChild(listItem);
-          });
-      });
+            });
+          } catch (error) {
+            console.error('Error parsing JSON response:', error);
+          }
+        } else if (xhr.readyState === 4) {
+          console.error('Error in request:', xhr.status, xhr.statusText);
+        }
+      };
+    
+      xhr.send('query=' + encodeURIComponent(query));
     }
     
     document.addEventListener('click', function (event) {
       if (!event.target.closest('.search-bar')) {
-          document.querySelector('#recipe_dropdown').style.display = 'none';
+        document.querySelector('#recipe_dropdown').style.display = 'none';
       }
     });
+     */
     
-    document.querySelector('#search-query').addEventListener('input', function (event) {
-      search_recipe(event.target.value);
-    });
+function search_recipe(query) {
+	fetch('/search_recipe', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/x-www-form-urlencoded',
+			'X-Requested-With': 'XMLHttpRequest' // Añadir esta línea
+		},
+		body: 'query=' + encodeURIComponent(query)
+	})
+		.then((response) => response.json())
+		.then((searchResults) => {
+			// Limpiar la lista de ingredientes coincidentes anterior
+			const recipeList = document.querySelector('#recipe_dropdown');
+			recipeList.innerHTML = '';
+
+			// Agregar ingredientes coincidentes a la lista desplegable
+			searchResults.forEach((ingredient) => {
+				const listItem = document.createElement('li');
+				listItem.classList.add('recipe-item', 'd-flex', 'align-items-center', 'p-2', 'mb-1', 'bg-light', 'rounded');
+
+				
+				const nameElement = document.createElement('span');
+				nameElement.textContent = ingredient.name;
+				nameElement.classList.add('recipe-name', 'flex-grow-1');
+				listItem.appendChild(nameElement);
+
+				listItem.setAttribute('data-id', recipes.id);
+				listItem.setAttribute('title', 'Haz clic para seleccionar ' + recipes.name); // Añade información adicional al ingrediente
+			
+				recipeList.appendChild(listItem);
+			});
+		});
+}
+
+
+// Agregar evento para agregar ingredientes cuando se presiona Enter en el campo de búsqueda
+ingredientSearch.addEventListener('search', function (event) {
+	// Llamar a la función searchIngredients para buscar y mostrar ingredientes coincidentes
+	search_recipe(event.target.value);
+});
+    
     
 
 
