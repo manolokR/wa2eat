@@ -11,7 +11,7 @@ class UserModel extends Model
     protected $returnType = 'object'; # 'object' or 'array'
     protected $useSoftDeletes = false; # true if you expect to recover data
 # Fields that can be set during save, insert, or update methods
-    protected $allowedFields = ['email', 'username', 'password'];
+    protected $allowedFields = ['email', 'username', 'password','photo'];
     protected $useTimestamps = false; # no timestamps on inserts and updates
 # Do not use validations rules (for the time being...)
     protected $validationRules = [];

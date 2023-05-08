@@ -62,16 +62,18 @@
           </select>
         </div>
 
+
+        <!-- Opción vegana -->
+        <div class="form-group col-md-4">
+          <label for="is_vegan" class="chip-label">Vegana</label>
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="is_vegan" name="is_vegan">
+            <label class="custom-control-label chip" for="is_vegan"></label>
+          </div>
+        </div>
+
       </div>
 
-      <!-- Opción vegana -->
-      <div class="form-group col-md-4">
-        <label for="is_vegan" class="chip-label">Vegana</label>
-        <div class="custom-control custom-switch">
-          <input type="checkbox" class="custom-control-input" id="is_vegan" name="is_vegan">
-          <label class="custom-control-label chip" for="is_vegan"></label>
-        </div>
-      </div>
 
       <!-- Seleccionar ingredientes -->
       <label>Ingredientes:</label>
@@ -112,13 +114,17 @@
         </div>
       </div>
 
-      <div class="form-group">
-        <label for="link">Ingrese el enlace del video:</label>
-        <input type="text" id="link" name="link" class="form-control"
-          placeholder="ej: https://www.youtube.com/watch?v=cks8liHVdZg">
-      </div>
+      <!-- Añadir ingrediente -->
+      <h5>¿No ves tu ingrediente en la lista?
 
-      <input type="submit" value="Subir receta" class="btn btn-primary">
+        <!-- Seleccionar enlace de video-->
+        <div class="form-group">
+          <label for="link">Ingrese el enlace del video:</label>
+          <input type="text" id="link" name="link" class="form-control"
+            placeholder="ej: https://www.youtube.com/watch?v=cks8liHVdZg">
+        </div>
+
+        <input type="submit" value="Subir receta" class="btn btn-primary">
     </form>
 
     <script src="<?= base_url("js/insert.js") ?>"></script>

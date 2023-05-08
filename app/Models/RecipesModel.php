@@ -11,7 +11,7 @@ class RecipesModel extends Model
     protected $returnType = 'object'; # 'object' or 'array'
     protected $useSoftDeletes = false; # true if you expect to recover data
 # Fields that can be set during save, insert, or update methods
-    protected $allowedFields = ['id', 'name', 'season', 'origin', 'photo', 'is_vegan', 'description', 'instructions', 'link'];
+    protected $allowedFields = ['id', 'name', 'season', 'origin', 'photo', 'is_vegan', 'description', 'instructions', 'link', 'email_user'];
     protected $useTimestamps = false; # no timestamps on inserts and updates
 # Do not use validations rules (for the time being...)
     protected $validationRules = [];
@@ -19,7 +19,7 @@ class RecipesModel extends Model
     protected $skipValidation = false;
 
 
-    public function saveRecipe($id, $name, $season, $origin, $photo, $is_vegan, $description, $instructions, $link)
+    public function saveRecipe($id, $name, $season, $origin, $photo, $is_vegan, $description, $instructions, $link, $email_user)
     {
         $data = [
             'id' => $id,
@@ -31,6 +31,7 @@ class RecipesModel extends Model
             'description' => $description,
             'instructions' => $instructions,
             'link' => $link,
+            'email_user' => $email_user
         ];
         return $this->insert($data);
     }
@@ -57,9 +58,9 @@ class RecipesModel extends Model
         return [];
     }
 
-
-
-
-
+    public function deleteRecipe($id) {
+        return $this->delete($id);
+    }
+    
 
 }

@@ -2,6 +2,9 @@
 <html lang="en">
 
 <head>
+  <!-- Sesión -->
+  <?php $session = session(); ?>
+
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
@@ -59,8 +62,8 @@
     <div class="search-bar">
       <form class="search-form d-flex align-items-center" method="POST" action="#">
         <input type="text" id="search-query" name="query" placeholder="Buscar por receta..."
-          title="Enter search keyword" >
-      </form>  
+          title="Enter search keyword">
+      </form>
       <ul id="recipe_list" class="ingredients-list list-unstyled"></ul>
     </div>
     <!-- Fin barra de búsqueda -->
@@ -86,8 +89,12 @@
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="<?= base_url("imagenes/profile.png") ?>" alt="Profile" class="rounded-circle">
 
+            <?php if ($session->has('user') && !is_null($session->get('user')->photo)): ?>
+              <img src="data:image/jpeg;base64,<?= base64_encode($session->get('user')->photo) ?>" alt="Profile" class="rounded-circle">
+            <?php else: ?>
+              <img src="<?= base_url("imagenes/profile.png") ?>" alt="Profile" class="rounded-circle">
+            <?php endif; ?>
 
 
             <span class="d-none d-md-block dropdown-toggle ps-2">
@@ -98,55 +105,67 @@
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
               <h6>
-                <?php
-                if (isset($usuario)) {
-                  echo $usuario->username;
-                } else {
-                  echo "Usuario sin registrar";
-                }
-                ?>
+                <!-- Comprobar inicio de sesión-->
+                <?php if ($session->has('logged_in')): ?>
+                  <!-- Si usuario logueado -->
+                  <p>
+                    <?= $session->get('user')->username; ?>
+                  </p>
+                <?php else: ?>
+                  <!-- Si usuario no logueado -->
+                  <p>Usuario sin registrar</p>
+                <?php endif; ?>
               </h6>
             </li>
             <li>
               <hr class="dropdown-divider">
             </li>
 
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                <i class="bi bi-person"></i>
-                <span>Mi perfil</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
 
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                <i class="bi bi-gear"></i>
-                <span>Ajustes de cuenta</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+            <?php if ($session->has('logged_in')): ?>
+              <!-- OPCIONES USUARIOS LOGUEADOS -->
+              <!-- COMPROBAR ADMIN -->
+              <?php if ($session->get('user')->rol == 2): ?>
+                <li>
+                  <a class="dropdown-item d-flex align-items-center" href="/users">
+                    <i class="bi bi-gear"></i>
+                    <span>Panel Administrador</span>
+                  </a>
+                </li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+              <?php endif; ?>
+              <!-- FIN OPCIÓN ADMIN -->
 
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
-                <i class="bi bi-question-circle"></i>
-                <span>¿Necesitas ayuda?</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
-                <i class="bi bi-box-arrow-right"></i>
-                <span>Cerrar sesión</span>
-              </a>
-            </li>
+              <li>
+                <a class="dropdown-item d-flex align-items-center" href="/profile">
+                  <i class="bi bi-person"></i>
+                  <span>Mi perfil</span>
+                </a>
+              </li>
+              <li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li>
+                <a class="dropdown-item d-flex align-items-center" href="/logout">
+                  <i class="bi bi-box-arrow-right"></i>
+                  <span>Cerrar sesion</span>
+                </a>
+              </li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+            <?php else: ?>
+              <!-- OPCIONES USUARIOS SIN REGISTRAR -->
+              <li>
+                <a class="dropdown-item d-flex align-items-center" href="login">
+                  <i class="bi bi-question-circle"></i>
+                  <span>Registro/Login</span>
+                </a>
+              </li>
+            <?php endif; ?>
 
           </ul><!-- End Profile Dropdown Items -->
         </li><!-- End Profile Nav -->
@@ -157,160 +176,155 @@
   </header><!-- End Header -->
 
   <!-- ======= Sidebar ======= -->
-<aside id="sidebar" class="sidebar">
+  <aside id="sidebar" class="sidebar">
 
-<ul class="sidebar-nav" id="sidebar-nav">
+    <ul class="sidebar-nav" id="sidebar-nav">
 
-    <li class="nav-item">
-        <a class="nav-link " href="index.html">
-            <i class="bi bi-grid"></i>
-            <span>Recetas</span>
+      <li class="nav-item">
+        <a class="nav-link " href="/home">
+          <i class="bi bi-grid"></i>
+          <span>Recetas</span>
         </a>
-    </li><!-- End Dashboard Nav -->
+      </li><!-- End Dashboard Nav -->
 
 
-    <!-- Filtro 1-->
-    <li class="nav-item">
+      <!-- Filtro 1-->
+      <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-            <i class="bi bi-layout-text-window-reverse"></i><span>Filtro Vegano</span><i
-                class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-layout-text-window-reverse"></i><span>Filtro Vegano</span><i
+            class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-            <!--Contenido del dropdown-->
-            <ul class="vegan-cboxtags">
-                <li>
-                    <input type="checkbox" id="checkboxOne" value="Order one">
-                    <label for="checkboxOne">Recetas Veganas </label>
-                </li>
-               
-            </ul>
+          <!--Contenido del dropdown-->
+          <ul class="vegan-cboxtags">
+            <li>
+              <input type="checkbox" id="checkboxOne" value="Order one">
+              <label for="checkboxOne">Recetas Veganas </label>
+            </li>
+          </ul>
         </ul>
-    </li><!-- Fin Filtro 1 -->
+      </li><!-- Fin Filtro 1 -->
 
-    <!-- Filtro 1-->
-    <li class="nav-item">
+      <!-- Filtro 1-->
+      <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#tables-nav2" data-bs-toggle="collapse" href="#">
-            <i class="bi bi-layout-text-window-reverse"></i><span>Filtro 2</span><i
-                class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-layout-text-window-reverse"></i><span>Filtro Origen</span><i
+            class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="tables-nav2" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-            <!--Contenido del dropdown-->
-            <ul class="indian-cboxtags">
-                <li>
-                    <input type="checkbox" id="checkboxFour" value="Order four">
-                    <label for="checkboxFour">India </label>
-                </li>
-            </ul>
+          <!--Contenido del dropdown-->
+          <ul class="indian-cboxtags">
+            <li>
+              <input type="checkbox" id="checkboxFour" value="Order four">
+              <label for="checkboxFour">India </label>
+            </li>
+          </ul>
 
-            <ul class="french-cboxtags">
-                <li>
-                    <input type="checkbox" id="checkboxFive" value="Order five">
-                    <label for="checkboxFive">Francia </label>
-                </li>
-            </ul>
-            <ul class="chinese-cboxtags">
-                <li>
-                    <input type="checkbox" id="checkboxSix" value="Order six">
-                    <label for="checkboxSix">China </label>
-                </li>
-            </ul>
+          <ul class="french-cboxtags">
+            <li>
+              <input type="checkbox" id="checkboxFive" value="Order five">
+              <label for="checkboxFive">Francia </label>
+            </li>
+          </ul>
+          <ul class="chinese-cboxtags">
+            <li>
+              <input type="checkbox" id="checkboxSix" value="Order six">
+              <label for="checkboxSix">China </label>
+            </li>
+          </ul>
 
-            <ul class="mexican-cboxtags">
-                <li>
-                    <input type="checkbox" id="checkboxSeven" value="Order seven">
-                    <label for="checkboxSeven">México </label>
-                </li>
-            </ul>
+          <ul class="mexican-cboxtags">
+            <li>
+              <input type="checkbox" id="checkboxSeven" value="Order seven">
+              <label for="checkboxSeven">México </label>
+            </li>
+          </ul>
 
-            <ul class="spanish-cboxtags">
-                <li>
-                    <input type="checkbox" id="checkboxEight" value="Order eigth">
-                    <label for="checkboxEight">España </label>
-                </li>
-            </ul>
+          <ul class="spanish-cboxtags">
+            <li>
+              <input type="checkbox" id="checkboxEight" value="Order eigth">
+              <label for="checkboxEight">España </label>
+            </li>
+          </ul>
 
-            <ul class="japanese-cboxtags">
-                <li>
-                    <input type="checkbox" id="checkboxNine" value="Order nine">
-                    <label for="checkboxNine">Japón </label>
-                </li>
-            </ul>
+          <ul class="japanese-cboxtags">
+            <li>
+              <input type="checkbox" id="checkboxNine" value="Order nine">
+              <label for="checkboxNine">Japón </label>
+            </li>
+          </ul>
 
 
         </ul>
-    </li><!-- Fin Filtro 1 -->
+      </li><!-- Fin Filtro Origen -->
 
 
-    <li class="nav-item">
+      <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#tables-nav3" data-bs-toggle="collapse" href="#">
-            <i class="bi bi-layout-text-window-reverse"></i><span>Estaciones</span><i
-                class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-layout-text-window-reverse"></i><span>Filtro Temporada</span><i
+            class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="tables-nav3" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-            <!--Contenido del dropdown-->
-            <ul class="winter-cboxtags">
-                <li>
-                    <input type="checkbox" id="checkboxTen" value="Order ten">
-                    <label for="checkboxTen">Invierno </label>
-                </li>
-            </ul>
+          <!--Contenido del dropdown-->
+          <ul class="winter-cboxtags">
+            <li>
+              <input type="checkbox" id="checkboxTen" value="Order ten">
+              <label for="checkboxTen">Invierno </label>
+            </li>
+          </ul>
 
-            <ul class="spring-cboxtags">
-                <li>
-                    <input type="checkbox" id="checkboxEleven" value="Order eleven">
-                    <label for="checkboxEleven">Primavera </label>
-                </li>
-            </ul>
-            <ul class="summer-cboxtags">
-                <li>
-                    <input type="checkbox" id="checkboxTwelve" value="Order twelve">
-                    <label for="checkboxTwelve">Verano </label>
-                </li>
-            </ul>
+          <ul class="spring-cboxtags">
+            <li>
+              <input type="checkbox" id="checkboxEleven" value="Order eleven">
+              <label for="checkboxEleven">Primavera </label>
+            </li>
+          </ul>
+          <ul class="summer-cboxtags">
+            <li>
+              <input type="checkbox" id="checkboxTwelve" value="Order twelve">
+              <label for="checkboxTwelve">Verano </label>
+            </li>
+          </ul>
 
-            <ul class="autumn-cboxtags">
-                <li>
-                    <input type="checkbox" id="checkbox13" value="Order 13">
-                    <label for="checkbox13">Otoño </label>
-                </li>
-            </ul>
+          <ul class="autumn-cboxtags">
+            <li>
+              <input type="checkbox" id="checkbox13" value="Order 13">
+              <label for="checkbox13">Otoño </label>
+            </li>
+          </ul>
 
         </ul>
-    </li><!-- Fin Filtro 1 -->
+      </li><!-- Fin Filtro Estaciones -->
 
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="/insert_recipe">
+
+
+      <?php if ($session->has('logged_in')): ?>
+        <!-- Si usuario logueado -->
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="/insert_recipe">
             <i class="bi bi-file-earmark"></i>
             <span>Subir receta</span>
-        </a>
-    </li><!-- End Profile Page Nav -->
+          </a>
+        </li>
 
-
-
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="https://www.instagram.com/salvaperfectti/">
-            <i class="bi bi-envelope"></i>
-            <span>Contacto</span>
-        </a>
-    </li><!-- End Contact Page Nav -->
-
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="/login">
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="/myrecipes">
+            <i class="bi bi-card-list"></i>
+            <span>Mis recetas</span>
+          </a>
+        </li>
+      <?php else: ?>
+        <!-- Si usuario no logueado -->
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="/login">
             <i class="bi bi-box-arrow-in-right"></i>
             <span>Registro/Login</span>
-
-        </a>
-    </li><!-- End Login Page Nav -->
-
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="http://www.homerswebpage.com/">
-            <i class="bi bi-dash-circle"></i>
-            <span>Error 404</span>
-        </a>
-    </li><!-- End Error 404 Page Nav -->
+          </a>
+        </li>
+      <?php endif; ?>
 
 
 
-</ul>
+    </ul>
 
-</aside><!-- End Sidebar-->
+  </aside><!-- End Sidebar-->
