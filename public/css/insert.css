@@ -266,6 +266,38 @@ body {
 	width: 32%;
 }
 
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.form-row > .form-group {
+    flex: 1;
+    padding: 0 15px;
+}
+
+.form-row > .form-group:first-child {
+    padding-left: 0;
+}
+
+.form-row > .form-group:last-child {
+    padding-right: 0;
+}
+
+.label-centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 
 /* Estilos para el chip vegano */
 .vegan-chip {

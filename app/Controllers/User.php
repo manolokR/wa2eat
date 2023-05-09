@@ -27,7 +27,8 @@ class User extends BaseController
     }
 
 
-    public function loginAjax(){
+    public function loginAjax()
+    {
         $validation = \Config\Services::validation();
         $rules = [
             "email" => [
@@ -41,7 +42,7 @@ class User extends BaseController
                 //"rules" => "required|min_length[8]|max_length[20]"
             ]
         ];
-        
+
         $session = session();
         $userModel = model('UserModel');
 
@@ -56,18 +57,18 @@ class User extends BaseController
                     return $this->response->setStatusCode(200)->setJSON([
                         'text' => 'Usuario logeado'
                     ]);
-                            } else {
+                } else {
                     return $this->response->setStatusCode(403)->setJSON([
                         'text' => 'Usuario no logeado'
                     ]);
                 }
             } else {
                 return $this->output->set_content_type('application/json')
-                ->set_status_header(400)
-                ->set_output(json_encode([
-                    'text' => 'Email o pasword incorrecto'
-                ]));
-        }
+                    ->set_status_header(400)
+                    ->set_output(json_encode([
+                        'text' => 'Email o pasword incorrecto'
+                    ]));
+            }
         }
         return $this->response->setStatusCode(400)->setJSON([
             'text' => 'Solo se aceptan post request'
@@ -77,12 +78,7 @@ class User extends BaseController
     }
     public function user_ok()
     {
-        $session = session();
-        $usuario = $session->__get('user');
-        $data['usuario'] = $usuario;
-        $userModel = model('UserModel');
-
-        return view('templates/header',$data)
+        return view('templates/header')
             . view('pages/home')
             . view('templates/footer');
     }
@@ -90,7 +86,10 @@ class User extends BaseController
 
     public function logout()
     {
-        # To Do.
+        $session = session();
+        $session->destroy();
+        return redirect()->to('/login');
+
     }
 
     public function unauthorized()
@@ -101,7 +100,7 @@ class User extends BaseController
     }
 
     public function registerAjax()
-    {   
+    {
         $validation = \Config\Services::validation();
         $rules = [
             "username" => [
@@ -128,10 +127,13 @@ class User extends BaseController
                 $name = $this->request->getVar('username');
                 $email = $this->request->getVar('email');
                 $password = $this->request->getVar('password');
+                $role = $this->request->getVar('rol');
                 $userData = [
                     'username' => $name,
                     'email' => $email,
                     'password' => password_hash($password, PASSWORD_DEFAULT),
+                    'rol' => $role,
+                    'photo' => null
                 ];
                 $userModel->saveUser($email, $name, $password);
                 $newUser = $userModel->authenticate($email, $password);
@@ -162,6 +164,50 @@ class User extends BaseController
             'text' => 'Solo se aceptan post request'
         ]);
     }
+
+
+    public function show_name($email)
+    {
+        $userModel = new \App\Models\UserModel();
+        $user = $userModel->find($email);
+
+        if ($user) {
+            return $user->username;
+        }
+        return false;
+    }
+
+
+    public function personalRecipes()
+    {
+        return view('templates/header')
+            . view('pages/userRecipes')
+            . view('templates/footer');
+    }
+
+    public function myprofile()
+    {
+        return view('templates/header')
+            . view('pages/profile_view')
+            . view('templates/footer');
+    }
+
+    public function changeProfilePhoto()
+    {
+        $session = \Config\Services::session();
+        $email = $session->get('user')->email;
+        $userModel = new UserModel();
+
+        $photo = $this->request->getFile('photo');
+        if ($photo->isValid() && !$photo->hasMoved()) {
+            $photoBlob = file_get_contents($photo->getRealPath());
+            $data['photo'] = $photoBlob;
+            $userModel->update($email, $data);
+        }
+
+        return redirect()->to('/perfil');
+    }
+
 
 
 

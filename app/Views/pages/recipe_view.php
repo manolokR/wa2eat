@@ -76,6 +76,12 @@ function getYoutubeVideoId($url)
         width: 100%;
         height: 100%;
     }
+
+    #profile-pic {
+        border-radius: 10px;
+        width: 25px;
+        height: 25px;
+    }
 </style>
 
 <main id="main" class="main">
@@ -93,6 +99,22 @@ function getYoutubeVideoId($url)
             <p>
                 <?php echo $recipe->description; ?>
             </p>
+
+            <div class="recipe-header">
+                <p>Receta subida por:
+                    <b>
+                        <?= $username ?>
+
+                        <?php if (empty($photoUser)): ?>
+                            <img src="<?= base_url("imagenes/profile.png") ?>" alt="Profile" id="profile-pic">
+                        <?php else: ?>
+                            <img src="data:image/jpeg;base64,<?= base64_encode($photoUser) ?>" alt="Profile"
+                                id="profile-pic">
+                        <?php endif; ?>
+
+                    </b>
+                </p>
+            </div>
 
             <h2>Ingredientes</h2>
             <ul class="ingredient-list">

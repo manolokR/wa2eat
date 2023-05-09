@@ -367,90 +367,59 @@
     }, 200);
   }
 
- /*  function updateRecipeList() {
-    // Obtén el estado de los checkboxes
-    var vegan = document.getElementById("checkboxOne").checked;
-    var countries = ['India', 'Francia', 'China', 'México', 'España', 'Japón'];
-    var country = '';
-    for (var i = 0; i < countries.length; i++) {
-        if (document.getElementById("checkbox" + (i + 4)).checked) {
-            country = countries[i];
-            break;
-        }
-    }
-    var seasons = ['Invierno', 'Primavera', 'Verano', 'Otoño'];
-    var season = '';
-    for (var i = 0; i < seasons.length; i++) {
-        if (document.getElementById("checkbox" + (i + 10)).checked) {
-            season = seasons[i];
-            break;
-        }
-    }
 
-    // Enviar una solicitud AJAX a tu controlador de recetas
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", "/recipes/get_filtered_recipes", true);
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xhr.onreadystatechange = function() {
-        if (this.readyState === 4 && this.status === 200) {
-            // Actualizar el contenido de la página con las recetas filtradas
-            var recipes = JSON.parse(this.responseText);
-            var recipeList = document.getElementById("recipe-list");
-            recipeList.innerHTML = ''; // Limpiar la lista de recetas
 
-            for (var i = 0; i < recipes.length; i++) {
-              var recipeHTML = generateRecipeHTML(recipes[i]);
-              recipeList.innerHTML += recipeHTML;
-          }
-        }
-    };
-    xhr.send("vegan=" + vegan + "&country=" + country + "&season=" + season);
-}
 
-function generateRecipeHTML(recipe) {
-  var recipeHTML = `
-  <div class="card info-card sales-card"
-  onclick="window.location.href='<?php echo base_url('recipe/' . $row->id); ?>'">
-  <a href="<?php echo base_url('recipe/' . $row->id); ?>">
-  </a> 
-  <div class="row flex-nowrap">
-      <div class="col-lg-3 col-md-4 col-sm-12 imagen-container">
-          <img src="<?php echo base_url('recipe/image/' . $row->id); ?>" alt=""
-              class="img-fluid rounded-start">
-      </div>
+  /* 
+   function search_recipe(query) {
+     if (query.trim() === '') {
+       document.querySelector('#recipe_dropdown').style.display = 'none';
+       return;
+     }
+   
+     var xhr = new XMLHttpRequest();
+     xhr.open('POST', '/search_recipe', true);
+     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+     xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+     xhr.onreadystatechange = function () {
+       if (xhr.readyState === 4 && xhr.status === 200) {
+         try {
+           var searchResults = JSON.parse(xhr.responseText);
+           const recipeList = document.querySelector('#recipe_list');
+           recipeList.innerHTML = '';
+   
+           if (searchResults.length > 0) {
+             document.querySelector('#recipe_dropdown').style.display = 'block';
+           } else {
+             document.querySelector('#recipe_dropdown').style.display = 'none';
+           }
+   
+           searchResults.forEach((recipe) => {
+             const listItem = document.createElement('li');
+             listItem.classList.add('recipe-item');
+   
+             const nameElement = document.createElement('span');
+             nameElement.textContent = recipe.name;
+             listItem.appendChild(nameElement);
+   
+             recipeList.appendChild(listItem);
+           });
+         } catch (error) {
+           console.error('Error parsing JSON response:', error);
+         }
+       } else if (xhr.readyState === 4) {
+         console.error('Error in request:', xhr.status, xhr.statusText);
+       }
+     };
+   
+     xhr.send('query=' + encodeURIComponent(query));
+   }
+   
+   document.addEventListener('click', function (event) {
+     if (!event.target.closest('.search-bar')) {
+       document.querySelector('#recipe_dropdown').style.display = 'none';
+     }
+   });
+    */
 
-      <div class="col-lg-9 col-md-8 col-sm-12">
-          <div class="filter">
-              <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                  <li class="dropdown-header text-start">
-                      <h6>Opciones</h6>
-                  </li>
-                  <li><a class="dropdown-item" href="#">Guardar</a></li>
-                  <li><a class="dropdown-item" href="#">Compartir</a></li>
-              </ul>
-          </div>
-
-          <div class="card-body">
-              <h5 class="card-title">
-                  <?php echo $row->name; ?> <span>|
-                      <?php echo $row->origin; ?>
-                  </span>
-              </h5>
-              <!--ingredientes-->
-              <?php foreach ($ingredients as $ingredient) { ?>
-                  <div class="chip" title="Cantidad: <?php echo $ingredient->amount; ?>">
-                      <img src="imagenes/ingredientes/<?php echo $ingredient->icon; ?>">
-                      <b style="font-size: 14px">
-                          <?php echo $ingredient->name; ?>
-                      </b>
-                  </div>
-              <?php } ?>
-              <!--fin ingredientes-->
-          </div>
-      </div>
-  </div>
-</div>`;
-  return recipeHTML;
-} */
 })();

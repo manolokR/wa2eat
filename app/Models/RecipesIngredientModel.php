@@ -30,5 +30,10 @@ class RecipesIngredientModel extends Model
         return $this->insert($data);
     }
 
+    public function deleteRelation($id_recipe) {
+        return $this->where('id_recipe', $id_recipe)->delete();
+    }
+    
+
 
 }

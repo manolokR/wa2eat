@@ -37,14 +37,25 @@ $routes->match(['get', 'post'], '/loginAjax', [User::class, 'loginAjax']);
 $routes->match(['get', 'post'], '/registerAjax', [User::class, 'registerAjax']);
 $routes->match(['get'], '/home', [User::class, 'user_ok']);
 
+// Ruta para boorar una receta dada un id
+$routes->get('/recipes/delete/(:num)', 'RecipesController::delete/$1');
+
+// Ruta cuando se cierra la sesión
+$routes->get('/logout', 'User::logout');
+
+// Ruta para ver una receta
+$routes->get('/recipe/(:num)', 'RecipesController::view_recipe/$1');
 
 $routes->get('/recipe/(:num)', 'RecipesController::view_recipe/$1');
 
 // Ruta para obtener una imagen de una receta dado un id
 $routes->get('recipe/image/(:num)', 'RecipesController::show_image/$1');
 
+// Ruta para obtener un nombre de usuario dado un email
+$routes->get('username/(:any)', 'User::show_name/$1');
+
 // Rutas para formulario de ingresar recetas
-$routes->get('/insert_recipe', 'InsertRecipeController::index');
+$routes->get('/insert_recipe', 'InsertRecipeController::index', ['filter' => 'user_auth']);
 $routes->match(['get', 'post'], '/search_ingredient', 'InsertRecipeController::search_ingredient');
 $routes->post('/insert_recipe', 'InsertRecipeController::insert_recipe');
 
@@ -53,11 +64,17 @@ $routes->match(['get', 'post'], '/search_recipe', 'RecipesController::search_rec
 
 $routes->post('filter_recipes', 'RecipesController::get_filtered_recipes');
 
+// Ruta para vista "Mis recetas"
+$routes->get('/myrecipes', 'User::personalRecipes', ['filter' => 'user_auth']);
 
+// Ruta para vista "Mi perfil"
+$routes->get('/profile', 'User::myprofile', ['filter' => 'user_auth']);
+$routes->post('/cambiarFoto', 'User::changeProfilePhoto');
 
 $routes->get('login','Pages::viewLogin');
 
 $routes->get('users','User::list');
+$routes->get('users', 'User::list', ['filter' => 'admin_auth']);
 $routes->get('home','Pages::prueba');
 $routes->get('(:segment)', 'Home::index');
 
