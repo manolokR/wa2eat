@@ -40,10 +40,10 @@
         <div class="form-group col-md-4">
           <label for="origin">Origen:</label>
           <select id="origin" name="origin" class="form-control">
-            <option value="Española">Española</option>
-            <option value="Francesa">Francesa</option>
-            <option value="Italiana">Japonesa</option>
-            <option value="Mexiana">Mexicana</option>
+            <option value="España">Española</option>
+            <option value="Francia">Francesa</option>
+            <option value="Japón">Japonesa</option>
+            <option value="México">Mexicana</option>
             <option value="China">China</option>
             <option value="India">India</option>
           </select>
@@ -53,10 +53,10 @@
         <div class="form-group col-md-4">
           <label for="season">Temporada:</label>
           <select id="season" name="season" class="form-control">
-            <option value="invierno">Invierno</option>
-            <option value="primavera">Primavera</option>
-            <option value="verano">Verano</option>
-            <option value="otoño">Otoño</option>
+            <option value="Invierno">Invierno</option>
+            <option value="Primavera">Primavera</option>
+            <option value="Verano">Verano</option>
+            <option value="Otoño">Otoño</option>
             <option value="4estaciones">4 estaciones</option>
           </select>
         </div>

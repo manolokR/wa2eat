@@ -64,7 +64,7 @@ function getYoutubeVideoId($url)
     .video-container {
         position: relative;
         padding-bottom: 56.25%;
-        /* Relación de aspecto 16:9 */
+        /* RelaciÃ³n de aspecto 16:9 */
         height: 0;
         overflow: hidden;
     }

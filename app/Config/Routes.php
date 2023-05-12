@@ -62,7 +62,6 @@ $routes->post('/insert_recipe', 'InsertRecipeController::insert_recipe');
 // Ruta para la búsqueda de recetas
 $routes->match(['get', 'post'], '/search_recipe', 'RecipesController::search_recipe');
 
-$routes->post('filter_recipes', 'RecipesController::get_filtered_recipes');
 
 // Ruta para vista "Mis recetas"
 $routes->get('/myrecipes', 'User::personalRecipes', ['filter' => 'user_auth']);
@@ -77,6 +76,10 @@ $routes->get('users','User::list');
 $routes->get('users', 'User::list', ['filter' => 'admin_auth']);
 $routes->get('home','Pages::prueba');
 $routes->get('(:segment)', 'Home::index');
+
+
+// Ruta para la búsqueda de re
+$routes->post('/filter_recipes', 'RecipesController::filter_recipes');
 
 
 

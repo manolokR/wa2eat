@@ -215,41 +215,41 @@
           <!--Contenido del dropdown-->
           <ul class="indian-cboxtags">
             <li>
-              <input type="checkbox" id="checkboxFour" value="Order four">
+              <input type="checkbox" id="checkboxFour" value="India">
               <label for="checkboxFour">India </label>
             </li>
           </ul>
 
           <ul class="french-cboxtags">
             <li>
-              <input type="checkbox" id="checkboxFive" value="Order five">
+              <input type="checkbox" id="checkboxFive" value="Francia">
               <label for="checkboxFive">Francia </label>
             </li>
           </ul>
           <ul class="chinese-cboxtags">
             <li>
-              <input type="checkbox" id="checkboxSix" value="Order six">
+              <input type="checkbox" id="checkboxSix" value="China">
               <label for="checkboxSix">China </label>
             </li>
           </ul>
 
           <ul class="mexican-cboxtags">
             <li>
-              <input type="checkbox" id="checkboxSeven" value="Order seven">
+              <input type="checkbox" id="checkboxSeven" value="México">
               <label for="checkboxSeven">México </label>
             </li>
           </ul>
 
           <ul class="spanish-cboxtags">
             <li>
-              <input type="checkbox" id="checkboxEight" value="Order eigth">
+              <input type="checkbox" id="checkboxEight" value="España">
               <label for="checkboxEight">España </label>
             </li>
           </ul>
 
           <ul class="japanese-cboxtags">
             <li>
-              <input type="checkbox" id="checkboxNine" value="Order nine">
+              <input type="checkbox" id="checkboxNine" value="Japón">
               <label for="checkboxNine">Japón </label>
             </li>
           </ul>
@@ -268,27 +268,27 @@
           <!--Contenido del dropdown-->
           <ul class="winter-cboxtags">
             <li>
-              <input type="checkbox" id="checkboxTen" value="Order ten">
+              <input type="checkbox" id="checkboxTen" value="Invierno">
               <label for="checkboxTen">Invierno </label>
             </li>
           </ul>
 
           <ul class="spring-cboxtags">
             <li>
-              <input type="checkbox" id="checkboxEleven" value="Order eleven">
+              <input type="checkbox" id="checkboxEleven" value="Primavera">
               <label for="checkboxEleven">Primavera </label>
             </li>
           </ul>
           <ul class="summer-cboxtags">
             <li>
-              <input type="checkbox" id="checkboxTwelve" value="Order twelve">
+              <input type="checkbox" id="checkboxTwelve" value="Verano">
               <label for="checkboxTwelve">Verano </label>
             </li>
           </ul>
 
           <ul class="autumn-cboxtags">
             <li>
-              <input type="checkbox" id="checkbox13" value="Order 13">
+              <input type="checkbox" id="checkbox13" value="Otoño">
               <label for="checkbox13">Otoño </label>
             </li>
           </ul>

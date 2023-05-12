@@ -35,7 +35,6 @@ class RecipesController extends Controller
 
         return view('templates/header', $data)
             . view('pages/recipe_view')
-            . view('pages/recipe_view')
             . view('templates/footer');
     }
 
@@ -87,16 +86,22 @@ class RecipesController extends Controller
 
 
    // En tu controlador de recetas
-   public function get_filtered_recipes() {
+   public function filter_recipes() {
+    $is_vegan = $this->request->getPost('is_vegan');
+    $origin = $this->request->getPost('origin');
+    $season = $this->request->getPost('season');
+    
     $recipesModel = new \App\Models\RecipesModel();
 
-    $vegan = $this->request->getPost('is_vegan') == "true" ? true : false;
-    $country = $this->request->getPost('origin');
-    $season = $this->request->getPost('season');
+    // Utiliza el método del modelo para obtener las recetas filtradas
+    $recipes = $recipesModel->filter_recipes($is_vegan, $origin, $season);
 
-    $filtered_recipes = $recipesModel->get_filtered_recipes($vegan, $country, $season);
+    // Crear la vista parcial de las recetas y la devuelve
+    $data = [
+        'recipes' => $recipes
+    ];
 
-    return $this->response->setJSON($filtered_recipes);
+    echo view('pages/recipe_cards', $data);
 }
 
 
