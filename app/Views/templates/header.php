@@ -96,7 +96,6 @@
               <img src="<?= base_url("imagenes/profile.png") ?>" alt="Profile" class="rounded-circle">
             <?php endif; ?>
 
-
             <span class="d-none d-md-block dropdown-toggle ps-2">
 
             </span>
@@ -215,41 +214,41 @@
           <!--Contenido del dropdown-->
           <ul class="indian-cboxtags">
             <li>
-              <input type="checkbox" id="checkboxFour" value="India">
+              <input type="checkbox" id="checkboxFour" value="Order four">
               <label for="checkboxFour">India </label>
             </li>
           </ul>
 
           <ul class="french-cboxtags">
             <li>
-              <input type="checkbox" id="checkboxFive" value="Francia">
+              <input type="checkbox" id="checkboxFive" value="Order five">
               <label for="checkboxFive">Francia </label>
             </li>
           </ul>
           <ul class="chinese-cboxtags">
             <li>
-              <input type="checkbox" id="checkboxSix" value="China">
+              <input type="checkbox" id="checkboxSix" value="Order six">
               <label for="checkboxSix">China </label>
             </li>
           </ul>
 
           <ul class="mexican-cboxtags">
             <li>
-              <input type="checkbox" id="checkboxSeven" value="México">
+              <input type="checkbox" id="checkboxSeven" value="Order seven">
               <label for="checkboxSeven">México </label>
             </li>
           </ul>
 
           <ul class="spanish-cboxtags">
             <li>
-              <input type="checkbox" id="checkboxEight" value="España">
+              <input type="checkbox" id="checkboxEight" value="Order eigth">
               <label for="checkboxEight">España </label>
             </li>
           </ul>
 
           <ul class="japanese-cboxtags">
             <li>
-              <input type="checkbox" id="checkboxNine" value="Japón">
+              <input type="checkbox" id="checkboxNine" value="Order nine">
               <label for="checkboxNine">Japón </label>
             </li>
           </ul>
@@ -268,27 +267,27 @@
           <!--Contenido del dropdown-->
           <ul class="winter-cboxtags">
             <li>
-              <input type="checkbox" id="checkboxTen" value="Invierno">
+              <input type="checkbox" id="checkboxTen" value="Order ten">
               <label for="checkboxTen">Invierno </label>
             </li>
           </ul>
 
           <ul class="spring-cboxtags">
             <li>
-              <input type="checkbox" id="checkboxEleven" value="Primavera">
+              <input type="checkbox" id="checkboxEleven" value="Order eleven">
               <label for="checkboxEleven">Primavera </label>
             </li>
           </ul>
           <ul class="summer-cboxtags">
             <li>
-              <input type="checkbox" id="checkboxTwelve" value="Verano">
+              <input type="checkbox" id="checkboxTwelve" value="Order twelve">
               <label for="checkboxTwelve">Verano </label>
             </li>
           </ul>
 
           <ul class="autumn-cboxtags">
             <li>
-              <input type="checkbox" id="checkbox13" value="Otoño">
+              <input type="checkbox" id="checkbox13" value="Order 13">
               <label for="checkbox13">Otoño </label>
             </li>
           </ul>
