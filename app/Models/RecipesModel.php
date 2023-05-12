@@ -62,5 +62,25 @@ class RecipesModel extends Model
         return $this->delete($id);
     }
     
-
+    public function filter_recipes($is_vegan, $origin, $season) {
+        $builder = $this->db->table('recipes');
+    
+        // Filtra por si es vegano o no
+        if ($is_vegan == 1) {
+            $builder->where('is_vegan', $is_vegan);
+        }
+    
+        // Filtra por origen
+        if (!empty($origin)) {
+            $builder->whereIn('origin', $origin);
+        }
+    
+        // Filtra por estaciones
+        if (!empty($season)) {
+            $builder->whereIn('season', $season);
+        }
+    
+        return $builder->get()->getResult();
+    }
+    
 }
