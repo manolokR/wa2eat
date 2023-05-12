@@ -12,7 +12,7 @@ class AdminAuth implements FilterInterface
         if (!session('logged_in'))
             return redirect()->to(site_url('/login'));
         elseif ((session('user')->rol & 2) == 0)
-            return redirect()->to(site_url('/unauthorized'));
+            return redirect()->to(site_url('/login'));
     }
     public function after(
         RequestInterface $request, ResponseInterface $response,
