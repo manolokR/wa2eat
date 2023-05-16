@@ -45,11 +45,27 @@
       });
   }
 
-  // Agregar evento para ir a una receta cuando se seleccione
-  recipesSearch.addEventListener('input', function (event) {
-    // Llamar a la función search_recipe para buscar y mostrar recetas coincidentes
-    search_recipe(event.target.value);
-  });
+ // Agregar evento para ir a una receta cuando se seleccione
+recipesSearch.addEventListener('input', function (event) {
+  // Llamar a la función search_recipe para buscar y mostrar recetas coincidentes
+  search_recipe(event.target.value);
+});
+
+recipesSearch.addEventListener('keydown', function (event) {
+  if (event.keyCode === 13) { // Verificar si la tecla presionada es Enter (código 13)
+    event.preventDefault(); // Prevenir el comportamiento predeterminado del Enter (enviar formulario, etc.)
+
+    const recipeList = document.querySelector('#recipe_list');
+    const firstRecipe = recipeList.querySelector('li'); // Obtener el primer elemento de la lista
+
+    if (firstRecipe) { // Verificar si hay al menos una receta en la lista
+      const recipeLink = firstRecipe.getAttribute('href');
+      if (recipeLink) {
+        window.location.href = recipeLink; // Redirigir a la primera receta
+      }
+    }
+  }
+});
 
 
   "use strict";

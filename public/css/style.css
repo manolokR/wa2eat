@@ -1303,6 +1303,7 @@ s
 .card:hover {
   background: linear-gradient(135deg, #FA6E59, #FFDB5C);
   box-shadow: 0 5px 15px #340e8b91;
+  cursor: pointer;
 }
 
 

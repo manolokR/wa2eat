@@ -86,23 +86,17 @@ class RecipesController extends Controller
 
 
    // En tu controlador de recetas
-   public function filter_recipes() {
-    $is_vegan = $this->request->getPost('is_vegan');
-    $origin = $this->request->getPost('origin');
-    $season = $this->request->getPost('season');
-    
+   public function filterRecipes() {
+    $isVegan = $this->request->getVar('is_vegan');
+    $origin = $this->request->getVar('origin');
+    $season = $this->request->getVar('season');
+
     $recipesModel = new \App\Models\RecipesModel();
+    $recipes = $recipesModel->filterRecipes($isVegan, $origin, $season);
 
-    // Utiliza el método del modelo para obtener las recetas filtradas
-    $recipes = $recipesModel->filter_recipes($is_vegan, $origin, $season);
-
-    // Crear la vista parcial de las recetas y la devuelve
-    $data = [
-        'recipes' => $recipes
-    ];
-
-    echo view('pages/recipe_cards', $data);
+    echo json_encode($recipes);
 }
+
 
 
 }

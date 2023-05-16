@@ -198,7 +198,7 @@
           <!--Contenido del dropdown-->
           <ul class="vegan-cboxtags">
             <li>
-              <input type="checkbox" id="checkboxOne" value="Order one">
+              <input type="checkbox" class="filter-checkbox" id="checkboxOne" value="Order one">
               <label for="checkboxOne">Recetas Veganas </label>
             </li>
           </ul>
@@ -215,41 +215,41 @@
           <!--Contenido del dropdown-->
           <ul class="indian-cboxtags">
             <li>
-              <input type="checkbox" id="checkboxFour" value="India">
+              <input type="checkbox" class="filter-checkbox" id="checkboxFour" value="India">
               <label for="checkboxFour">India </label>
             </li>
           </ul>
 
           <ul class="french-cboxtags">
             <li>
-              <input type="checkbox" id="checkboxFive" value="Francia">
+              <input type="checkbox" class="filter-checkbox" id="checkboxFive" value="Francia">
               <label for="checkboxFive">Francia </label>
             </li>
           </ul>
           <ul class="chinese-cboxtags">
             <li>
-              <input type="checkbox" id="checkboxSix" value="China">
+              <input type="checkbox" class="filter-checkbox" id="checkboxSix" value="China">
               <label for="checkboxSix">China </label>
             </li>
           </ul>
 
           <ul class="mexican-cboxtags">
             <li>
-              <input type="checkbox" id="checkboxSeven" value="México">
+              <input type="checkbox" class="filter-checkbox" id="checkboxSeven" value="México">
               <label for="checkboxSeven">México </label>
             </li>
           </ul>
 
           <ul class="spanish-cboxtags">
             <li>
-              <input type="checkbox" id="checkboxEight" value="España">
+              <input type="checkbox" class="filter-checkbox" id="checkboxEight" value="España">
               <label for="checkboxEight">España </label>
             </li>
           </ul>
 
           <ul class="japanese-cboxtags">
             <li>
-              <input type="checkbox" id="checkboxNine" value="Japón">
+              <input type="checkbox" class="filter-checkbox" id="checkboxNine" value="Japón">
               <label for="checkboxNine">Japón </label>
             </li>
           </ul>
@@ -268,27 +268,27 @@
           <!--Contenido del dropdown-->
           <ul class="winter-cboxtags">
             <li>
-              <input type="checkbox" id="checkboxTen" value="Invierno">
+              <input type="checkbox" class="filter-checkbox" id="checkboxTen" value="Invierno">
               <label for="checkboxTen">Invierno </label>
             </li>
           </ul>
 
           <ul class="spring-cboxtags">
             <li>
-              <input type="checkbox" id="checkboxEleven" value="Primavera">
+              <input type="checkbox" class="filter-checkbox" id="checkboxEleven" value="Primavera">
               <label for="checkboxEleven">Primavera </label>
             </li>
           </ul>
           <ul class="summer-cboxtags">
             <li>
-              <input type="checkbox" id="checkboxTwelve" value="Verano">
+              <input type="checkbox" class="filter-checkbox" id="checkboxTwelve" value="Verano">
               <label for="checkboxTwelve">Verano </label>
             </li>
           </ul>
 
           <ul class="autumn-cboxtags">
             <li>
-              <input type="checkbox" id="checkbox13" value="Otoño">
+              <input type="checkbox" class="filter-checkbox" id="checkbox13" value="Otoño">
               <label for="checkbox13">Otoño </label>
             </li>
           </ul>
@@ -328,3 +328,45 @@
     </ul>
 
   </aside><!-- End Sidebar-->
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('input[type="checkbox"]').change(function() {
+        let isVegan = $('#checkboxOne').is(":checked") ? 1 : 0;
+        let origin = [];
+        let season = [];
+        
+        $("input[id^='checkbox']:checked").each(function() {
+            let id = $(this).attr('id');
+            if (id === 'checkboxFour' || id === 'checkboxFive' || id === 'checkboxSix' || id === 'checkboxSeven' || id === 'checkboxEight' || id === 'checkboxNine') {
+                origin.push($(this).val());
+            } else if (id === 'checkboxTen' || id === 'checkboxEleven' || id === 'checkboxTwelve' || id === 'checkbox13') {
+                season.push($(this).val());
+            }
+        });
+
+        $.ajax({
+            url: '/recipes/filterRecipes',
+            method: 'POST',
+            data: {is_vegan: isVegan, origin: origin, season: season},
+            success: function(data) {
+                let recipes = JSON.parse(data);
+                // Aquí puedes reemplazar las tarjetas de recetas existentes con las
+                let recipeCards = '';
+                for(let i = 0; i < recipes.length; i++) {
+                    recipeCards += '<div class="recipe-card">';
+                    recipeCards += '<h2>' + recipes[i].name + '</h2>';
+                    recipeCards += '<p>' + recipes[i].description + '</p>';
+                    recipeCards += '</div>';
+                }
+
+                $('#recipes-container').html(recipeCards);
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.log(textStatus, errorThrown);
+            }
+        });
+    });
+});
+</script>

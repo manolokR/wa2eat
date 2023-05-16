@@ -77,9 +77,7 @@ $routes->get('users', 'User::list', ['filter' => 'admin_auth']);
 $routes->get('home','Pages::prueba');
 $routes->get('(:segment)', 'Home::index');
 
-
-// Ruta para la búsqueda de re
-$routes->post('/filter_recipes', 'RecipesController::filter_recipes');
+$routes->match(['get', 'post'], '/filterRecipes', 'RecipesController::filterRecipes');
 
 
 
