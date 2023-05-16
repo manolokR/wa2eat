@@ -68,15 +68,19 @@ $routes->get('/myrecipes', 'User::personalRecipes', ['filter' => 'user_auth']);
 
 // Ruta para vista "Mi perfil"
 $routes->get('/profile', 'User::myprofile', ['filter' => 'user_auth']);
-$routes->post('/cambiarFoto', 'User::changeProfilePhoto');
+$routes->post('/profile', 'User::editProfile'); // Cambia la ruta para editar perfil
+
+
 
 $routes->get('login','Pages::viewLogin');
 
-$routes->get('users','User::list');
 $routes->get('users', 'User::list', ['filter' => 'admin_auth']);
 $routes->get('home','Pages::prueba');
 $routes->get('(:segment)', 'Home::index');
 
+
+// Ruta para la búsqueda de recetas
+$routes->post('/filter_recipes', 'RecipesController::filter_recipes');
 $routes->match(['get', 'post'], '/filterRecipes', 'RecipesController::filterRecipes');
 
 

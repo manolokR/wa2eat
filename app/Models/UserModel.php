@@ -11,7 +11,7 @@ class UserModel extends Model
     protected $returnType = 'object'; # 'object' or 'array'
     protected $useSoftDeletes = false; # true if you expect to recover data
 # Fields that can be set during save, insert, or update methods
-    protected $allowedFields = ['email', 'username', 'password','photo'];
+    protected $allowedFields = ['email', 'username', 'password', 'photo'];
     protected $useTimestamps = false; # no timestamps on inserts and updates
 # Do not use validations rules (for the time being...)
     protected $validationRules = [];
@@ -35,6 +35,18 @@ class UserModel extends Model
         ];
         return $this->insert($data);
     }
+
+    public function updateUser($email, $username, $photo)
+    {
+        $data = [
+            'username' => $username,
+            'photo' => $photo,
+        ];
+        return $this->update($email, $data);
+    }
+
+
+
 
 
 }

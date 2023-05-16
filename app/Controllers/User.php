@@ -192,23 +192,35 @@ class User extends BaseController
             . view('templates/footer');
     }
 
-    public function changeProfilePhoto()
+    public function editProfile()
     {
-        $session = \Config\Services::session();
-        $email = $session->get('user')->email;
-        $userModel = new UserModel();
+        $session = session();
+        $userModel = new \App\Models\UserModel();
 
-        $photo = $this->request->getFile('photo');
-        if ($photo->isValid() && !$photo->hasMoved()) {
-            $photoBlob = file_get_contents($photo->getRealPath());
-            $data['photo'] = $photoBlob;
-            $userModel->update($email, $data);
+        if($this->request->getMethod() === 'post') {
+            $username = $this->request->getPost('username');
+        
+            // Manejar el archivo de imagen
+            $photo = $this->request->getFile('photo');
+            $photoBlob = null;
+            if ($photo->isValid() && !$photo->hasMoved()) {
+                $photoBlob = file_get_contents($photo->getRealPath());
+                $userModel->updateUser($session->get('user')->email, $username, $photoBlob);
+            } else {
+                // Actualiza solo el nombre de usuario si no se ha subido una nueva foto
+                $userModel->updateUser($session->get('user')->email, $username, $session->get('user')->photo);
+            }
+        
+            // Actualizar datos de la sesión
+            $session->set('user', $userModel->find($session->get('user')->email));
+        
+            $session->setFlashdata('success', 'Profile updated successfully');
+            return redirect()->to('/profile'); // Cambia la redirección a '/profile'
         }
+        
 
-        return redirect()->to('/perfil');
+        $data['user'] = $session->get('user');
+        return view('edit_profile', $data);
     }
-
-
-
 
 }

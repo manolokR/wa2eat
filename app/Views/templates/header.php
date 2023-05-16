@@ -96,7 +96,6 @@
               <img src="<?= base_url("imagenes/profile.png") ?>" alt="Profile" class="rounded-circle">
             <?php endif; ?>
 
-
             <span class="d-none d-md-block dropdown-toggle ps-2">
 
             </span>
