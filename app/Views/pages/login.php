@@ -80,7 +80,7 @@
 					<input style="background-color: #eee;" id="email-form" class="form-control" name="email" type="email" placeholder="Email" />
 					<input style="background-color: #eee;" id="password-form" class="form-control" name="password" type="password"
 						placeholder="Contraseña" />
-					<a href="#">¿Olvidaste tu contraseña?</a>
+					
 
 					<span class="login-error">Credenciales incorrectas</span>
 

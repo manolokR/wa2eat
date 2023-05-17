@@ -45,7 +45,7 @@ public function insertAjax()
             // Código de registro y respuesta exitosa
             $recipe_name = $this->request->getVar('recipe_name');
             $recipe_description = $this->request->getVar('recipe_description');
-            $is_vegan = $this->request->getVar('is_vegan');
+            $is_vegan = $this->request->getPost('is_vegan') !== null ? 1 : 0;
             $origin = $this->request->getVar('origin');
             $season = $this->request->getVar('season');
             $instructions = $this->request->getVar('instructions');
@@ -54,15 +54,15 @@ public function insertAjax()
             $recipeData = [
                 'recipe_name' => $recipe_name,
                 'recipe_description' => $recipe_description,
-                'is_vegan' => $is_vegan,
+                'is_vegan' => $is_vegan,  // Aquí usamos $is_vegan
                 'origin' => $origin,
                 'season' => $season,
                 'instructions' => $instructions,
                 'recipe_photo' => $recipe_photo,
                 'recipe_video' => $recipe_video,
-               
             ];
             $recipes_model->saveRecipe($recipe_name,$season,$origin,$recipe_photo,$is_vegan,$recipe_description,$instructions,$recipe_video);
+
 
      
 

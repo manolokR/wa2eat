@@ -61,24 +61,52 @@ class RecipesModel extends Model
     public function deleteRecipe($id) {
         return $this->delete($id);
     }
+/*    public function filterRecipes($filters){
+    $builder = $this->builder();
+
+    if(isset($filters['origin'])){
+        $builder->whereIn('origin', $filters['origin']);
+    }
+
+    if(isset($filters['season'])){
+        $builder->whereIn('season', $filters['season']);
+    }
+
+    if(isset($filters['is_vegan'])){
+        $builder->whereIn('is_vegan', $filters['is_vegan']);
+    }
+
+    return $builder->get()->getResultArray();*/
+
+    public function filterRecipes($filters)
+    {
+        $builder = $this->db->table('recipes');
+        $builder->select('id, name, season, origin, is_vegan, description, instructions, link');
     
-    public function filterRecipes($isVegan, $origin, $season) {
-        $builder = $this->db->table($this->table);
-    
-        if (!empty($isVegan)) {
-            $builder->where('is_vegan', $isVegan);
+        if (!empty($filters['origin'])) {
+            $builder->whereIn('origin', $filters['origin']);
         }
     
-        if (!empty($origin)) {
-            $builder->whereIn('origin', $origin);
+        if (!empty($filters['season'])) {
+            $builder->whereIn('season', $filters['season']);
         }
     
-        if (!empty($season)) {
-            $builder->where('season', $season);
+        if (!empty($filters['is_vegan'])) {
+            $builder->where('is_vegan', $filters['is_vegan']);
         }
     
-        return $builder->get()->getResult();
+        $query = $builder->get();
+        $recipes = $query->getResult();
+    
+        // Itera sobre cada receta y obtén los ingredientes de cada una
+        foreach ($recipes as $recipe) {
+            $recipe->ingredients = $this->get_recipe_ingredients($recipe->id);
+        }
+    
+        return $recipes;
     }
     
+} 
+
     
-}
+    
