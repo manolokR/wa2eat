@@ -47,7 +47,6 @@ function getYoutubeVideoId($url)
                         <img src="../imagenes/ingredientes/<?php echo $ingredient->icon; ?>"
                             alt="<?php echo $ingredient->name; ?>" />
                         <span>
-                            <?php echo $ingredient->name; ?>:
                             <?php echo $ingredient->amount; ?>
                         </span>
                     </li>
