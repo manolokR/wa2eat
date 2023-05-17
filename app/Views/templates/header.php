@@ -186,8 +186,8 @@
         </a>
       </li><!-- End Dashboard Nav -->
 
-
-      <!-- Filtro 1-->
+      <div id="catFilters">
+          <!-- Filtro 1-->
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-layout-text-window-reverse"></i><span>Filtro Vegano</span><i
@@ -294,7 +294,10 @@
 
         </ul>
       </li><!-- Fin Filtro Estaciones -->
+      
 
+      </div>        
+      
 
 
       <?php if ($session->has('logged_in')): ?>
@@ -328,44 +331,32 @@
 
   </aside><!-- End Sidebar-->
 
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
+
+<!-- <script>
 $(document).ready(function() {
-    $('input[type="checkbox"]').change(function() {
-        let isVegan = $('#checkboxOne').is(":checked") ? 1 : 0;
-        let origin = [];
-        let season = [];
-        
-        $("input[id^='checkbox']:checked").each(function() {
-            let id = $(this).attr('id');
-            if (id === 'checkboxFour' || id === 'checkboxFive' || id === 'checkboxSix' || id === 'checkboxSeven' || id === 'checkboxEight' || id === 'checkboxNine') {
-                origin.push($(this).val());
-            } else if (id === 'checkboxTen' || id === 'checkboxEleven' || id === 'checkboxTwelve' || id === 'checkbox13') {
-                season.push($(this).val());
-            }
+    $('.filter-checkbox').click(function() {
+        var filters = {
+            vegan: $('.vegan-cboxtags input:checked').val(),
+            origin: [],
+            season: []
+        };
+        $('.indian-cboxtags input:checked, .french-cboxtags input:checked, .chinese-cboxtags input:checked, .mexican-cboxtags input:checked, .spanish-cboxtags input:checked, .japanese-cboxtags input:checked').each(function() {
+            filters.origin.push($(this).val());
         });
-
+        $('.winter-cboxtags input:checked, .spring-cboxtags input:checked, .summer-cboxtags input:checked, .autumn-cboxtags input:checked').each(function() {
+            filters.season.push($(this).val());
+        });
+        console.log("Error: " );
         $.ajax({
-            url: '/recipes/filterRecipes',
-            method: 'POST',
-            data: {is_vegan: isVegan, origin: origin, season: season},
+            type: 'POST',
+            url: '<?php echo base_url('/filter_recipes'); ?>',
+            data: filters,
             success: function(data) {
-                let recipes = JSON.parse(data);
-                // Aquí puedes reemplazar las tarjetas de recetas existentes con las
-                let recipeCards = '';
-                for(let i = 0; i < recipes.length; i++) {
-                    recipeCards += '<div class="recipe-card">';
-                    recipeCards += '<h2>' + recipes[i].name + '</h2>';
-                    recipeCards += '<p>' + recipes[i].description + '</p>';
-                    recipeCards += '</div>';
-                }
-
-                $('#recipes-container').html(recipeCards);
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
-                console.log(textStatus, errorThrown);
+              
+                $('.dashboard').html(data);
             }
         });
     });
 });
 </script>
+ -->

@@ -1,6 +1,7 @@
 <?php
 
 namespace Config;
+use App\Controllers\RecipesController;
 
 // Create a new instance of our RouteCollection class.
 $routes = Services::routes();
@@ -46,7 +47,7 @@ $routes->get('/logout', 'User::logout');
 // Ruta para ver una receta
 $routes->get('/recipe/(:num)', 'RecipesController::view_recipe/$1');
 
-$routes->get('/recipe/(:num)', 'RecipesController::view_recipe/$1');
+//$routes->get('/recipe/(:num)', 'RecipesController::view_recipe/$1');
 
 // Ruta para obtener una imagen de una receta dado un id
 $routes->get('recipe/image/(:num)', 'RecipesController::show_image/$1');
@@ -79,11 +80,8 @@ $routes->get('home','Pages::prueba');
 $routes->get('(:segment)', 'Home::index');
 
 
-// Ruta para la búsqueda de recetas
-$routes->post('/filter_recipes', 'RecipesController::filter_recipes');
-$routes->match(['get', 'post'], '/filterRecipes', 'RecipesController::filterRecipes');
-
-
+// Ruta para el filtrado de recetas usando AJAX
+$routes->match(['get', 'post'], '/getFilteredRecipes', [RecipesController::class, 'getFilteredRecipes']);
 
 
 

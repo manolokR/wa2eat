@@ -46,6 +46,7 @@
             <option value="México">Mexicana</option>
             <option value="China">China</option>
             <option value="India">India</option>
+            <option value="Otro">Otro</option>
           </select>
         </div>
 
@@ -66,7 +67,7 @@
         <div class="form-group col-md-4">
           <label for="is_vegan" class="chip-label">Vegana</label>
           <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="is_vegan" name="is_vegan">
+            <input type="checkbox" class="custom-control-input" id="is_vegan" name="is_vegan" >
             <label class="custom-control-label chip" for="is_vegan"></label>
           </div>
         </div>
