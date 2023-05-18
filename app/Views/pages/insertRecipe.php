@@ -60,16 +60,15 @@
             <option value="Otoño">Otoño</option>
             <option value="4estaciones">4 estaciones</option>
           </select>
+
         </div>
-
-
-        <!-- Opción vegana -->
-        <div class="form-group col-md-4">
-          <label for="is_vegan" class="chip-label">Vegana</label>
-          <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="is_vegan" name="is_vegan" >
-            <label class="custom-control-label chip" for="is_vegan"></label>
-          </div>
+          <!-- Seleccionar vegano -->
+          <div class="form-group col-md-4">
+          <label for="is_vegan">Vegana?</label>
+          <select id="is_vegan" name="is_vegan" class="form-control">
+            <option value="1">Si</option>
+            <option value="0">No</option>
+          </select>
         </div>
 
       </div>

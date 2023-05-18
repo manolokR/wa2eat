@@ -304,6 +304,9 @@
       <?php endif; ?>
 
 
+      </div>        
+      
+
 
       <?php if ($session->has('logged_in')): ?>
         <!-- Si usuario logueado -->

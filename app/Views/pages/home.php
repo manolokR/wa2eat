@@ -107,7 +107,7 @@
                     });
 
                     let recipeHtml = `
-                <div class="card info-card sales-card" onclick="window.location.href='recipe/${recipe.id}'">
+                <div class="card info-card sales-card recipe-card" onclick="window.location.href='recipe/${recipe.id}'">
                     <a href="recipe/${recipe.id}"></a> 
                     <div class="row flex-nowrap">
                         <div class="col-lg-3 col-md-4 col-sm-12 imagen-container">
