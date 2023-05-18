@@ -33,8 +33,9 @@ class RecipesController extends Controller
             'photoUser' => $photo,
         ];
 
-        return view('templates/header', $data)
-            . view('pages/recipe_view')
+        $data2['vista'] = 'view';
+        return view('templates/header',$data2)
+            . view('pages/recipe_view', $data)
             . view('templates/footer');
     }
 
@@ -83,33 +84,15 @@ class RecipesController extends Controller
         }
     }
 
+    public function getFilteredRecipes()
+    {
+        $model = new RecipesModel();
 
+        $filters = $this->request->getPost();
 
-   // En tu controlador de recetas
-/*    public function filter_recipes() {
-    $vegan = $this->request->getPost('is_vegan') == 'Order one' ? 1 : 0;
-    $origin = $this->request->getPost('origin');
-    $season = $this->request->getPost('season');
+        $recipes = $model->filterRecipes($filters);
 
-    $recipesModel = new \App\Models\RecipesModel();
-    $recipes = $recipesModel->getFilteredRecipes($vegan, $origin, $season);
-
-  
-
-    $data = [];
-    $data['recipes'] = $recipes;
-    $data['recipesModel'] = $recipesModel;
-    echo view('home', $data);
-} */
-public function getFilteredRecipes()
-{
-    $model = new RecipesModel();
-
-    $filters = $this->request->getPost();
-    
-    $recipes = $model->filterRecipes($filters);
-
-    return $this->response->setJSON($recipes);
-}
+        return $this->response->setJSON($recipes);
+    }
 
 }

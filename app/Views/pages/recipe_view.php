@@ -7,6 +7,8 @@ function getYoutubeVideoId($url)
 }
 ?>
 
+
+
 <link rel="stylesheet" href="<?= base_url("css/recipe_view.css") ?>">
 <main id="main" class="main">
     <section class="section dashboard">

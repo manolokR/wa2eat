@@ -23,7 +23,7 @@
                 <!-- Inicio de la tarjeta de la receta -->
 
 
-                <div class="card info-card sales-card"
+                <div class="card info-card sales-card recipe-card"
                     onclick="window.location.href='<?php echo base_url('recipe/' . $row->id); ?>'">
                     <a href="<?php echo base_url('recipe/' . $row->id); ?>">
                     </a>
@@ -34,16 +34,6 @@
                         </div>
 
                         <div class="col-lg-9 col-md-8 col-sm-12">
-                            <div class="filter">
-                                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                                    <li class="dropdown-header text-start">
-                                        <h6>Opciones</h6>
-                                    </li>
-                                    <li><a class="dropdown-item" href="#">Guardar</a></li>
-                                    <li><a class="dropdown-item" href="#">Compartir</a></li>
-                                </ul>
-                            </div>
 
                             <div class="card-body">
                                 <h5 class="card-title">

@@ -2563,3 +2563,21 @@ ul.autumn-cboxtags li input[type="checkbox"] {
   opacity: 0;
 
 }
+
+
+@media (max-width: 600px) {
+  .recipe-card .row {
+      /* Cambia la dirección de los elementos de fila a columna */
+      flex-direction: column;
+  }
+
+  .recipe-card .imagen-container {
+      /* Ajusta la imagen para que ocupe todo el ancho en pantallas pequeñas */
+      width: 100%;
+  }
+
+  .recipe-card .col-lg-9 {
+      /* Ajusta el cuerpo de la tarjeta para que ocupe todo el ancho en pantallas pequeñas */
+      width: 100%;
+  }
+}
