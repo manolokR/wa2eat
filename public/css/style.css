@@ -216,6 +216,7 @@ h6 {
   border-color: #d3d3d4;
 }
 
+<<<<<<< HEAD
 /* Card */
 .card {
   margin-bottom: 30px;
@@ -253,6 +254,9 @@ h6 {
 .card-img-overlay {
   background-color: rgba(255, 255, 255, 0.6);
 }
+=======
+
+>>>>>>> developJC
 
 /* Alerts */
 .alert-heading {
@@ -381,10 +385,16 @@ h6 {
   z-index: 997;
   height: 60px;
   box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
+<<<<<<< HEAD
   background-image: linear-gradient(to right, #fa6e59 , #ffdb5c);
   padding-left: 20px;
   /* Toggle Sidebar Button */
   /* Search Bar */
+=======
+  /*COLOR HEADER*/
+  background-image: linear-gradient(to right,  #FA6E59, #FFDB5C);
+  padding-left: 20px;
+>>>>>>> developJC
 }
 
 .header .toggle-sidebar-btn {
@@ -397,6 +407,29 @@ h6 {
 .header .search-bar {
   min-width: 360px;
   padding: 0 20px;
+<<<<<<< HEAD
+=======
+  position: relative;
+}
+
+#recipe_list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  background-color: #fff;
+  border-top: none;
+  border-radius: 0 0 .25rem .25rem;
+  padding: 0;
+  margin: 0;
+}
+
+.recipe-item {
+  cursor: pointer;
+>>>>>>> developJC
 }
 
 @media (max-width: 1199px) {
@@ -454,6 +487,35 @@ h6 {
   color: #012970;
 }
 
+<<<<<<< HEAD
+=======
+.recipe-dropdown {
+  position:sticky;
+  left: 0;
+  right: 0;
+  top: 100%;
+  background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 0 0 3px 3px;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+  display: none;
+}
+
+.recipe-item {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.recipe-item:hover {
+  background-color: #f8f9fa;
+}
+
+
+>>>>>>> developJC
 /*--------------------------------------------------------------
 # Header Nav
 --------------------------------------------------------------*/
@@ -610,7 +672,12 @@ h6 {
   scrollbar-width: thin;
   scrollbar-color: #aab7cf transparent;
   box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
+<<<<<<< HEAD
   background-color: #fff;
+=======
+  /*COLOR SIDEBAR*/
+  background-image: linear-gradient(to bottom right, #FA6E59, #FFDB5C);
+>>>>>>> developJC
 }
 
 @media (max-width: 1199px) {
@@ -799,10 +866,14 @@ h6 {
 }
 
 /* Info Cards */
+<<<<<<< HEAD
 .dashboard .info-card {
   padding-bottom: 10px;
 }
 
+=======
+s
+>>>>>>> developJC
 .dashboard .info-card h6 {
   font-size: 28px;
   color: #012970;
@@ -909,6 +980,14 @@ h6 {
   color: #4154f1;
 }
 
+<<<<<<< HEAD
+=======
+.imagen-container img {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+>>>>>>> developJC
 .dashboard .news p {
   font-size: 14px;
   color: #777777;
@@ -1230,4 +1309,1345 @@ h6 {
   text-align: center;
   font-size: 13px;
   color: #012970;
+<<<<<<< HEAD
+=======
+}
+
+
+/*FILA RECETAS*/
+.imagen-container {
+  width: 290px;
+  /*ancho fijo*/
+  height: 194px;
+  /*altura fija*/
+  overflow: hidden;
+  /*para recortar la imagen*/
+}
+
+.imagen-container img {
+  /*para que la imagen ocupe todo el contenedor*/
+  width: 100%;
+  height: 100%;
+  /*Para ajustar la imagen a su contedor sin perder resoución*/
+  object-fit: cover;
+}
+
+/*CHIP INGREDIENTE*/
+
+.chip {
+  display: inline-flex;
+  padding: 5px;
+  width: auto;
+  font-size: 16px;
+  line-height: 30px;
+  border-radius: 25px;
+  background-color: #f1f1f1;
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+.chip img {
+  float: left;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+}
+
+.chip:hover {
+  background: #eeeeee;
+  box-shadow: 0 5px 15px #ffffff;
+}
+
+
+/*TARJETAS*/
+
+.card {
+  margin-bottom: 30px;
+  border: none;
+  border-radius: 5pxy;
+  box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1);
+
+}
+
+.card:hover {
+  background: linear-gradient(135deg, #FA6E59, #FFDB5C);
+  box-shadow: 0 5px 15px #340e8b91;
+  cursor: pointer;
+}
+
+
+.card-header,
+.card-footer {
+  border-color: #ebeef4;
+  background-color: #fff;
+  color: #798eb3;
+  padding: 15px;
+}
+
+.card-title {
+  padding: 20px 0 15px 0;
+  font-size: 22px;
+  font-weight: 500;
+  color: #012970;
+  font-family: "Poppins", sans-serif;
+}
+
+.card:hover .card-title {
+  color: rgb(255, 255, 255);
+}
+
+.card-title span {
+  color: #899bbd;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.card:hover .card-title span {
+  color: rgb(255, 255, 255);
+}
+
+
+.card-img-overlay {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+/*Checkbox Filtro vegano*/
+
+ul.vegan-cboxtags {
+  list-style: none;
+  padding: 10px;
+
+}
+
+ul.vegan-cboxtags li {
+  display: block;
+  
+}
+
+ul.vegan-cboxtags li label {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 14px;
+  border-radius: 4px;
+  white-space: nowrap;
+  margin: 0 0 5px 0;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s;
+  display: block;
+
+}
+
+ul.vegan-cboxtags li label {
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+ul.vegan-cboxtags li label::before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "FontAwesome";
+  font-weight: 900;
+  font-size: 24px;
+  padding: 0;
+  margin-right: 15px;
+  content: "\f1db";
+  color: rgba(255, 255, 255, 0.2);
+  -webkit-transition: -webkit-transform .3s ease-in-out;
+  transition: -webkit-transform .3s ease-in-out;
+  -o-transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
+  position: absolute;
+  right: 40px;
+  margin-top: -5px;
+
+}
+
+
+
+ul.vegan-cboxtags li input[type="checkbox"]:checked+label::before {
+  content: "\f058";
+  -webkit-transform: rotate(-360deg);
+  -ms-transform: rotate(-360deg);
+  transform: rotate(-360deg);
+  -webkit-transition: -webkit-transform .3s ease-in-out;
+  transition: -webkit-transform .3s ease-in-out;
+  -o-transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
+  color: #fff;
+
+}
+
+ul.vegan-cboxtags li input[type="checkbox"]:checked+label {
+  border: 1px solid #82b300;
+  background-color: #a5d721;
+  color: #fff;
+  -webkit-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s;
+  
+}
+
+ul.vegan-cboxtags li input[type="checkbox"]:checked+label span {
+  background: #fff;
+  color: #000;
+  
+}
+
+ul.vegan-cboxtags li input[type="checkbox"] {
+  display: absolute;
+ 
+}
+
+ul.vegan-cboxtags li input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+
+}
+
+
+/*Filtro de origen indio*/
+
+ul.indian-cboxtags {
+  list-style: none;
+  padding: 10px;
+
+}
+
+ul.indian-cboxtags li {
+  display: block;
+  
+}
+
+ul.indian-cboxtags li label {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 4px;
+  white-space: nowrap;
+  margin: 0 0 -12px 0;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s;
+  display: block;
+
+}
+
+ul.indian-cboxtags li label {
+  padding: 10px 10px;
+  cursor: pointer;
+}
+
+ul.indian-cboxtags li label::before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "FontAwesome";
+  font-weight: 900;
+  font-size: 24px;
+  padding: 0;
+  margin-right: 15px;
+  content: "\f1db";
+  color: rgba(255, 255, 255, 0.2);
+  -webkit-transition: -webkit-transform .3s ease-in-out;
+  transition: -webkit-transform .3s ease-in-out;
+  -o-transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
+  position: absolute;
+  right: 40px;
+  margin-top: -5px;
+
+}
+
+
+
+ul.indian-cboxtags li input[type="checkbox"]:checked+label::before {
+  content: "\f058";
+  -webkit-transform: rotate(-360deg);
+  -ms-transform: rotate(-360deg);
+  transform: rotate(-360deg);
+  -webkit-transition: -webkit-transform .3s ease-in-out;
+  transition: -webkit-transform .3s ease-in-out;
+  -o-transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
+  color: #fff;
+
+}
+
+ul.indian-cboxtags li input[type="checkbox"]:checked+label {
+  border: 1px solid #EEEEEE;
+ 
+  background: linear-gradient(to right, #138808 20%, #ffffff 30%,#ffffff 40%,#000080 48%, #000080 52%,#ffffff 60%,#ffffff 70%, #FF9933 80%);
+  color: #ffffff;
+  -webkit-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s;
+}
+
+ul.indian-cboxtags li input[type="checkbox"]:checked+label span {
+  background: #fff;
+  color: #000;
+  
+}
+
+ul.indian-cboxtags li input[type="checkbox"] {
+  display: absolute;
+ 
+}
+
+ul.indian-cboxtags li input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+
+}
+
+
+/*Filtro de origen frances*/
+
+ul.french-cboxtags {
+  list-style: none;
+  padding: 10px;
+
+}
+
+ul.french-cboxtags li {
+  display: block;
+  
+}
+
+ul.french-cboxtags li label {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 4px;
+  white-space: nowrap;
+  margin: 0 0 -12px 0;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s;
+  display: block;
+
+}
+
+ul.french-cboxtags li label {
+  padding: 10px 10px;
+  cursor: pointer;
+}
+
+ul.french-cboxtags li label::before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "FontAwesome";
+  font-weight: 900;
+  font-size: 24px;
+  padding: 0;
+  margin-right: 15px;
+  content: "\f1db";
+  color: rgba(255, 255, 255, 0.2);
+  -webkit-transition: -webkit-transform .3s ease-in-out;
+  transition: -webkit-transform .3s ease-in-out;
+  -o-transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
+  position: absolute;
+  right: 40px;
+  margin-top: -5px;
+
+}
+
+
+
+ul.french-cboxtags li input[type="checkbox"]:checked+label::before {
+  content: "\f058";
+  -webkit-transform: rotate(-360deg);
+  -ms-transform: rotate(-360deg);
+  transform: rotate(-360deg);
+  -webkit-transition: -webkit-transform .3s ease-in-out;
+  transition: -webkit-transform .3s ease-in-out;
+  -o-transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
+  color: #fff;
+
+}
+
+ul.french-cboxtags li input[type="checkbox"]:checked+label {
+  border: 1px solid #EEEEEE;
+ /* background-image: linear-gradient(to right, #0055a6, #ffffff,  #e43c3c);*/
+  background: linear-gradient(to right, #0055a6 10%, #0055a6 25%, #ffffff 30%, #ffffff 70%, #e43c3c 77%);
+  color: #fff;
+  -webkit-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s;
+  
+}
+
+ul.french-cboxtags li input[type="checkbox"]:checked+label span {
+  background: #fff;
+  color: #000;
+  
+}
+
+ul.french-cboxtags li input[type="checkbox"] {
+  display: absolute;
+ 
+}
+
+ul.french-cboxtags li input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+
+}
+
+
+/*Filtro de origen chino*/
+
+ul.chinese-cboxtags {
+  list-style: none;
+  padding: 10px;
+
+}
+
+ul.chinese-cboxtags li {
+  display: block;
+  
+}
+
+ul.chinese-cboxtags li label {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 4px;
+  white-space: nowrap;
+  margin: 0 0 -12px 0;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s;
+  display: block;
+
+}
+
+ul.chinese-cboxtags li label {
+  padding: 10px 10px;
+  cursor: pointer;
+}
+
+ul.chinese-cboxtags li label::before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "FontAwesome";
+  font-weight: 900;
+  font-size: 24px;
+  padding: 0;
+  margin-right: 15px;
+  content: "\f1db";
+  color: rgba(255, 255, 255, 0.2);
+  -webkit-transition: -webkit-transform .3s ease-in-out;
+  transition: -webkit-transform .3s ease-in-out;
+  -o-transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
+  position: absolute;
+  right: 40px;
+  margin-top: -5px;
+
+}
+
+
+
+ul.chinese-cboxtags li input[type="checkbox"]:checked+label::before {
+  content: "\f058";
+  -webkit-transform: rotate(-360deg);
+  -ms-transform: rotate(-360deg);
+  transform: rotate(-360deg);
+  -webkit-transition: -webkit-transform .3s ease-in-out;
+  transition: -webkit-transform .3s ease-in-out;
+  -o-transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
+  color: #fff;
+
+}
+
+ul.chinese-cboxtags li input[type="checkbox"]:checked+label {
+  border: 1px solid #EEEEEE;
+  background-image: linear-gradient(to right, #ffff00 0%, #ffef10 20%, #ff1a1a 35%, #ee1c25 100%);
+
+  color: #010101;
+  -webkit-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s;
+  
+}
+
+ul.chinese-cboxtags li input[type="checkbox"]:checked+label span {
+  background: #fff;
+  color: #000;
+  
+}
+
+ul.chinese-cboxtags li input[type="checkbox"] {
+  display: absolute;
+ 
+}
+
+ul.chinese-cboxtags li input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+
+}
+
+/*Filtro de origen mexicano*/
+
+ul.mexican-cboxtags {
+  list-style: none;
+  padding: 10px;
+
+}
+
+ul.mexican-cboxtags li {
+  display: block;
+  
+}
+
+ul.mexican-cboxtags li label {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 4px;
+  white-space: nowrap;
+  margin: 0 0 -12px 0;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s;
+  display: block;
+
+}
+
+ul.mexican-cboxtags li label {
+  padding: 10px 10px;
+  cursor: pointer;
+}
+
+ul.mexican-cboxtags li label::before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "FontAwesome";
+  font-weight: 900;
+  font-size: 24px;
+  padding: 0;
+  margin-right: 15px;
+  content: "\f1db";
+  color: rgba(255, 255, 255, 0.2);
+  -webkit-transition: -webkit-transform .3s ease-in-out;
+  transition: -webkit-transform .3s ease-in-out;
+  -o-transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
+  position: absolute;
+  right: 40px;
+  margin-top: -5px;
+
+}
+
+
+
+ul.mexican-cboxtags li input[type="checkbox"]:checked+label::before {
+  content: "\f058";
+  -webkit-transform: rotate(-360deg);
+  -ms-transform: rotate(-360deg);
+  transform: rotate(-360deg);
+  -webkit-transition: -webkit-transform .3s ease-in-out;
+  transition: -webkit-transform .3s ease-in-out;
+  -o-transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
+  color: #fff;
+
+}
+
+ul.mexican-cboxtags li input[type="checkbox"]:checked+label {
+  border: 1px solid #EEEEEE;
+  background: linear-gradient(to right, #046b44 20%, #ffffff 30%,#ffffff 40%,#6d4a2f 48%, #6d4a2f 52%,#ffffff 60%,#ffffff 70%, #cc1424 80%);
+  
+  color: #fff;
+  -webkit-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s;
+  
+}
+
+ul.mexican-cboxtags li input[type="checkbox"]:checked+label span {
+  background: #fff;
+  color: #000;
+  
+}
+
+ul.mexican-cboxtags li input[type="checkbox"] {
+  display: absolute;
+ 
+}
+
+ul.mexican-cboxtags li input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+
+}
+
+
+/*Filtro de origen español*/
+
+ul.spanish-cboxtags {
+  list-style: none;
+  padding: 10px;
+
+}
+
+ul.spanish-cboxtags li {
+  display: block;
+  
+}
+
+ul.spanish-cboxtags li label {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 4px;
+  white-space: nowrap;
+  margin: 0 0 -12px 0;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s;
+  display: block;
+
+}
+
+ul.spanish-cboxtags li label {
+  padding: 10px 10px;
+  cursor: pointer;
+}
+
+ul.spanish-cboxtags li label::before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "FontAwesome";
+  font-weight: 900;
+  font-size: 24px;
+  padding: 0;
+  margin-right: 15px;
+  content: "\f1db";
+  color: rgba(255, 255, 255, 0.2);
+  -webkit-transition: -webkit-transform .3s ease-in-out;
+  transition: -webkit-transform .3s ease-in-out;
+  -o-transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
+  position: absolute;
+  right: 40px;
+  margin-top: -5px;
+
+}
+
+
+
+ul.spanish-cboxtags li input[type="checkbox"]:checked+label::before {
+  content: "\f058";
+  -webkit-transform: rotate(-360deg);
+  -ms-transform: rotate(-360deg);
+  transform: rotate(-360deg);
+  -webkit-transition: -webkit-transform .3s ease-in-out;
+  transition: -webkit-transform .3s ease-in-out;
+  -o-transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
+  color: #fff;
+
+}
+
+ul.spanish-cboxtags li input[type="checkbox"]:checked+label {
+  border: 1px solid #EEEEEE;
+  
+  background: linear-gradient(to right, #e30c37 10%, #e30c37 25%, #fbeb04 30%, #fbeb04 70%, #e30c37 77%);
+  color: #fff;
+  -webkit-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s;
+  
+}
+
+ul.spanish-cboxtags li input[type="checkbox"]:checked+label span {
+  background: #fff;
+  color: #000;
+  
+}
+
+ul.spanish-cboxtags li input[type="checkbox"] {
+  display: absolute;
+ 
+}
+
+ul.spanish-cboxtags li input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+
+}
+
+
+/*Filtro de origen japones*/
+
+ul.japanese-cboxtags {
+  list-style: none;
+  padding: 10px;
+
+}
+
+ul.japanese-cboxtags li {
+  display: block;
+  
+}
+
+ul.japanese-cboxtags li label {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 4px;
+  white-space: nowrap;
+  margin: 0 0 5px 0;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s;
+  display: block;
+
+}
+
+ul.japanese-cboxtags li label {
+  padding: 10px 10px;
+  cursor: pointer;
+}
+
+ul.japanese-cboxtags li label::before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "FontAwesome";
+  font-weight: 900;
+  font-size: 24px;
+  padding: 0;
+  margin-right: 15px;
+  content: "\f1db";
+  color: rgba(255, 255, 255, 0.2);
+  -webkit-transition: -webkit-transform .3s ease-in-out;
+  transition: -webkit-transform .3s ease-in-out;
+  -o-transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
+  position: absolute;
+  right: 40px;
+  margin-top: -5px;
+
+}
+
+
+
+ul.japanese-cboxtags li input[type="checkbox"]:checked+label::before {
+  content: "\f058";
+  -webkit-transform: rotate(-360deg);
+  -ms-transform: rotate(-360deg);
+  transform: rotate(-360deg);
+  -webkit-transition: -webkit-transform .3s ease-in-out;
+  transition: -webkit-transform .3s ease-in-out;
+  -o-transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
+  color: #bc002d;
+
+}
+
+ul.japanese-cboxtags li input[type="checkbox"]:checked+label {
+  border: 1px solid #EEEEEE;
+  
+  background: linear-gradient(to right, #ffffff 10%, #ffffff 25%, #bc002d 42%, #bc002d 60%, #ffffff 77%);
+ 
+
+
+  color: #010101;
+  -webkit-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s;
+  
+}
+
+ul.japanese-cboxtags li input[type="checkbox"]:checked+label span {
+  background: #fff;
+  color: #000;
+  
+}
+
+ul.japanese-cboxtags li input[type="checkbox"] {
+  display: absolute;
+ 
+}
+
+ul.japanese-cboxtags li input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+
+}
+
+
+
+/*Filtro de invierno*/
+
+ul.winter-cboxtags {
+  list-style: none;
+  padding: 10px;
+
+}
+
+ul.winter-cboxtags li {
+  display: block;
+  
+}
+
+ul.winter-cboxtags li label {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 4px;
+  white-space: nowrap;
+  margin: 0 0 -12px 0;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s;
+  display: block;
+
+}
+
+ul.winter-cboxtags li label {
+  padding: 10px 10px;
+  cursor: pointer;
+}
+
+ul.winter-cboxtags li label::before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "FontAwesome";
+  font-weight: 900;
+  font-size: 24px;
+  padding: 0;
+  margin-right: 15px;
+  content: "\f1db";
+  color: rgba(255, 255, 255, 0.2);
+  -webkit-transition: -webkit-transform .3s ease-in-out;
+  transition: -webkit-transform .3s ease-in-out;
+  -o-transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
+  position: absolute;
+  right: 40px;
+  margin-top: -5px;
+
+}
+
+
+
+ul.winter-cboxtags li input[type="checkbox"]:checked+label::before {
+  content: "\f058";
+  -webkit-transform: rotate(-360deg);
+  -ms-transform: rotate(-360deg);
+  transform: rotate(-360deg);
+  -webkit-transition: -webkit-transform .3s ease-in-out;
+  transition: -webkit-transform .3s ease-in-out;
+  -o-transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
+  color: #fff;
+
+}
+
+ul.winter-cboxtags li input[type="checkbox"]:checked+label {
+  border: 1px solid #EEEEEE;
+  
+  background: linear-gradient(to right, #1b63b5 , #36bfde);
+ 
+
+
+  color: #fff;
+  -webkit-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s;
+  
+}
+
+ul.winter-cboxtags li input[type="checkbox"]:checked+label span {
+  background: #fff;
+  color: #000;
+  
+}
+
+ul.winter-cboxtags li input[type="checkbox"] {
+  display: absolute;
+ 
+}
+
+ul.winter-cboxtags li input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+
+}
+
+
+/*Filtro de primavera*/
+
+ul.spring-cboxtags {
+  list-style: none;
+  padding: 10px;
+
+}
+
+ul.spring-cboxtags li {
+  display: block;
+  
+}
+
+ul.spring-cboxtags li label {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 4px;
+  white-space: nowrap;
+  margin: 0 0 -12px 0;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s;
+  display: block;
+
+}
+
+ul.spring-cboxtags li label {
+  padding: 10px 10px;
+  cursor: pointer;
+}
+
+ul.spring-cboxtags li label::before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "FontAwesome";
+  font-weight: 900;
+  font-size: 24px;
+  padding: 0;
+  margin-right: 15px;
+  content: "\f1db";
+  color: rgba(255, 255, 255, 0.2);
+  -webkit-transition: -webkit-transform .3s ease-in-out;
+  transition: -webkit-transform .3s ease-in-out;
+  -o-transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
+  position: absolute;
+  right: 40px;
+  margin-top: -5px;
+
+}
+
+
+
+ul.spring-cboxtags li input[type="checkbox"]:checked+label::before {
+  content: "\f058";
+  -webkit-transform: rotate(-360deg);
+  -ms-transform: rotate(-360deg);
+  transform: rotate(-360deg);
+  -webkit-transition: -webkit-transform .3s ease-in-out;
+  transition: -webkit-transform .3s ease-in-out;
+  -o-transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
+  color: #fff;
+
+}
+
+ul.spring-cboxtags li input[type="checkbox"]:checked+label {
+  border: 1px solid #EEEEEE;
+  
+  background: linear-gradient(to right, #f9b1c9 , #c6e171);
+ 
+
+
+  color: #010101;
+  -webkit-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s;
+  
+}
+
+ul.spring-cboxtags li input[type="checkbox"]:checked+label span {
+  background: #fff;
+  color: #000;
+  
+}
+
+ul.spring-cboxtags li input[type="checkbox"] {
+  display: absolute;
+ 
+}
+
+ul.spring-cboxtags li input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+
+}
+
+
+
+/*Filtro de verano*/
+
+ul.summer-cboxtags {
+  list-style: none;
+  padding: 10px;
+
+}
+
+ul.summer-cboxtags li {
+  display: block;
+  
+}
+
+ul.summer-cboxtags li label {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 4px;
+  white-space: nowrap;
+  margin: 0 0 -12px 0;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s;
+  display: block;
+
+}
+
+ul.summer-cboxtags li label {
+  padding: 10px 10px;
+  cursor: pointer;
+}
+
+ul.summer-cboxtags li label::before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "FontAwesome";
+  font-weight: 900;
+  font-size: 24px;
+  padding: 0;
+  margin-right: 15px;
+  content: "\f1db";
+  color: rgba(255, 255, 255, 0.2);
+  -webkit-transition: -webkit-transform .3s ease-in-out;
+  transition: -webkit-transform .3s ease-in-out;
+  -o-transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
+  position: absolute;
+  right: 40px;
+  margin-top: -5px;
+
+}
+
+
+
+ul.summer-cboxtags li input[type="checkbox"]:checked+label::before {
+  content: "\f058";
+  -webkit-transform: rotate(-360deg);
+  -ms-transform: rotate(-360deg);
+  transform: rotate(-360deg);
+  -webkit-transition: -webkit-transform .3s ease-in-out;
+  transition: -webkit-transform .3s ease-in-out;
+  -o-transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
+  color: #fff;
+
+}
+
+ul.summer-cboxtags li input[type="checkbox"]:checked+label {
+  border: 1px solid #EEEEEE;
+  
+  background: linear-gradient(to right, #fde03a , #feae4b);
+ 
+
+
+  color: #000;
+  -webkit-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s;
+  
+}
+
+ul.summer-cboxtags li input[type="checkbox"]:checked+label span {
+  background: #fff;
+  color: #000;
+  
+}
+
+ul.summer-cboxtags li input[type="checkbox"] {
+  display: absolute;
+ 
+}
+
+ul.summer-cboxtags li input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+
+}
+
+
+/*Filtro de otoño*/
+
+ul.autumn-cboxtags {
+  list-style: none;
+  padding: 10px;
+
+}
+
+ul.autumn-cboxtags li {
+  display: block;
+  
+}
+
+ul.autumn-cboxtags li label {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 4px;
+  white-space: nowrap;
+  margin: 0 0 5px 0;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s;
+  display: block;
+
+}
+
+ul.autumn-cboxtags li label {
+  padding: 10px 10px;
+  cursor: pointer;
+}
+
+ul.autumn-cboxtags li label::before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "FontAwesome";
+  font-weight: 900;
+  font-size: 24px;
+  padding: 0;
+  margin-right: 15px;
+  content: "\f1db";
+  color: rgba(255, 255, 255, 0.2);
+  -webkit-transition: -webkit-transform .3s ease-in-out;
+  transition: -webkit-transform .3s ease-in-out;
+  -o-transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
+  position: absolute;
+  right: 40px;
+  margin-top: -5px;
+
+}
+
+
+
+ul.autumn-cboxtags li input[type="checkbox"]:checked+label::before {
+  content: "\f058";
+  -webkit-transform: rotate(-360deg);
+  -ms-transform: rotate(-360deg);
+  transform: rotate(-360deg);
+  -webkit-transition: -webkit-transform .3s ease-in-out;
+  transition: -webkit-transform .3s ease-in-out;
+  -o-transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
+  color: #fff;
+
+}
+
+ul.autumn-cboxtags li input[type="checkbox"]:checked+label {
+  border: 1px solid #EEEEEE;
+  
+  background: linear-gradient(to right, #57170b , #f5e3a5);
+ 
+
+
+  color: #fff;
+  -webkit-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s;
+  
+}
+
+ul.autumn-cboxtags li input[type="checkbox"]:checked+label span {
+  background: #fff;
+  color: #000;
+  
+}
+
+ul.autumn-cboxtags li input[type="checkbox"] {
+  display: absolute;
+ 
+}
+
+ul.autumn-cboxtags li input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+
+}
+
+
+@media (max-width: 600px) {
+  .recipe-card .row {
+      /* Cambia la dirección de los elementos de fila a columna */
+      flex-direction: column;
+  }
+
+  .recipe-card .imagen-container {
+      /* Ajusta la imagen para que ocupe todo el ancho en pantallas pequeñas */
+      width: 100%;
+  }
+
+  .recipe-card .col-lg-9 {
+      /* Ajusta el cuerpo de la tarjeta para que ocupe todo el ancho en pantallas pequeñas */
+      width: 100%;
+  }
+>>>>>>> developJC
 }

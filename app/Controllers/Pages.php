@@ -22,7 +22,7 @@ public function index()
 			throw new PageNotFoundException($page);
 		}
 		
-		$data['title'] = ucfirst($page); // Capitalize the first letter
+		$data['vista'] = 'home';
 		return view('templates/header', $data)
 			.view('pages/' . $page)
 			.view('templates/footer');
@@ -39,4 +39,7 @@ public function index()
 		$data['title'] = ucfirst($page); // Capitalize the first letter
 		return view('pages/' . $page);
 	}
+
+
+
 }
