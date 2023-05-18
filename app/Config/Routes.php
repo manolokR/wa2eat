@@ -46,7 +46,7 @@ $routes->get('/recipes/delete/(:num)', 'RecipesController::delete/$1');
 $routes->get('/logout', 'User::logout');
 
 // Ruta para ver una receta
-//$routes->get('/recipe/(:num)', 'RecipesController::view_recipe/$1');
+$routes->get('/recipe/(:num)', 'RecipesController::view_recipe/$1');
 
 // Ruta para obtener una imagen de una receta dado un id
 $routes->get('recipe/image/(:num)', 'RecipesController::show_image/$1');
