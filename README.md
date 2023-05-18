@@ -9,7 +9,7 @@
 - **Diseño y navegación:** Es importante que la página tenga un diseño atractivo y una navegación sencilla e intuitiva. Esto facilitará la búsqueda y el uso de las diferentes funciones de la página para los usuarios.
 
 ## Modelo entidad relación inicial
-![Modelo](./doc/entidadRelacion.png)
+![Modelo](./doc/BasedeDatos.png)
 
 ### Enlace a prototipo en marvel
 https://marvelapp.com/prototype/j93e5e4
