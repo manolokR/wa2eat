@@ -115,9 +115,6 @@
                         </div>
 
                         <div class="col-lg-9 col-md-8 col-sm-12">
-                            <div class="filter">
-                                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                            </div>
 
                             <div class="card-body">
                                 <h5 class="card-title">
