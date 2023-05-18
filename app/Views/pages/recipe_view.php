@@ -7,6 +7,8 @@ function getYoutubeVideoId($url)
 }
 ?>
 
+
+
 <link rel="stylesheet" href="<?= base_url("css/recipe_view.css") ?>">
 <main id="main" class="main">
     <section class="section dashboard">
@@ -47,7 +49,6 @@ function getYoutubeVideoId($url)
                         <img src="../imagenes/ingredientes/<?php echo $ingredient->icon; ?>"
                             alt="<?php echo $ingredient->name; ?>" />
                         <span>
-                            <?php echo $ingredient->name; ?>:
                             <?php echo $ingredient->amount; ?>
                         </span>
                     </li>

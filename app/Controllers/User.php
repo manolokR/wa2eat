@@ -7,7 +7,9 @@ class User extends BaseController
     {
         $userModel = new \App\Models\UserModel();
         $data['users'] = $userModel->findAll();
-        return view('templates/header')
+
+        $data2['vista'] = 'list';
+        return view('templates/header',$data2)
             . view('user/list', $data)
             . view('templates/footer');
     }
@@ -78,7 +80,8 @@ class User extends BaseController
     }
     public function user_ok()
     {
-        return view('templates/header')
+        $data['vista'] = 'home';
+        return view('templates/header', $data)
             . view('pages/home')
             . view('templates/footer');
     }
@@ -180,14 +183,16 @@ class User extends BaseController
 
     public function personalRecipes()
     {
-        return view('templates/header')
+        $data['vista'] = 'profile';
+        return view('templates/header', $data)
             . view('pages/userRecipes')
             . view('templates/footer');
     }
 
     public function myprofile()
     {
-        return view('templates/header')
+        $data['vista'] = 'profile';
+        return view('templates/header', $data)
             . view('pages/profile_view')
             . view('templates/footer');
     }

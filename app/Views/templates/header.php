@@ -23,19 +23,19 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <!-- Vendor CSS Files -->
-  <link href="<?= base_url("bootstrap/css/bootstrap.min.css") ?>" rel="stylesheet">
-  <link href="<?= base_url("bootstrap/bootstrap-icons/bootstrap-icons.css") ?>" rel="stylesheet">
-  <link href="<?= base_url("bootstrap/boxicons/css/boxicons.min.css") ?>" rel="stylesheet">
-  <link href="<?= base_url("bootstrap/quill/quill.snow.css") ?>" rel="stylesheet">
-  <link href="<?= base_url("bootstrap/quill/quill.bubble.css") ?>" rel="stylesheet">
-  <link href="<?= base_url("bootstrap/remixicon/remixicon.css") ?>" rel="stylesheet">
-  <link href="<?= base_url("bootstrap/simple-datatables/style.css") ?>" rel="stylesheet">
+  <link href="<?= base_url("/bootstrap/css/bootstrap.min.css") ?>" rel="stylesheet">
+  <link href="<?= base_url("/bootstrap/bootstrap-icons/bootstrap-icons.css") ?>" rel="stylesheet">
+  <link href="<?= base_url("/bootstrap/boxicons/css/boxicons.min.css") ?>" rel="stylesheet">
+  <link href="<?= base_url("/bootstrap/quill/quill.snow.css") ?>" rel="stylesheet">
+  <link href="<?= base_url("/bootstrap/quill/quill.bubble.css") ?>" rel="stylesheet">
+  <link href="<?= base_url("/bootstrap/remixicon/remixicon.css") ?>" rel="stylesheet">
+  <link href="<?= base_url("/bootstrap/simple-datatables/style.css") ?>" rel="stylesheet">
 
   <!-- Template Main CSS File -->
   <link href="<?= base_url("css/style.css") ?>" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"
     integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
-  <script src="js/main.js"></script>
+  <script src="<?= base_url("js/main.js") ?>"></script>
 
 
 </head>
@@ -91,7 +91,8 @@
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
 
             <?php if ($session->has('user') && !is_null($session->get('user')->photo)): ?>
-              <img src="data:image/jpeg;base64,<?= base64_encode($session->get('user')->photo) ?>" alt="Profile" class="rounded-circle">
+              <img src="data:image/jpeg;base64,<?= base64_encode($session->get('user')->photo) ?>" alt="Profile"
+                class="rounded-circle">
             <?php else: ?>
               <img src="<?= base_url("imagenes/profile.png") ?>" alt="Profile" class="rounded-circle">
             <?php endif; ?>
@@ -186,115 +187,122 @@
         </a>
       </li><!-- End Dashboard Nav -->
 
-      <div id="catFilters">
-          <!-- Filtro 1-->
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-layout-text-window-reverse"></i><span>Filtro Vegano</span><i
-            class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <!--Contenido del dropdown-->
-          <ul class="vegan-cboxtags">
-            <li>
-              <input type="checkbox" class="filter-checkbox" id="checkboxOne" value="Order one">
-              <label for="checkboxOne">Recetas Veganas </label>
-            </li>
-          </ul>
-        </ul>
-      </li><!-- Fin Filtro 1 -->
+      <?php if ($vista == 'home'): ?>
+        <div id="catFilters">
 
-      <!-- Filtro 1-->
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#tables-nav2" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-layout-text-window-reverse"></i><span>Filtro Origen</span><i
-            class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="tables-nav2" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <!--Contenido del dropdown-->
-          <ul class="indian-cboxtags">
-            <li>
-              <input type="checkbox" class="filter-checkbox" id="checkboxFour" value="India">
-              <label for="checkboxFour">India </label>
-            </li>
-          </ul>
+          <!-- Filtro Vegano-->
+          <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+              <i class="bi bi-layout-text-window-reverse"></i><span>Filtro Vegano</span><i
+                class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+              <!--Contenido del dropdown-->
+              <ul class="vegan-cboxtags">
+                <li>
+                  <input type="checkbox" class="filter-checkbox" id="checkboxOne" value="Order one">
+                  <label for="checkboxOne">Recetas Veganas </label>
+                </li>
+              </ul>
+            </ul>
+          </li><!-- Fin Filtro Vegano -->
 
-          <ul class="french-cboxtags">
-            <li>
-              <input type="checkbox" class="filter-checkbox" id="checkboxFive" value="Francia">
-              <label for="checkboxFive">Francia </label>
-            </li>
-          </ul>
-          <ul class="chinese-cboxtags">
-            <li>
-              <input type="checkbox" class="filter-checkbox" id="checkboxSix" value="China">
-              <label for="checkboxSix">China </label>
-            </li>
-          </ul>
+          <!-- Filtro Origen-->
+          <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#tables-nav2" data-bs-toggle="collapse" href="#">
+              <i class="bi bi-layout-text-window-reverse"></i><span>Filtro Origen</span><i
+                class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="tables-nav2" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+              <!--Contenido del dropdown-->
+              <ul class="indian-cboxtags">
+                <li>
+                  <input type="checkbox" class="filter-checkbox" id="checkboxFour" value="India">
+                  <label for="checkboxFour">India </label>
+                </li>
+              </ul>
 
-          <ul class="mexican-cboxtags">
-            <li>
-              <input type="checkbox" class="filter-checkbox" id="checkboxSeven" value="México">
-              <label for="checkboxSeven">México </label>
-            </li>
-          </ul>
+              <ul class="french-cboxtags">
+                <li>
+                  <input type="checkbox" class="filter-checkbox" id="checkboxFive" value="Francia">
+                  <label for="checkboxFive">Francia </label>
+                </li>
+              </ul>
+              <ul class="chinese-cboxtags">
+                <li>
+                  <input type="checkbox" class="filter-checkbox" id="checkboxSix" value="China">
+                  <label for="checkboxSix">China </label>
+                </li>
+              </ul>
 
-          <ul class="spanish-cboxtags">
-            <li>
-              <input type="checkbox" class="filter-checkbox" id="checkboxEight" value="España">
-              <label for="checkboxEight">España </label>
-            </li>
-          </ul>
+              <ul class="mexican-cboxtags">
+                <li>
+                  <input type="checkbox" class="filter-checkbox" id="checkboxSeven" value="México">
+                  <label for="checkboxSeven">México </label>
+                </li>
+              </ul>
 
-          <ul class="japanese-cboxtags">
-            <li>
-              <input type="checkbox" class="filter-checkbox" id="checkboxNine" value="Japón">
-              <label for="checkboxNine">Japón </label>
-            </li>
-          </ul>
+              <ul class="spanish-cboxtags">
+                <li>
+                  <input type="checkbox" class="filter-checkbox" id="checkboxEight" value="España">
+                  <label for="checkboxEight">España </label>
+                </li>
+              </ul>
 
-
-        </ul>
-      </li><!-- Fin Filtro Origen -->
+              <ul class="japanese-cboxtags">
+                <li>
+                  <input type="checkbox" class="filter-checkbox" id="checkboxNine" value="Japón">
+                  <label for="checkboxNine">Japón </label>
+                </li>
+              </ul>
 
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#tables-nav3" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-layout-text-window-reverse"></i><span>Filtro Temporada</span><i
-            class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="tables-nav3" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <!--Contenido del dropdown-->
-          <ul class="winter-cboxtags">
-            <li>
-              <input type="checkbox" class="filter-checkbox" id="checkboxTen" value="Invierno">
-              <label for="checkboxTen">Invierno </label>
-            </li>
-          </ul>
+            </ul>
+          </li><!-- Fin Filtro Origen -->
 
-          <ul class="spring-cboxtags">
-            <li>
-              <input type="checkbox" class="filter-checkbox" id="checkboxEleven" value="Primavera">
-              <label for="checkboxEleven">Primavera </label>
-            </li>
-          </ul>
-          <ul class="summer-cboxtags">
-            <li>
-              <input type="checkbox" class="filter-checkbox" id="checkboxTwelve" value="Verano">
-              <label for="checkboxTwelve">Verano </label>
-            </li>
-          </ul>
 
-          <ul class="autumn-cboxtags">
-            <li>
-              <input type="checkbox" class="filter-checkbox" id="checkbox13" value="Otoño">
-              <label for="checkbox13">Otoño </label>
-            </li>
-          </ul>
+          <!-- Filtro Temporada -->
+          <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#tables-nav3" data-bs-toggle="collapse" href="#">
+              <i class="bi bi-layout-text-window-reverse"></i><span>Filtro Temporada</span><i
+                class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="tables-nav3" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+              <!--Contenido del dropdown-->
+              <ul class="winter-cboxtags">
+                <li>
+                  <input type="checkbox" class="filter-checkbox" id="checkboxTen" value="Invierno">
+                  <label for="checkboxTen">Invierno </label>
+                </li>
+              </ul>
 
-        </ul>
-      </li><!-- Fin Filtro Estaciones -->
-      
+              <ul class="spring-cboxtags">
+                <li>
+                  <input type="checkbox" class="filter-checkbox" id="checkboxEleven" value="Primavera">
+                  <label for="checkboxEleven">Primavera </label>
+                </li>
+              </ul>
+              <ul class="summer-cboxtags">
+                <li>
+                  <input type="checkbox" class="filter-checkbox" id="checkboxTwelve" value="Verano">
+                  <label for="checkboxTwelve">Verano </label>
+                </li>
+              </ul>
+
+              <ul class="autumn-cboxtags">
+                <li>
+                  <input type="checkbox" class="filter-checkbox" id="checkbox13" value="Otoño">
+                  <label for="checkbox13">Otoño </label>
+                </li>
+              </ul>
+
+            </ul>
+          </li><!-- Fin Filtro Temporada -->
+
+
+        </div>
+      <?php endif; ?>
+
 
       </div>        
       
@@ -332,7 +340,7 @@
   </aside><!-- End Sidebar-->
 
 
-<!-- <script>
+  <!-- <script>
 $(document).ready(function() {
     $('.filter-checkbox').click(function() {
         var filters = {

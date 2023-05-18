@@ -3,43 +3,6 @@
 
 (function () {
 
-/* 
-$(document).ready(function() {
-    $(".filter-checkbox").change(function() {
-        var filters = {
-            origin: [],
-            season: [],
-            is_vegan: []
-        };
-
-        $("input:checkbox:checked").each(function(){
-            var id = $(this).attr('id');
-            var value = $(this).val();
-
-            if (id.startsWith('checkboxOne')) { 
-                filters.is_vegan.push(value);
-            } else if (id.startsWith('checkboxFour') || id.startsWith('checkboxFive') || id.startsWith('checkboxSix') || id.startsWith('checkboxSeven') || id.startsWith('checkboxEight') || id.startsWith('checkboxNine')) { 
-                filters.origin.push(value);
-            } else if (id.startsWith('checkboxTen') || id.startsWith('checkboxEleven') || id.startsWith('checkboxTwelve') || id.startsWith('checkbox13')) {
-                filters.season.push(value);
-            }
-        });
-
-        $.ajax({
-            url: "<?php echo base_url('recipes/index'); ?>",
-            type: 'get',
-            data: filters,
-            success: function(response) {
-                // Aquí deberías reemplazar el contenido de la sección con las nuevas tarjetas de recetas
-                $(".section.dashboard").html(response);
-            }
-        });
-    });
-});
- */
-
-
-
   const recipesSearch = document.querySelector('#search-query');
 
   function search_recipe(query) {

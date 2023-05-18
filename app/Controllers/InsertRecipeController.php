@@ -8,7 +8,8 @@ class InsertRecipeController extends Controller
 {
     public function index()
     {
-        return view('templates/header')
+        $data['vista'] = 'insert';
+        return view('templates/header', $data)
             . view('pages/insertRecipe')
             . view('templates/footer');
     }
